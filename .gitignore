@@ -3,13 +3,19 @@ Gemfile.lock
 .asciidoctor
 _package
 _preview
+<<<<<<< HEAD
 drupal-build
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 architecture/core_concepts/images/docker-diagram.png
 architecture/core_concepts/images/docker-diagram.png.cache
 dev_guide/builds/images/chained-build.png
 dev_guide/builds/images/chained-build.png.cache
 .DS_Store
+<<<<<<< HEAD
 .venv
 .gem
 bin
 commercial_package
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

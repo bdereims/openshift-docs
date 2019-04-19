@@ -121,7 +121,11 @@ xref:../admin_guide/high_availability.adoc#admin-guide-high-availability[high
 availability] to switch the router IP address when a node fails.
 endif::[]
 
+<<<<<<< HEAD
 ifdef::openshift-dedicated[]
+=======
+ifdef::openshift-dedicated,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Users can create a wildcard DNS CNAME to use custom domain names in their routes.
 
 ----
@@ -139,6 +143,7 @@ ifdef::openshift-enterprise,openshift-origin[]
 [[using-the-loadbalancer]]
 == Using a Load Balancer Service
 
+<<<<<<< HEAD
 link:http://kubernetes.io/docs/user-guide/services/#type-loadbalancer[Load balancers] are available on
 xref:../install_config/configuring_aws.adoc#install-config-configuring-aws[AWS]
 and
@@ -152,6 +157,19 @@ xref:ingress-load-balancer[non-cloud
 load balancer] allocates a unique IP from a configured pool. This limits you to
 a single edge router IP, which you can assign to an interface on one of the
 nodes in the cluster or use it as a virtual IP (VIP) in a
+=======
+link:http://kubernetes.io/docs/user-guide/services/#type-loadbalancer[Load
+balancers] are available on
+xref:../install_config/configuring_aws.adoc#install-config-configuring-aws[AWS]
+and
+xref:../install_config/configuring_gce.adoc#install-config-configuring-gce[GCE]
+clouds, and xref:ingress-load-balancer[non-cloud] options are also available.
+
+The xref:ingress-load-balancer[non-cloud load balancer] allocates a unique IP
+from a configured pool. This limits you to a single edge router IP, which you
+can assign to an interface on one of the nodes in the cluster or use it as a
+virtual IP (VIP) in a
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 xref:../admin_guide/high_availability.adoc#admin-guide-high-availability[highly
 available] configuration. The non-cloud load balancer simplifies the
 administrator's job by providing the needed IP address, but uses one IP per
@@ -171,7 +189,11 @@ is configuring a
 ifdef::openshift-enterprise,openshift-origin[]
 xref:../admin_guide/high_availability.adoc#admin-guide-high-availability[highly available]
 endif::[]
+<<<<<<< HEAD
 ifdef::openshift-dedicated,openshift-online[]
+=======
+ifdef::openshift-dedicated,openshift-online,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 highly available
 endif::[]
 service.
@@ -391,7 +413,11 @@ Instead of connecting directly to individual nodes, you can use one of
 ifdef::openshift-enterprise,openshift-origin[]
 xref:../admin_guide/high_availability.adoc#admin-guide-high-availability[highly availability]
 endif::[]
+<<<<<<< HEAD
 ifdef::openshift-dedicated,openshift-online[]
+=======
+ifdef::openshift-dedicated,openshift-online,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 high availability
 endif::[]
  strategies by deploying the IP failover router to provide access
@@ -411,7 +437,11 @@ appropriate port the destination should flow to.
 ifdef::openshift-enterprise,openshift-origin[]
 xref:../admin_guide/high_availability.adoc#admin-guide-high-availability[High availability]
 endif::[]
+<<<<<<< HEAD
 ifdef::openshift-dedicated,openshift-online[]
+=======
+ifdef::openshift-dedicated,openshift-online,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 High availability
 endif::[]
  is limited to a maximum of 255 VIPs. This is a limitation of the
@@ -426,6 +456,7 @@ endif::[]
 [[using-nodeport]]
 == Using a Service NodePort
 
+<<<<<<< HEAD
 Use xref:../architecture/core_concepts/pods_and_services.adoc#service-nodeport[NodePorts] to expose the service nodePort on all nodes in the cluster. NodePorts allow load
 balancing across an entire cluster and are used by the LoadBalancer service type
 when running on a cloud provider. You can specify a specific nodePort (if not
@@ -436,12 +467,20 @@ service. By default, {product-title} allocates ports between `30000` and `32000`
 as NodePorts. For very high density environments, you may need to increase the
 range of ports. {product-title} automatically opens the nodePort range during
 installation for firewalls and cloud security groups for new clusters.
+=======
+Use xref:../architecture/core_concepts/pods_and_services.adoc#service-nodeport[NodePorts] to expose the service nodePort on all nodes in the cluster.
+NodePorts are in the 30-60k range by default, which means a NodePort is
+unlikely to match a service's intended port (for example, 8080 may be exposed
+as 31020). This use of ports is wasteful of scarce port resources.
+However, it is slightly easier to set up. Again, this requires more privileges.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The administrator must ensure the external IPs are routed to the nodes and local
 firewall rules on all nodes allow access to the open port.
 
 NodePorts and externalIP are independent and both can be used concurrently.
 
+<<<<<<< HEAD
 [NOTE]
 ====
 When enabled, a service NodePort listens on all nodes in the cluster. The service usually has multiple endpoints if there are more than one replicas (domain controller or replication controller) running. If traffic can get to any node in the cluster, the nodePort connects and traffic goes to one of the endpoints.
@@ -506,13 +545,19 @@ Welcome to the MariaDB monitor. Commands end with ; or \g.
 ...
 ----
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[virtual-ip]]
 == Using Virtual IPs
 
 ifdef::openshift-enterprise,openshift-origin[]
 xref:../admin_guide/high_availability.adoc#admin-guide-high-availability[High availability]
 endif::[]
+<<<<<<< HEAD
 ifdef::openshift-dedicated,openshift-online[]
+=======
+ifdef::openshift-dedicated,openshift-online,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 High availability
 endif::[]
 improves the chances that an IP address will remain active, by assigning a
@@ -541,6 +586,7 @@ interfaces directly.
 [[ingress-load-balancer]]
 == Non-Cloud Edge Router Load Balancer
 
+<<<<<<< HEAD
 ifdef::openshift-enterprise,openshift-origin[]
 In a non-cloud environment, cluster administrators can assign a unique external
 IP address to a service
@@ -557,6 +603,11 @@ service endpoints via any TCP/UDP port the service exposes. This is simpler than
 having to manage the port space of a limited number of shared IP addresses, when
 manually assigning external IPs to services.
 endif::[]
+=======
+In a non-cloud environment, cluster administrators can assign a unique external IP address to a service
+xref:../admin_guide/tcp_ingress_external_ports.adoc#unique-external-ips-ingress-traffic-configure-cluster[(as described here)]. When routed correctly, external traffic can reach the service endpoints via any TCP/UDP port the service exposes. This is simpler than having to
+manage the port space of a limited number of shared IP addresses, when manually assigning external IPs to services.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[edge-load-balancer]]
 == Edge Load Balancer

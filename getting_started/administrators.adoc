@@ -29,8 +29,13 @@ your hosts, which includes verifying system and environment requirements and
 installing and configuring the CRI-O or Docker container engines. After ensuring your hosts are properly set
 up, you can continue by choosing one of the following installation methods.
 
+<<<<<<< HEAD
 Container engines and {product-title} must run on the Linux operating system. If you wish to
 run the server from a Windows or Mac OS X host, you should start a Linux VM first.
+=======
+Container engines and {product-title} must run on the Linux operating system. If you want to
+run the server from a Windows or Mac OS X host, start a Linux VM first.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [CAUTION]
 ====
@@ -64,25 +69,64 @@ supported on Fedora, CentOS, and Red Hat Enterprise Linux (RHEL) hosts only.
 
 [CAUTION]
 ====
+<<<<<<< HEAD
 {product-title} listens on ports 53 and 8443. If another service is
+=======
+{product-title} listens on ports 53, 7001, and 8443. If another service is
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 already listening on those ports you must stop that service before launching
 the {product-title} container.
 ====
 
 *Starting an All-in-One Server*
 
+<<<<<<< HEAD
 . Start the server:
 +
 ----
 $ oc cluster up
+=======
+. Launch the server in a container:
++
 ----
+$ sudo docker run -d --name "origin" \
+        --privileged --pid=host --net=host \
+        -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys -v /sys/fs/cgroup:/sys/fs/cgroup:rw \
+        -v /var/lib/docker:/var/lib/docker:rw \
+        -v /var/lib/origin/openshift.local.volumes:/var/lib/origin/openshift.local.volumes:rslave \ <1>
+        openshift/origin start
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
+----
+<1> `rslave` only works if the Docker version is 1.10 or later and a Red Hat distribution.
++
+[NOTE]
+====
+If you want to use
+xref:../install_config/aggregate_logging.adoc#install-config-aggregate-logging[{product-title}'s
+aggregated logging], you must add `-v /var/log:/var/log` to the `docker` command
+line. The *origin* container must have access to the host's
+*_var/log/containers/_* and *_/var/log/messages_*.
+====
 +
 This command:
 +
+<<<<<<< HEAD
 - starts {product-title} listening on local interface on your host (*127.0.0.1:8443*),
 - starts the web console listening on all interfaces at `/console` (*127.0.0.1:8443*),
 - launches the Kubernetes system components,
 - and provisions registry, router, initial templates, and a default project.
+=======
+- starts {product-title} listening on all interfaces on your host (*0.0.0.0:8443*),
+- starts the web console listening on all interfaces at `/console` (*0.0.0.0:8443*),
+- launches an [sysitem]#etcd# server to store persistent data, and
+- launches the Kubernetes system components.
+
+. After the container is started, you can open a console inside the container:
++
+----
+$ sudo docker exec -it origin bash
+----
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 Use the `oc cluster --help` command to get more information and view other available
 command-line options.
@@ -100,9 +144,15 @@ Windows, or Mac OS X 64-bit binaries; note that the Mac and Windows versions are
 for the CLI only.
 
 The release archives for Linux and Mac OS X contain the server binary
+<<<<<<< HEAD
 `openshift` which is an all-in-one {product-title} installation. The archives
 for all platforms include xref:../cli_reference/get_started_cli.adoc#cli-reference-get-started-cli[the CLI]
 (the `oc` command) and the Kubernetes client (the `kubectl` command).
+=======
+`openshift` which is an all-in-one {prodcut-title} installation. The archives for all
+platforms include xref:../cli_reference/get_started_cli.adoc#cli-reference-get-started-cli[the CLI] (the `oc`
+command) and the Kubernetes client (the `kubectl` command).
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 *Installing and Running an All-in-One Server*
 
@@ -245,6 +295,7 @@ $ oc tag docker.io/openshift/deployment-example:v2 deployment-example:latest
 Return to the browser or use `curl` again and you should see the `v2` text
 displayed on the page.
 
+<<<<<<< HEAD
 As a developer, building new container images is as important as deploying them.
 {product-title} provides tools for running builds as well as building
 source code from within predefined builder images via the Source-to-Image
@@ -255,6 +306,21 @@ from the host system. Also, make sure you have completed the instructions about 
 `--insecure-registry` flag from xref:../install/host_preparation.adoc#install-config-install-host-preparation[Host preparation].
 
 
+=======
+NOTE: For this next step we'll need to ensure that Docker is able to pull images
+from the host system. Ensure you have completed the instructions about setting the
+`--insecure-registry` flag from xref:../install/host_preparation.adoc#install-config-install-host-preparation[Host Preparation].
+
+As a developer, building new container images is as important as deploying them.
+{product-title} provides tools for running builds as well as building
+source code from within predefined builder images via the Source-to-Image
+toolchain.
+
+For this procedure, ensure that the container engine is able to pull images
+from the host system. Also, make sure you have completed the instructions about setting the
+`--insecure-registry` flag from xref:../install/host_preparation.adoc#install-config-install-host-preparation[Host preparation].
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 . Switch to the administrative user and change to the `default` project:
 +
 ----
@@ -268,8 +334,13 @@ $ oc project default
 $ oc adm registry
 ----
 +
+<<<<<<< HEAD
 It will take a few minutes for the registry image to download and start; use `oc
 status` to know when the registry is started.
+=======
+It will take a few minutes for the registry image to download and start - use
+`oc status` to know when the registry is started.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 . Change back to the `test` user and `test` project:
 +
@@ -316,8 +387,13 @@ $ oc -h <server_hostname_or_IP> [...]
 applications and perform common creation and management actions. You can use the
 `test` user we created above to log in to the console via
 `https://<server>:8443/console`. For more information, see
+<<<<<<< HEAD
 xref:../getting_started/developers_console.adoc#getting-started-developers-console[Getting Started for Developers:
 Web Console].
+=======
+xref:../getting_started/developers_console.adoc#getting-started-developers-console[Getting Started for Developers: Web
+Console].
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 You can also see the
 https://github.com/openshift/origin/blob/master/examples/sample-app[{product-title}

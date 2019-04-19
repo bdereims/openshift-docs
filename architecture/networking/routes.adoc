@@ -22,10 +22,17 @@ DNS resolution for a host name is handled separately from routing.
 Your administrator may have configured a
 ifdef::openshift-online,openshift-dedicated[]
 DNS wildcard entry
+<<<<<<< HEAD
 endif::[]
 ifdef::openshift-origin,openshift-enterprise[]
 xref:../../install/prerequisites.adoc#prereq-dns[DNS wildcard entry]
 endif::[]
+=======
+endif::openshift-online,openshift-dedicated[]
+ifdef::openshift-origin,openshift-enterprise[]
+xref:../../install/prerequisites.adoc#prereq-dns[DNS wildcard entry]
+endif::openshift-origin,openshift-enterprise[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 that will resolve to the {product-title} node that is running the
 {product-title} router. If you are using a different host name you may
 need to modify its DNS records independently to resolve to the node that
@@ -39,18 +46,30 @@ ifdef::openshift-online,openshift-dedicated[]
 ====
 Wildcard routes are disabled in {product-title}.
 ====
+<<<<<<< HEAD
 endif::[]
+=======
+endif::openshift-online,openshift-dedicated[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ifdef::openshift-origin,openshift-enterprise[]
 [[routers]]
 include::architecture/topics/routers.adoc[]
+<<<<<<< HEAD
 endif::[]
+=======
+endif::openshift-origin,openshift-enterprise[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ifdef::openshift-origin,openshift-enterprise[]
 [[routes-template-routers]]
 
 include::architecture/topics/template_routers.adoc[]
+<<<<<<< HEAD
 endif::[]
+=======
+endif::openshift-origin,openshift-enterprise[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ifdef::openshift-origin,openshift-enterprise[]
 [[available-router-plug-ins]]
@@ -60,18 +79,32 @@ See the xref:../../architecture/networking/assembly_available_router_plugins.ado
 
 Instructions on deploying these routers are available in
 xref:../../install_config/router/index.adoc#install-config-router-overview[Deploying a Router].
+<<<<<<< HEAD
 
+=======
+endif::openshift-origin,openshift-enterprise[]
+
+ifdef::openshift-origin,openshift-enterprise[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[routes-sticky-sessions]]
 == Sticky Sessions
 
 include::architecture/topics/sticky_sessions.adoc[]
+<<<<<<< HEAD
 endif::[]
+=======
+endif::openshift-origin,openshift-enterprise[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ifdef::openshift-origin,openshift-enterprise[]
 [[env-variables]]
 
 include::architecture/topics/router_environment_variables.adoc[]
+<<<<<<< HEAD
 endif::[]
+=======
+endif::openshift-origin,openshift-enterprise[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ifdef::openshift-origin,openshift-enterprise[]
 [[load-balancing]]
@@ -101,12 +134,21 @@ number of running servers changing, many clients will be
 directed to different servers. This algorithm is generally
 used with passthrough routes.
 
+<<<<<<< HEAD
 The `ROUTER_TCP_BALANCE_SCHEME` environment variable sets the default
 strategy for passthorugh routes. The `ROUTER_LOAD_BALANCE_ALGORITHM` environment
 variable sets the default strategy for the router for the remaining routes.
 A xref:route-specific-annotations[route specific annotation],
 `*haproxy.router.openshift.io/balance*`, can be used to control specific routes.
 endif::[]
+=======
+The `ROUTER_TCP_BALANCE_SCHEME` xref:env-variables[environment variable] sets the default
+strategy for passthorugh routes. The `ROUTER_LOAD_BALANCE_ALGORITHM` xref:env-variables[environment
+variable] sets the default strategy for the router for the remaining routes.
+A xref:route-specific-annotations[route specific annotation],
+`*haproxy.router.openshift.io/balance*`, can be used to control specific routes.
+endif::openshift-origin,openshift-enterprise[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ifdef::openshift-origin,openshift-enterprise[]
 [[strict-sni]]
@@ -161,7 +203,11 @@ by:
 ----
 openssl ciphers
 ----
+<<<<<<< HEAD
 endif::[]
+=======
+endif::openshift-origin,openshift-enterprise[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ifdef::openshift-origin,openshift-enterprise,openshift-dedicated[]
 [[route-hostnames]]
@@ -238,11 +284,15 @@ no-route-hostname-mynamespace.router.default.svc.cluster.local <1>
 *router.default.svc.cluster.local*.
 ====
 
+<<<<<<< HEAD
 ifdef::openshift-origin,openshift-enterprise,openshift-dedicated[]
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 A cluster administrator can also
 ifdef::openshift-enterprise,openshift-origin[]
 xref:../../install_config/router/default_haproxy_router.adoc#customizing-the-default-routing-subdomain[customize
 the suffix used as the default routing subdomain]
+<<<<<<< HEAD
 endif::[]
 ifdef::openshift-dedicated[]
 customize the suffix used as the default routing subdomain
@@ -251,6 +301,14 @@ for their environment.
 endif::openshift-origin,openshift-enterprise,openshift-dedicated[]
 
 ifdef::openshift-origin,openshift-enterprise,openshift-dedicated[]
+=======
+endif::openshift-enterprise,openshift-origin[]
+ifdef::openshift-dedicated[]
+customize the suffix used as the default routing subdomain
+endif::openshift-dedicated[]
+for their environment.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[route-types]]
 == Route Types
 Routes can be either secured or unsecured. Secure routes provide the ability to
@@ -284,9 +342,13 @@ remain private.
 A secured route is one that specifies the TLS termination of the route.
 The available types of termination are xref:secured-routes[described
 below].
+<<<<<<< HEAD
 endif::[]
 
 ifdef::openshift-origin,openshift-enterprise,openshift-dedicated[]
+=======
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[path-based-routes]]
 === Path Based Routes
 Path based routes specify a path component that can be compared against
@@ -345,9 +407,13 @@ Path-based routing is not available when using passthrough TLS, as
 the router does not terminate TLS in that case and cannot read the contents
 of the request.
 ====
+<<<<<<< HEAD
 endif::[]
 
 ifdef::openshift-origin,openshift-enterprise,openshift-dedicated[]
+=======
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[secured-routes]]
 === Secured Routes
 Secured routes specify the TLS termination of the route and, optionally,
@@ -374,10 +440,17 @@ router, so they must be configured into the route, otherwise the
 ifdef::openshift-enterprise,openshift-origin[]
 xref:../../install_config/router/default_haproxy_router.adoc#using-wildcard-certificates[router's
 default certificate]
+<<<<<<< HEAD
 endif::[]
 ifdef::openshift-dedicated,openshift-online[]
 router's default certificate
 endif::[]
+=======
+endif::openshift-enterprise,openshift-origin[]
+ifdef::openshift-dedicated[]
+router's default certificate
+endif::openshift-dedicated[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 will be used for TLS termination.
 
 .A Secured Route Using Edge Termination
@@ -571,19 +644,32 @@ has allowed it.
 Re-encrypt routes can have an `insecureEdgeTerminationPolicy` with all of the
 same values as edge-terminated routes.
 ====
+<<<<<<< HEAD
 endif::[]
+=======
+endif::openshift-origin,openshift-enterprise,openshift-dedicated[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ifdef::openshift-origin,openshift-enterprise[]
 [[router-sharding]]
 == Router Sharding
 include::architecture/topics/router_sharding.adoc[]
+<<<<<<< HEAD
 endif::[]
+=======
+endif::openshift-origin,openshift-enterprise[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ifdef::openshift-origin,openshift-enterprise,openshift-dedicated[]
 [[alternateBackends]]
 == Alternate Backends and Weights
 include::architecture/topics/alternate_backends_weights.adoc[]
+<<<<<<< HEAD
 endif::[]
+=======
+endif::openshift-origin,openshift-enterprise,openshift-dedicated[]
+ifdef::openshift-origin,openshift-enterprise,openshift-dedicated[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[route-specific-annotations]]
 == Route-specific Annotations
@@ -683,7 +769,11 @@ metadata:
   annotations:
     haproxy.router.openshift.io/ip_whitelist: 180.5.61.153 192.168.1.0/24 10.0.0.0/8
 ----
+<<<<<<< HEAD
 
+=======
+endif::openshift-origin,openshift-enterprise,openshift-dedicated[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ifdef::openshift-origin,openshift-enterprise[]
 [[wildcard-subdomain-route-policy]]
 == Creating Routes Specifying a Wildcard Subdomain Policy
@@ -748,12 +838,20 @@ checks the list of allowed domains. However, the list of allowed domains is more
 restrictive, and ensures that the router only admits routes with hosts that
 belong to that list.
 
+<<<<<<< HEAD
 For example, to deny the `[{asterisk}.]open.header.test`, `[{asterisk}.]okd.io` and
+=======
+For example, to deny the `[{asterisk}.]open.header.test`, `[{asterisk}.]openshift.org` and
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 `[{asterisk}.]block.it` routes for the `myrouter` route:
 
 ----
 $ oc adm router myrouter ...
+<<<<<<< HEAD
 $ oc set env dc/myrouter ROUTER_DENIED_DOMAINS="open.header.test, okd.io, block.it"
+=======
+$ oc set env dc/myrouter ROUTER_DENIED_DOMAINS="open.header.test, openshift.org, block.it"
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 
 This means that `myrouter` will admit the following based on the route's name:
@@ -771,8 +869,13 @@ $ oc expose service/<name> --hostname="open.header.test"
 $ oc expose service/<name> --hostname="www.open.header.test"
 $ oc expose service/<name> --hostname="block.it"
 $ oc expose service/<name> --hostname="franco.baresi.block.it"
+<<<<<<< HEAD
 $ oc expose service/<name> --hostname="okd.io"
 $ oc expose service/<name> --hostname="api.okd.io"
+=======
+$ oc expose service/<name> --hostname="openshift.org"
+$ oc expose service/<name> --hostname="api.openshift.org"
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 
 Alternatively, to block any routes where the host name is _not_ set to `[{asterisk}.]stickshift.org` or `[{asterisk}.]kates.net`:
@@ -809,16 +912,27 @@ $ oc set env dc/adrouter ROUTER_ALLOWED_DOMAINS="okd.io, kates.net" \
     ROUTER_DENIED_DOMAINS="ops.openshift.org, metrics.kates.net"
 ----
 
+<<<<<<< HEAD
 This will allow any routes where the host name is set to `[{asterisk}.]okd.io` or
 `[{asterisk}.]kates.net`, and not allow any routes where the host name is set to
 `[{asterisk}.]ops.okd.io` or `[{asterisk}.]metrics.kates.net`.
+=======
+This will allow any routes where the host name is set to `[{asterisk}.]openshift.org` or
+`[{asterisk}.]kates.net`, and not allow any routes where the host name is set to
+`[{asterisk}.]ops.openshift.org` or `[{asterisk}.]metrics.kates.net`.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 Therefore, the following will be denied:
 
 ----
 $ oc expose service/<name> --hostname="www.open.header.test"
+<<<<<<< HEAD
 $ oc expose service/<name> --hostname="ops.okd.io"
 $ oc expose service/<name> --hostname="log.ops.okd.io"
+=======
+$ oc expose service/<name> --hostname="ops.openshift.org"
+$ oc expose service/<name> --hostname="log.ops.openshift.org"
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 $ oc expose service/<name> --hostname="www.block.it"
 $ oc expose service/<name> --hostname="metrics.kates.net"
 $ oc expose service/<name> --hostname="int.metrics.kates.net"
@@ -827,9 +941,15 @@ $ oc expose service/<name> --hostname="int.metrics.kates.net"
 However, the following will be allowed:
 
 ----
+<<<<<<< HEAD
 $ oc expose service/<name> --hostname="okd.io"
 $ oc expose service/<name> --hostname="api.okd.io"
 $ oc expose service/<name> --hostname="m.api.okd.io"
+=======
+$ oc expose service/<name> --hostname="openshift.org"
+$ oc expose service/<name> --hostname="api.openshift.org"
+$ oc expose service/<name> --hostname="m.api.openshift.org"
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 $ oc expose service/<name> --hostname="kates.net"
 $ oc expose service/<name> --hostname="api.kates.net"
 ----

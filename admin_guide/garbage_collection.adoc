@@ -14,7 +14,11 @@ toc::[]
 
 The {product-title} node performs two types of garbage collection:
 
+<<<<<<< HEAD
 * xref:container-garbage-collection[Container garbage collection] Removes
+=======
+* xref:container-garbage-collection[Container garbage collection]: Removes
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 terminated containers.
 * xref:image-garbage-collection[Image garbage collection]: Removes images not
 referenced by any running pods.

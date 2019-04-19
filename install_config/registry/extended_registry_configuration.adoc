@@ -43,7 +43,11 @@ $ oc delete svc/docker-registry dc/docker-registry
 
 . Create the registry definition in *_registry.yaml_*, replacing `<options>`
 with, for example, those used in step 3 of the instructions in the
+<<<<<<< HEAD
 xref:registry-non-production-use[Non-Production Use] section:
+=======
+xref:deploy_registry_existing_clusters.adoc#registry-non-production-use[Non-Production Use] section:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 +
 ----
 $ oc adm registry <options> -o yaml > registry.yaml
@@ -178,7 +182,11 @@ how to override specific configuration options].
 To enable management of the registry configuration file directly and deploy an updated configuration using
 a xref:../../dev_guide/configmaps.adoc#dev-guide-configmaps[`*ConfigMap*`]:
 
+<<<<<<< HEAD
 . xref:deploy-registry[Deploy the registry].
+=======
+. xref:deploy_registry_existing_clusters.adoc#deploy-registry[Deploy the registry].
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 . Edit the registry configuration file locally as needed. The initial YAML file
 deployed on the registry is provided below.
@@ -776,7 +784,11 @@ Reporting is unsupported.
 === HTTP
 
 link:https://docs.docker.com/registry/configuration/#http[Upstream options] are
+<<<<<<< HEAD
 supported. xref:securing-the-registry[Learn how to alter these settings via
+=======
+supported. xref:securing_and_exposing_registry.adoc#securing-the-registry[Learn how to alter these settings via
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 environment variables]. Only the *tls* section should be altered. For example:
 
 [source,yaml]

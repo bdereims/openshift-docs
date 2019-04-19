@@ -36,6 +36,7 @@ Expand or mouse-over a field for more information about it.
 
 == Operations
 
+<<<<<<< HEAD
 [[Get-apis-admissionregistration.k8s.io]]
 === Get all APIGroups
 Get information of a group
@@ -118,6 +119,8 @@ $ curl -k \
 * application/vnd.kubernetes.protobuf
 
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[Get-apis-apps.openshift.io]]
 === Get all APIGroups
 Get information of a group
@@ -487,6 +490,7 @@ $ curl -k \
 * application/vnd.kubernetes.protobuf
 
 
+<<<<<<< HEAD
 [[Get-apis-events.k8s.io]]
 === Get all APIGroups
 Get information of a group
@@ -528,6 +532,8 @@ $ curl -k \
 * application/vnd.kubernetes.protobuf
 
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[Get-apis-extensions]]
 === Get all APIGroups
 Get information of a group

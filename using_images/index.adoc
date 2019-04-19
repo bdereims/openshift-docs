@@ -9,7 +9,11 @@
 Use these topics to discover the different
 xref:../architecture/core_concepts/builds_and_image_streams.adoc#source-build[Source-to-Image (S2I)], database, and other container images that are available for {product-title} users.
 
+<<<<<<< HEAD
 ifdef::openshift-enterprise,openshift-dedicated[]
+=======
+ifdef::openshift-enterprise[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Red Hat's official container images are provided in the Red Hat Registry at
 https://registry.redhat.io[registry.redhat.io].
 {product-title}'s supported S2I, database, and Jenkins images are provided in

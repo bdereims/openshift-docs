@@ -22,8 +22,13 @@ ensure its health.
 
 The HAProxy router exposes a web listener for the HAProxy statistics. Enter the
 router's public IP address and the correctly configured port (*1936* by default)
+<<<<<<< HEAD
 to view the statistics page. The administrator password and port are configured 
 during the router installation, but they
+=======
+to view the statistics page, and enter the administrator password when prompted.
+This password and port are configured during the router installation, but they
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 can be found by viewing the *_haproxy.config_* file on the container.
 
 To view HAProxy router stats:
@@ -38,7 +43,11 @@ $ oc adm router <name> --replicas=<number>  --service-account=router --selector=
 For example:
 +
 ----
+<<<<<<< HEAD
 $ oc adm router router --replicas=1  --selector='zone=west' --stats-port=1936 
+=======
+$ oc adm router hap --service-account=router --stats-port=0
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 +
 [NOTE]
@@ -51,7 +60,11 @@ $ oc adm router router --replicas=1  --selector='zone=west' --stats-port=1936
 If you receive the following error, run the `oc adm policy add-scc-to-user hostnetwork -z <name>` command as suggested.
 +
 ----
+<<<<<<< HEAD
 error: router could not be created; service account "router" is not allowed to access the host network on nodes, grant access with oadm policy add-scc-to-user hostnetwork -z router
+=======
+$ oc adm router hap --service-account=router --stats-port=0
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 
 . Run the following command to get the router pod name:
@@ -207,7 +220,10 @@ default port *514* and changes the log level to *debug*.
 $ oc set env dc/router ROUTER_SYSLOG_ADDRESS=127.0.0.1 ROUTER_LOG_LEVEL=debug
 ----
 
+<<<<<<< HEAD
 [[admin-guide-router-view-internals]]
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 == Viewing the Router Internals
 
 *routes.json*

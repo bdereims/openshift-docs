@@ -364,6 +364,7 @@ mounted `configMap` files must allow execution. A value of `0755` (`493`
 decimal) is typical.
 
 .. Using `oc` commands:
+<<<<<<< HEAD
 +
 [source,bash]
 ----
@@ -437,6 +438,81 @@ $ oc adm ipfailover --preempt-strategy=nopreempt \
 +
 [source,bash]
 ----
+=======
++
+[source,bash]
+----
+$ oc env dc/ipf-ha-router \
+    OPENSHIFT_HA_CHECK_SCRIPT=/etc/keepalive/mycheckscript.sh
+$ oc set volume dc/ipf-ha-router --add --overwrite \
+    --name=config-volume \
+    --mount-path=/etc/keepalive \
+    --source='{"configMap": { "name": "mycustomcheck", "defaultMode": 493}}'
+----
++
+.. Editing the *ipf-ha-router* deployment configuration:
++
+... Use `oc edit dc ipf-ha-router` to edit the router deployment configuration
+with a text editor.
++
+[source,yaml]
+----
+...
+    spec:
+      containers:
+      - env:
+        - name: OPENSHIFT_HA_CHECK_SCRIPT  <1>
+          value: /etc/keepalive/mycheckscript.sh
+...
+        volumeMounts: <2>
+        - mountPath: /etc/keepalive
+          name: config-volume
+      dnsPolicy: ClusterFirst
+...
+      volumes: <3>
+      - configMap:
+          defaultMode: 0755 <4>
+          name: customrouter
+        name: config-volume
+...
+----
+<1> In the `spec.container.env` field, add the `OPENSHIFT_HA_CHECK_SCRIPT`
+environment variable to point to the mounted script file.
+<2> Add the `spec.container.volumeMounts` field to create the mount point.
+<3> Add a new `spec.volumes` field to mention the ConfigMap.
+<4> This sets execute permission on the files. When read back, it will be
+displayed in decimal (`493`).
++
+... Save the changes and exit the editor. This restarts *ipf-ha-router*.
+
+[[vrrp-preemption]]
+=== VRRP Preemption
+
+When a host leaves the *FAULT* state by passing the check script, the host
+becomes a *BACKUP* if the new host has lower priority than the host currently in
+the *MASTER* state. However, if it has a higher priority, the preemption
+strategy determines it's role in the cluster.
+
+The *nopreempt* strategy does not move *MASTER* from the lower priority host to
+the higher priority host. With *preempt 300*, the default, *keepalived* waits
+the specified 300 seconds and moves *MASTER* to the higher priority host.
+
+To specify preemption:
+
+.. When creating ipfailover using the `preemption-strategy`:
++
+[source,bash]
+----
+$ oc adm ipfailover --preempt-strategy=nopreempt \
+  ...
+----
+
+
+.. Setting the variable using the `oc set env` command:
++
+[source,bash]
+----
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 $ oc set env dc/ipf-ha-router \
     --overwrite=true \
     OPENSHIFT_HA_PREEMPTION=nopreempt
@@ -462,20 +538,34 @@ $ oc set env dc/ipf-ha-router \
 {product-title}'s  IP failover internally uses *keepalived*.
 
 [IMPORTANT]
+<<<<<<< HEAD
 ====
 Ensure that *multicast* is enabled on the nodes labeled above and they can
 accept network traffic for 224.0.0.18 (the VRRP multicast IP address).
 ====
+=======
+====
+Ensure that *multicast* is enabled on the nodes labeled above and they can
+accept network traffic for 224.0.0.18 (the VRRP multicast IP address).
+====
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 Before starting the *keepalived* daemon, the startup script verifies the
 `iptables` rule that allows multicast traffic to flow.  If there is no such
 rule, the startup script creates a new rule and adds it to the IP tables
 configuration.  Where this new rule gets added to the IP tables configuration
+<<<<<<< HEAD
 depends on the `--iptables-chain=` option. If there is an `--iptables-chain=`
 option specified, the rule gets added to the specified chain in the option.
 Otherwise, the rule is added to the `INPUT` chain.
 
 
+=======
+depends on the `--iptables-chain=` option.  If there is an `--iptables-chain=`
+option specified, the rule gets added to the specified chain in the option.
+Otherwise, the rule is added to the `INPUT` chain.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [IMPORTANT]
 ====
 The `iptables` rule must be present whenever there is one or more *keepalived* daemon running on the node.

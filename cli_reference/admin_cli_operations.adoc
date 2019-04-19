@@ -92,7 +92,11 @@ ifdef::openshift-enterprise,openshift-origin[]
 === router
 Installs a router:
 ----
+<<<<<<< HEAD
 $ oc adm router <router_name>
+=======
+$ ocadm router <router_name>
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 
 === ipfailover
@@ -134,7 +138,11 @@ $ oc adm prune
 ----
 endif::[]
 
+<<<<<<< HEAD
 ifdef::openshift-enterprise,openshift-origin[]
+=======
+ifdef::openshift-enterprise,openshift-origin,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[settings-cli-operations]]
 
 == Settings CLI Operations

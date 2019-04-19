@@ -182,10 +182,17 @@ or an image stream that matches the name of the detected language. If a match is
 not found, `new-app` searches the https://registry.hub.docker.com[Docker Hub
 registry] for an image that matches the detected language based on name.
 
+<<<<<<< HEAD
 You can override the image the builder uses for a particular source
 repository by specifying the image (either an image stream or container
 specification) and the repository, with a `~` as a separator.  Note that if this
 is done, xref:build-strategy-detection[build strategy detection] and
+=======
+You can override the image the builder uses for a particular source repository
+by specifying the image (either an image stream or container specification) and
+the repository, with a `~` as a separator.  Note that if this is done,
+xref:build-strategy-detection[build strategy detection] and
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 xref:language-detection[language detection] are not carried out.
 
 For example, to use the *myproject/my-ruby* image stream with the source in a
@@ -511,7 +518,12 @@ $ oc new-app https://github.com/openshift/ruby-hello-world --name=myapp
 ==== Creating Objects in a Different Project
 
 Normally, `new-app` creates objects in the current project. However, you can
+<<<<<<< HEAD
 create objects in a different project by using the `-n|--namespace` argument:
+=======
+create objects in a different project that you have access to using the
+`-n|--namespace` argument:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ----
 $ oc new-app https://github.com/openshift/ruby-hello-world -n myproject
@@ -562,6 +574,11 @@ $ oc new-app \
     --group=ruby+mysql
 ----
 
+<<<<<<< HEAD
+=======
+ifdef::openshift-enterprise,openshift-origin[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[searching-images-templates-inputs]]
 
 ==== Searching for Images, Templates, and Other Inputs
@@ -571,6 +588,11 @@ To search for images, templates, and other inputs for the `oc new-app` command, 
 $ oc new-app --search php
 ----
 
+<<<<<<< HEAD
+=======
+endif::openshift-enterprise,openshift-origin[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[using-the-web-console-na]]
 
 == Creating an Application Using the Web Console

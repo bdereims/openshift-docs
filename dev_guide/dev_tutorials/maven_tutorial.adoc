@@ -58,7 +58,11 @@ The output should resemble:
 +
 ----
 NAME      HOST/PORT                              PATH      SERVICES   PORT       TERMINATION
+<<<<<<< HEAD
 nexus     nexus-myproject.192.168.1.173.xip.io             nexus      8081-tcp
+=======
+nexus     nexus-myproject.192.168.1.173.xip.io             nexus      8081-tcp  
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 
 . Confirm that Nexus is running by navigating your browser to the URL under
@@ -109,11 +113,22 @@ dependencies are not lost when the pod running the server terminates. PVCs
 require available persistent volumes (PV) in the cluster. If there are no PVs
 available and you do not have administrator access on your cluster, ask your
 system administrator to create a Read/Write Persistent Volume for you.
+<<<<<<< HEAD
 ifdef::openshift-origin,openshift-enterprise[]
 Otherwise, see
 xref:../../install_config/persistent_storage/index.adoc#install-config-persistent-storage-index[Persistent Storage in {product-title}] for
 instructions on creating a persistent volume.
 endif::[]
+=======
+
+ifdef::openshift-origin,openshift-enterprise[]
+
+Otherwise, see
+xref:../../install_config/persistent_storage/index.adoc#install-config-persistent-storage-index[Persistent Storage in {product-title}] for
+instructions on creating a persistent volume.
+
+endif::openshift-origin,openshift-enterprise[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 Add a PVC to the Nexus deployment configuration.
 

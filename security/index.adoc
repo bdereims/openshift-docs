@@ -26,9 +26,13 @@ which are provided by {product-title}.
 - How to design your build and deployment process to proactively check container content.
 - How to control access to containers via authentication and authorization.
 - How networking and attached storage are secured in {product-title}.
+<<<<<<< HEAD
 ifdef::openshift-enterprise[]
 - Containerized solutions for API management and SSO.
 endif::[]
+=======
+- Containerized solutions for API management and SSO.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[security-intro-what-are-containers]]
 == What Are Containers?
@@ -41,6 +45,11 @@ targets: physical servers, virtual machines (VMs), and private or public cloud.
 
 Some of the benefits of using containers include:
 
+<<<<<<< HEAD
+=======
+// image::whatarecontainers.png["What Are Containers?", align="center"]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [options="header",frame="all",grid="none"]
 |===
 |INFRASTRUCTURE |APPLICATIONS

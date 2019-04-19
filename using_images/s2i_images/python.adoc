@@ -93,7 +93,11 @@ endif::openshift-online[]
 == Build Process
 include::using_images/s2i_images/topics/build_process.adoc[]
 
+<<<<<<< HEAD
 [[s2i-images-python-configuration]]
+=======
+[[using-images-python-configuration]]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 == Configuration
 The Python image supports a number of environment variables which can be set to
 control the configuration and behavior of the Python runtime.

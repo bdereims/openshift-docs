@@ -357,7 +357,11 @@ resource.
 When you delete a resource, your quota use is decremented during the next full
 recalculation of quota statistics for the project.
 // end::admin_quota_enforcement[]
+<<<<<<< HEAD
 A xref:configuring-quota-sync-period[configurable amount of time] determines
+=======
+A configurable amount of time determines
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 how long it takes to reduce quota usage statistics to their current observed
 system value.
 

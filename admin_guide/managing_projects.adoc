@@ -371,6 +371,10 @@ effect.
 
 endif::openshift-enterprise,openshift-origin[]
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ifdef::openshift-dedicated[]
 [[enforcing-different-project-limits-for-users]]
 == Enforcing Different Project Limits for Users
@@ -429,3 +433,7 @@ See xref:../admin_guide/quota.adoc#admin-guide-quota[Setting Quotas] and
 xref:../admin_guide/limits.adoc#admin-guide-limits[Setting Limit Ranges] for
 more information.
 endif::openshift-dedicated[]
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

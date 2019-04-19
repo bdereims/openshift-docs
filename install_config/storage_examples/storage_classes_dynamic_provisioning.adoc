@@ -15,6 +15,7 @@ toc::[]
 [[install-config-storage-examples-storage-classes-dynamic-provisioning-overview]]
 == Overview
 
+<<<<<<< HEAD
 These examples demonstrate a few configuration scenarios for xref:../../install_config/persistent_storage/dynamically_provisioning_pvs.adoc#install-config-persistent-storage-dynamically-provisioning-pvs[StorageClasses] and Dynamic Provisioning using Google Cloud Platform Compute Engine (GCE). These examples
 assume:
 
@@ -22,6 +23,10 @@ assume:
 - {product-title} is installed and xref:../../install_config/persistent_storage/persistent_storage_gce.adoc#install-config-persistent-storage-persistent-storage-gce[properly configured to use GCE].
 
 The examples included in this sections are:
+=======
+In these examples we will walk through a few scenarios of various configuratons of xref:../../install_config/persistent_storage/dynamically_provisioning_pvs.adoc#install-config-persistent-storage-dynamically-provisioning-pvs[StorageClasses] and Dynamic Provisioning using Google Cloud Platform Compute Engine (GCE).
+These examples assume some familiarity with Kubernetes, GCE and Persistent Disks and {product-title} is installed and xref:../../install_config/persistent_storage/persistent_storage_gce.adoc#install-config-persistent-storage-persistent-storage-gce[properly configured to use GCE].
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 - xref:../../install_config/storage_examples/storage_classes_dynamic_provisioning.adoc#example1[Basic Dynamic Provisioning]
 - xref:../../install_config/storage_examples/storage_classes_dynamic_provisioning.adoc#example2[Defaulting Cluster Dynamic Provisioning Behavior]
@@ -180,7 +185,14 @@ Finally, check the GCE console. The new disk has been created and is ready for u
 
 ====
 ----
+<<<<<<< HEAD
 kubernetes-dynamic-pvc-e9b4fef7-8bf7-11e6-9962-42010af00004 	SSD persistent disk 	10 GB 	us-east1-d
+=======
+
+
+kubernetes-dynamic-pvc-e9b4fef7-8bf7-11e6-9962-42010af00004 	SSD persistent disk 	10 GB 	us-east1-d
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 ====
 
@@ -225,6 +237,10 @@ As a `cluster-admin` or `storage-admin` save the definition to a YAML file
 
 ====
 ----
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 # oc create -f generic-gce.yaml
 storageclass "generic" created
 
@@ -368,6 +384,15 @@ pvc-engineering3   Bound     pvc-6fa8e73b-8c00-11e6-9962-42010af00004   15Gi    
 ----
 ====
 
+<<<<<<< HEAD
+=======
+
+[IMPORTANT]
+====
+Since the _default_ _StorageClass_ is enabled on this system, for the manually created Persistent Volume to get bound by the above claim and not have a new dynamic provisioned volume be bound, the PV would need to have been created in the _default_ _StorageClass_.
+====
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Since the _default_ _StorageClass_ is enabled on this system, you would need to
 create the PV in the _default_ _StorageClass_ for the manually created Persistent
 Volume to get bound to the above claim and not have a new dynamic provisioned

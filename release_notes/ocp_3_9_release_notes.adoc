@@ -41,6 +41,7 @@ not publicly release {product-title} 3.8 and, instead, is releasing
 xref:ocp-39-installation[Installation] for information on how this impacts
 installation and upgrade processes.
 
+<<<<<<< HEAD
 {product-title} 3.9 is supported on RHEL 7.3, 7.4, and 7.5 with the latest packages
 from Extras, including Docker 1.13. It is also supported on Atomic Host 7.4.5
 and newer. The *docker-latest* package is now deprecated.
@@ -48,6 +49,12 @@ and newer. The *docker-latest* package is now deprecated.
 TLSV1.2 is the only supported security version in {product-title} version 3.4
 and later. You must update if you are using TLSV1.0 or TLSV1.1.
 
+=======
+{product-title} 3.9 is supported on RHEL 7.3 and 7.4 with the latest packages
+from Extras, including Docker 1.13. It is also supported on Atomic Host 7.4.5
+and newer. The *docker-latest* package is now deprecated.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 For initial installations, see the
 xref:../install_config/install/planning.adoc#install-config-install-planning[Installing
 a Cluster] topics in the
@@ -77,6 +84,7 @@ is run, administrators can choose to run hard prune (which is safe to run as
 long as the registry is put in read-only mode).
 
 [[ocp-39-cloudforms]]
+<<<<<<< HEAD
 ==== Red Hat CloudForms Management Engine 4.6 Container Management
 
 The installation playbooks in {product-title} 3.9 have been updated to support
@@ -85,6 +93,9 @@ available. See the new
 xref:../install_config/cfme/index.adoc#install-config-cfme-intro[Deploying Red Hat CloudForms on OpenShift Container Platform] topics for further information.
 
 In addition, this release includes the following new features and updates:
+=======
+==== CloudForms 4.6 Container Management
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * {product-title} template provisioning
 * Offline OpenScapScans
@@ -116,11 +127,24 @@ xref:../install/configuring_inventory_file.adoc#configuring-ansible[Ansible inve
 
 ----
 openshift_use_crio=true
+<<<<<<< HEAD
 openshift_crio_use_rpm=true <1>
 ----
 <1> CRI-O can only be installed as an RPM. The previously-available system container
 for CRI-O has been dropped from xref:ocp-39-technology-preview[Technology
 Preview] as of {product-title} 3.9.
+=======
+----
+
+This setting pulls the *openshift3/cri-o* system container image from the
+link:https://access.redhat.com/containers[Red Hat Registry] by default. If you
+want to use an alternative CRI-O system container image from another registry,
+you can also override the default using the following variable:
+
+----
+openshift_crio_systemcontainer_image_override=<registry>/<repo>/<image>:<tag>
+----
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [NOTE]
 ====
@@ -156,7 +180,11 @@ CRI-O.
 [[ocp-39-pv-resize]]
 ==== PV Resize
 
+<<<<<<< HEAD
 You can expand persistent volume claims online from {product-title} for CNS
+=======
+You can expand persistent volume claims online from {product-tile} for CNS
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 glusterFS, Cinder, and GCE PD.
 
 . Create a storage class with `allowVolumeExpansion=true`.
@@ -167,13 +195,21 @@ glusterFS, Cinder, and GCE PD.
 [[ocp-39-end-to-end-online-expansion-resize-for-cns-glusterfs-pvs]]
 ==== End-to-end Online Expansion and Resize for Containerized GlusterFS PV
 
+<<<<<<< HEAD
 You can expand persistent volume claims online from {product-title} for CNS
+=======
+You can expand persistent volume claims online from {product-tile} for CNS
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 glusterFS volumes.
 
 This can be done online from {product-title}. Previously, this was only
 available from the Heketi CLI. You edit the PVC with the new size, triggering a
 PV resize. This is fully qualified for glusterFs backed PVs. Gluster-block PV
+<<<<<<< HEAD
 resize was added with RHEL 7.5.
+=======
+resize will be added with RHEL 7.5.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 . Add `allowVolumeExpansion=true` to the storage class.
 . Run:
@@ -216,6 +252,7 @@ CNS storage device details are added to the installer’s inventory file. The
 advanced installer manages configuration and deployment of CNS, file and block
 provisioners, registry, and ready-to-use PVs.
 
+<<<<<<< HEAD
 [[ocp-39-tenant-driven-storage-snapshotting]]
 ==== Tenant-driven Storage Snapshotting (Technology Preview)
 
@@ -275,6 +312,8 @@ spec:
   storageClassName: snapshot-promoter
 ----
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[ocp-39-scale]]
 === Scale
 
@@ -597,6 +636,7 @@ Clusters] for more information.
 [[ocp-39-metrics-and-logging]]
 === Metrics and Logging
 
+<<<<<<< HEAD
 [[ocp-37-journald-system-logs]]
 ==== Journald for System Logs and JSON File for Container Logs
 
@@ -614,6 +654,8 @@ See
 xref:../install_config/aggregate_logging.adoc#install-config-aggregate-logging[Aggregating
 Container Logs] for more information.
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[ocp-39-syslog-output-plugin-for-fluentd]]
 ==== syslog Output Plug-in for fluentd (Technology Preview)
 
@@ -665,10 +707,16 @@ memory. Now, a startup script intelligently looks at pod limits and environment
 variables are appropriately set to ensure limits are respected for spawned JVMs.
 
 [[ocp-39-cli-plug-ins]]
+<<<<<<< HEAD
 ==== CLI Plug-ins (Technology Preview)
 
 CLI plug-ins are currently in xref:ocp-39-technology-preview[Technology Preview]
 and not for production workloads.
+=======
+==== CLI Plug-ins
+
+CLI plug-ins are now fully supported.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 Usually called _plug-ins_ or _binary extensions_, this feature allows you to
 extend the default set of `oc` commands available and, therefore, allows you to
@@ -689,6 +737,7 @@ See
 xref:../install_config/build_defaults_overrides.adoc#install-config-build-defaults-overrides[Configuring
 Global Build Defaults and Overrides] for more information.
 
+<<<<<<< HEAD
 [[ocp-39-eviction-thresholds]]
 ==== Default Hard Eviction Thresholds
 {product-title} uses the following default configuration for `eviction-hard`.
@@ -709,6 +758,8 @@ See
 xref:../admin_guide/out_of_resource_handling.adoc#admin-guide-handling-out-of-resource-errors[Handling
 Out of Resource Errors] for more information.
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[ocp-39-web-console]]
 === Web Console
 
@@ -878,10 +929,17 @@ Unqualified image specifications now default to `docker.io` and require API
 server configuration to resolve to different registries.
 
 [discrete]
+<<<<<<< HEAD
 [[ScheduledJob-objects-not-supported]]
 === batch/v2alpha1 ScheduledJob Objects Are No Longer Supported
 
 The `batch/v2alpha1 ScheduledJob` objects are no longer supported. Use CronJobs
+=======
+[[SchedueldJob-objects-not-supported]]
+=== batch/v2alpha1 SchedueldJob Objects Are No Longer Supported
+
+The `batch/v2alpha1 SchedueldJob` objects are no longer supported. Use CronJobs
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 instead.
 
 [discrete]
@@ -911,7 +969,11 @@ The `oadm` command is now deprecated. Use `oc adm` instead.
 
 The core workloads API, which is composed of the `DaemonSet`, `Deployment`,
 `ReplicaSet`, and `StatefulSet kinds`, has been promoted to GA stability in the
+<<<<<<< HEAD
 `apps/v1` group version. As such, the `apps/v1beta2` group version is
+=======
+`apps/v1` group version. As such, the` apps/v1beta2` group version is
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 deprecated, and all new code should use the kinds in the apps/v1 group version.
 For {product-title} this means the statefulsets, daemonsets, and deployments are
 now stable and supported.
@@ -1433,7 +1495,11 @@ etcd hosts is still 3.
 == Technology Preview Features
 
 Some features in this release are currently in Technology Preview. These
+<<<<<<< HEAD
 experimental features are not intended for production use. Please note the
+=======
+experimental features are not intended for production use. Note the
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 following scope of support on the Red Hat Customer Portal for these features:
 
 https://access.redhat.com/support/offerings/techpreview[Technology Preview
@@ -1452,7 +1518,11 @@ features marked *GA* indicate _General Availability_.
 |TP
 |TP
 
+<<<<<<< HEAD
 |xref:../install_config/persistent_storage/persistent_storage_local.adoc#install-config-persistent-storage-persistent-storage-local[Local Storage Persistent Volumes]
+=======
+|Local Storage Persistent Volumes
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 | -
 |TP
 |TP
@@ -1462,7 +1532,11 @@ features marked *GA* indicate _General Availability_.
 |TP
 |GA* footnoteref:[disclaimer, Features marked with `*` indicate delivery in a z-stream patch.]
 
+<<<<<<< HEAD
 |xref:ocp-39-tenant-driven-storage-snapshotting[Tenant Driven Snapshotting]
+=======
+|Tenant Driven Snapshotting
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 | -
 |TP
 |TP
@@ -1641,6 +1715,7 @@ features marked *GA* indicate _General Availability_.
 [[ocp-39-known-issues]]
 == Known Issues
 
+<<<<<<< HEAD
 // tag::BZ1558672[]
 - There is a known issue in the initial GA release of {product-title} 3.9  that
 causes the installation and upgrade playbooks to consume more memory than
@@ -1655,6 +1730,15 @@ the control host should be below 100MiB per host; for large environments (100+
 hosts), a control host with at least 16GiB of memory is recommended.
 link:https://bugzilla.redhat.com/show_bug.cgi?id=1558672[(*BZ#1558672*)]
 // end::BZ1558672[]
+=======
+- There is a known issue that causes the {product-title} 3.9 installation and
+upgrade playbooks to consume more memory than previous releases. It is advised
+that your control host (the system where you run the Ansible playbooks from) has
+at least 430MiB of memory for each unique host that you have defined in your
+inventory before installing or upgrading to 3.9. This will be fixed in a future
+release.
+link:https://bugzilla.redhat.com/show_bug.cgi?id=1558672[(*BZ#1558672*)]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[ocp-39-asynchronous-errata-updates]]
 == Asynchronous Errata Updates
@@ -1690,6 +1774,7 @@ detailed in subsections that follow.
 For any {product-title} release, always review the instructions on
 xref:../upgrading/index.adoc#install-config-upgrading-index[upgrading your cluster] properly.
 ====
+<<<<<<< HEAD
 
 [[ocp-3-9-27]]
 === RHBA-2018:1566 - {product-title} 3.9.27 Bug Fix and Enhancement Update
@@ -2726,3 +2811,5 @@ To upgrade an existing {product-title} 3.7 or 3.9 cluster to this latest
 release, use the automated upgrade playbook. See
 xref:../upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing
 Automated In-place Cluster Upgrades] for instructions.
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

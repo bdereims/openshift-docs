@@ -462,7 +462,11 @@ spec:
 ----
 endif::[]
 
+<<<<<<< HEAD
 
+=======
+ifdef::openshift-enterprise,openshift-origin[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[adding-secrets-to-deployment-config]]
 == Adding Secrets to Deployment Configurations from the Web Console
 
@@ -481,3 +485,8 @@ xref:../../architecture/infrastructure_components/web_console.adoc#architecture-
 console], set the *Pull Secret*.
 
 . Click the *Save* button.
+<<<<<<< HEAD
+=======
+
+endif::openshift-enterprise,openshift-origin[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

@@ -97,8 +97,11 @@ EOF
 |===
 |HTTP Code|Schema
 |200 OK|v1.SubjectAccessReview
+<<<<<<< HEAD
 |201 Created|v1.SubjectAccessReview
 |202 Accepted|v1.SubjectAccessReview
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 |401 Unauthorized|
 |===
 

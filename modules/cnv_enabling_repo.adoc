@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 // Module included in the following assemblies:
 //
 // * cnv_install/cnv_install.adoc
 
 [[enable_cnv_repo]]
 = Enabling {ProductName} repository
+=======
+[[enable_cnv_repo]]
+=== Enabling {ProductName} repository
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 You must enable the *rhel-7-server-cnv-1.4-tech-preview-rpms* repository for the master to install the {ProductName} packages.
 

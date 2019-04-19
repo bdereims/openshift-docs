@@ -175,12 +175,20 @@ spec:
   source:
     git:
       uri: https://github.com/openshift/openshift-jee-sample.git
+<<<<<<< HEAD
+=======
+    type: Git
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
   strategy:
     sourceStrategy:
       from:
         kind: ImageStreamTag
         name: wildfly:10.1
         namespace: openshift
+<<<<<<< HEAD
+=======
+    type: Source
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 
 The second build uses xref:build_inputs.adoc#image-source[Image Source] with a
@@ -199,6 +207,10 @@ spec:
       kind: ImageStreamTag
       name: image-build:latest
   source:
+<<<<<<< HEAD
+=======
+    type: Dockerfile
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
     dockerfile: |-
       FROM jee-runtime:latest
       COPY ROOT.war /deployments/ROOT.war
@@ -214,6 +226,10 @@ spec:
       from: <3>
         kind: ImageStreamTag
         name: jee-runtime:latest
+<<<<<<< HEAD
+=======
+    type: Docker
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
   triggers:
   - imageChange: {}
     type: ImageChange

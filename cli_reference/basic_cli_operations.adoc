@@ -118,6 +118,7 @@ If you want to know the full list of resources the server supports, use `oc api-
 == Basic CLI Operations
 The following table describes basic `oc` operations and their general syntax:
 
+<<<<<<< HEAD
 === login
 Log in to the {product-title} server:
 ----
@@ -177,6 +178,115 @@ results is filtered by that value.
 
 ----
 $ oc get <object_type> [<object_name>]
+=======
+=== types
+Display an introduction to some core {product-title} concepts:
+----
+$ oc types
+----
+
+=== login
+Log in to the {product-title} server:
+----
+$ oc login
+----
+
+=== logout
+End the current session:
+----
+$ oc logout
+----
+
+=== new-project
+Create a new project:
+----
+$ oc new-project <project_name>
+----
+
+=== new-app
+xref:../dev_guide/application_lifecycle/new_app.adoc#dev-guide-new-app[Creates a new application] based on the source
+code in the current directory:
+----
+$ oc new-app .
+----
+
+Creates a new application based on the source code in a remote repository:
+----
+$ oc new-app https://github.com/sclorg/cakephp-ex
+----
+
+Creates a new application based on the source code in a private remote repository:
+----
+$ oc new-app https://github.com/youruser/yourprivaterepo --source-secret=yoursecret
+----
+
+=== status
+Show an overview of the current project:
+----
+$ oc status
+----
+
+=== project
+Switch to another project. Run without options to display the current project.
+To view all projects you have access to run `oc projects`.
+----
+$ oc project <project_name>
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
+----
+
+You can use the `-o` or `--output` option to modify the output format.
+
+<<<<<<< HEAD
+----
+$ oc get <object_type> [<object_name>]-o|--output=json|yaml|wide|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=...]
+----
+
+The output format can be a JSON or YAML, or an extensible format like link:http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns[custom columns], link:http://golang.org/pkg/text/template/#pkg-overview[golang template], and link:http://kubernetes.io/docs/user-guide/jsonpath[jsonpath].
+
+For example, the following command lists the name of the pods running in a specific project:
+
+----
+$ oc get pods -n default -o jsonpath='{range .items[*].metadata}{"Pod Name: "}{.name}{"\n"}{end}'
+
+Pod Name: docker-registry-1-wvhrx
+Pod Name: registry-console-1-ntq65
+Pod Name: router-1-xzw69
+----
+
+=== describe
+Returns information about the specific object returned by the query. A specific
+`<object_name>` must be provided. The actual information that is available
+varies as described in xref:object-types[object type].
+----
+$ oc describe <object_type> <object_name>
+----
+
+=== edit
+Edit the desired object type:
+----
+$ oc edit <object_type>/<object_name>
+----
+Edit the desired object type with a specified text editor:
+----
+$ OC_EDITOR="<text_editor>" oc edit <object_type>/<object_name>
+----
+Edit the desired object in a specified format (eg: JSON):
+----
+$ oc edit <object_type>/<object_name> \
+    --output-version=<object_type_version> \
+    -o <object_type_format>
+----
+
+=======
+== Application Modification Operations
+
+=== get
+Return a list of objects for the specified xref:object-types[object type]. If
+the optional `<object_name>` is included in the request, then the list of
+results is filtered by that value.
+
+----
+$ oc get <object_type> [<object_name>]
 ----
 
 You can use the `-o` or `--output` option to modify the output format.
@@ -221,6 +331,7 @@ $ oc edit <object_type>/<object_name> \
     -o <object_type_format>
 ----
 
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 === volume
 Modify a xref:../dev_guide/volumes.adoc#dev-guide-volumes[volume]:
 ----
@@ -382,6 +493,7 @@ $ oc start-build --from-file=<file_URL>
 ----
 
 Download an archive and use its contents as the build source:
+<<<<<<< HEAD
 
 ----
 $ oc start-build --from-archive=<archive_URL>
@@ -409,6 +521,35 @@ $ oc start-build --git-post-receive=<contents>
 The path to the Git repository for post-receive; defaults to the current
 directory:
 
+=======
+
+----
+$ oc start-build --from-archive=<archive_URL>
+----
+
+The path to a local source code repository to use as the binary input for a
+build:
+
+----
+$ oc start-build --from-repo=<path_to_repo>
+----
+
+Specify a webhook URL for an existing build configuration to trigger:
+
+----
+$ oc start-build --from-webhook=<webhook_URL>
+----
+
+The contents of the post-receive hook to trigger a build:
+
+----
+$ oc start-build --git-post-receive=<contents>
+----
+
+The path to the Git repository for post-receive; defaults to the current
+directory:
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 $ oc start-build --git-repository=<path_to_repo>
 ----
@@ -601,6 +742,10 @@ Configure xref:../dev_guide/secrets.adoc#dev-guide-secrets[secrets]:
 $ oc secrets [--options] path/to/ssh_key
 ----
 
+<<<<<<< HEAD
+=======
+[[autoscale]]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 === autoscale
 Setup an xref:../dev_guide/pod_autoscaling.adoc#dev-guide-pod-autoscaling[autoscaler] for your
 application. Requires metrics to be enabled in the cluster.

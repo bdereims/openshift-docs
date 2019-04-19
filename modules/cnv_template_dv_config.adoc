@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 // Module included in the following assemblies:
 //
 // * cnv_users_guide/cnv_users_guide.adoc
 
 [[template-dv-vm-configuration-file]]
 = Template: VM configuration file (DataVolume)
+=======
+[[template-dv-vm-configuration-file]]
+=== Template: VM configuration file (DataVolume)
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 *example-vm-dv.yaml*
 
@@ -52,4 +57,8 @@ spec:
       - dataVolume:
           name: example-dv
         name: example-dv-disk
+<<<<<<< HEAD
 ----
+=======
+----
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

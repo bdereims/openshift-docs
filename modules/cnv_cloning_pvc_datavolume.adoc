@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 // Module included in the following assemblies:
 //
 // * cnv_users_guide/cnv_users_guide.adoc
 
 [[clone-vm-datavolume]]
 = Cloning the PVC of an existing virtual machine disk
+=======
+[[clone-vm-datavolume]]
+=== Cloning the PVC of an existing virtual machine disk
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 You can clone a PVC of an existing virtual machine disk into a new DataVolume. The new DataVolume can then be used for a new virtual machine.
 

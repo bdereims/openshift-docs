@@ -11,7 +11,12 @@
 toc::[]
 {nbsp} +
 The {product-title} distribution of Kubernetes includes the
+<<<<<<< HEAD
 Kubernetes v1 REST API and the OpenShift v1 REST API. These are RESTful APIs accessible via HTTP(s) on the
+=======
+Kubernetes v1 REST
+API and the OpenShift v1 REST API. These are RESTful APIs accessible via HTTP(s) on the
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} master servers.
 
 These REST APIs can be used to manage end-user applications, the cluster, and
@@ -42,7 +47,11 @@ command:
 ----
 $ oc login -u test_user
 Using project "test".
+<<<<<<< HEAD
 $ oc whoami -t
+=======
+$ oc whoami --token
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 dIAo76N-W-GXK3S_w_KsC6DmH3MzP79zq7jbMQvCOUo
 ----
 

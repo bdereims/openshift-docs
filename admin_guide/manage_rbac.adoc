@@ -19,12 +19,22 @@ resources] and the administrator CLI to manage the
 xref:../architecture/additional_concepts/authorization.adoc#architecture-additional-concepts-authorization[roles
 and bindings].
 
+<<<<<<< HEAD
+=======
+ifdef::atomic-registry[]
+The web console also provides management of RBAC resources.
+endif::[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ifdef::openshift-dedicated[]
 Dedicated administrators can view but not manage cluster roles. They can manage cluster role bindings
 and manage local roles and bindings.
 endif::[]
 
+<<<<<<< HEAD
 [[viewing-roles-and-bindings]]
+=======
+[[viewing-roles--and-bindings]]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 == Viewing roles and bindings
 
 xref:../architecture/additional_concepts/authorization.adoc#roles[Roles] can be used to grant
@@ -44,7 +54,11 @@ xref:../architecture/additional_concepts/authorization.adoc#roles[default cluste
 bound locally can manage roles and bindings in that project.
 endif::[]
 
+<<<<<<< HEAD
 ifdef::openshift-enterprise,openshift-origin[]
+=======
+ifdef::openshift-enterprise,openshift-origin,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Users with the *cluster-admin*
 xref:../architecture/additional_concepts/authorization.adoc#roles[default cluster role]
 bound cluster-wide can perform any action on any resource. Users with the
@@ -497,8 +511,17 @@ endif::[]
 All of the
 xref:../architecture/additional_concepts/authorization.adoc#roles[default
 cluster roles] can be bound locally to users or groups.
+<<<<<<< HEAD
 xref:creating-local-role[Custom local roles] can be created. The local role
 bindings are also viewable.
+=======
+
+ifdef::openshift-enterprise,openshift-origin,atomic-registry[]
+xref:creating-local-role[Custom local roles] can be created.
+endif::openshift-enterprise,openshift-origin,atomic-registry[]
+
+The local role bindings are also viewable.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 To view the current set of local role bindings, which show the users and groups
 that are bound to various roles:
@@ -610,7 +633,11 @@ not specified, then the current project is used.
 
 |===
 
+<<<<<<< HEAD
 ifdef::openshift-enterprise,openshift-origin[]
+=======
+ifdef::openshift-enterprise,openshift-origin,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 You can also manage cluster role bindings using the following
 operations. The `-n` flag is not used for these operations because
@@ -705,7 +732,11 @@ Subjects:
 <1> The *alice* user has been added to the *admins* `*RoleBinding*`.
 
 
+<<<<<<< HEAD
 ifdef::openshift-enterprise,openshift-origin[]
+=======
+ifdef::openshift-enterprise,openshift-origin,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[creating-local-role]]
 == Creating a local role
 

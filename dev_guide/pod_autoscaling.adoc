@@ -83,6 +83,10 @@ of the replication controller. For deployment configurations, scaling correspond
 directly to the replica count of the deployment configuration. Note that autoscaling
 applies only to the latest deployment in the `Complete` phase.
 
+<<<<<<< HEAD
+=======
+ifdef::openshift-enterprise,openshift-origin[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} automatically accounts for resources and prevents unnecessary autoscaling
 during resource spikes, such as during start up. Pods in the `unready` state
 have `0 CPU` usage when scaling up and the autoscaler ignores the pods when scaling down.
@@ -90,6 +94,12 @@ Pods without known metrics have `0% CPU` usage when scaling up and `100% CPU` wh
 This allows for more stability during the HPA decision. To use this feature, you must configure
 xref:../dev_guide/application_health.adoc#dev-guide-application-health[readiness
 checks] to determine if a new pod is ready for use.
+<<<<<<< HEAD
+=======
+
+endif::openshift-enterprise,openshift-origin[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[creating-a-hpa]]
 == Autoscaling for CPU Utilization
@@ -182,6 +192,7 @@ autoscaling API. Enable memory-based autoscaling by adding the following to your
 cluster's `master-config.yaml` file:
 +
 [source,bash]
+<<<<<<< HEAD
 ----
 ...
 apiServerArguments:
@@ -189,6 +200,15 @@ apiServerArguments:
   - apis/autoscaling/v2beta1=true
 ...
 ----
+=======
+----
+...
+apiServerArguments:
+  runtime-config:
+  - apis/autoscaling/v2beta1=true
+...
+----
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 . Place the following in a file, such as `hpa.yaml`:
 +

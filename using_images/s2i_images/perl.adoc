@@ -84,8 +84,12 @@ endif::openshift-online[]
 [[s2i-images-perl-build-process]]
 == Build Process
 include::using_images/s2i_images/topics/build_process.adoc[]
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
+[[configuration]]
 == Configuration
 The Perl image supports a number of environment variables which can be set to
 control the configuration and behavior of the Perl runtime.

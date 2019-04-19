@@ -18,9 +18,15 @@ toc::[]
 
 {nbsp} +
 This guide walks through an example of building a simple Memcached Operator
+<<<<<<< HEAD
 (`memcached-operator`) using the `operator-sdk` CLI tool and
 `controller-runtime` library API. It also shows how to manage the new Operator's
 lifecycle from installation through updating to a new version.
+=======
+(`memcached-operator`) using tools and libraries provided by the Operator SDK,
+and shows how to manage the new Operator's lifecycle from installation through
+updating to a new version.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 As an administrator of a Kubernetes-based cluster, you can accomplish this using
 two centerpieces of the Operator Framework:
@@ -38,7 +44,10 @@ include::modules/installing-operator-sdk-cli.adoc[leveloffset=+1]
 include::modules/building-memcached-operator-using-osdk.adoc[leveloffset=+1]
 include::modules/managing-memcached-operator-using-olm.adoc[leveloffset=+1]
 
+<<<<<<< HEAD
 ifdef::openshift-origin[]
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 == Getting involved
 
 This guide provides an effective demonstration of the value of the Operator
@@ -52,4 +61,12 @@ If you want to discuss your experience, have questions, or want to get involved,
 join the
 link:https://groups.google.com/forum/#!forum/operator-framework[Operator
 Framework mailing list].
+<<<<<<< HEAD
 endif::[]
+=======
+
+== Appendices
+
+[discrete]
+include::modules/operator-project-staffolding-layout.adoc[leveloffset=+2]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

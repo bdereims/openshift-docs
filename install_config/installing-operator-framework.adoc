@@ -112,5 +112,9 @@ Get in touch with the team by emailing openshift-operators@redhat.com.
 == Appendices
 
 [discrete]
+<<<<<<< HEAD
 include::modules/operator-project-staffolding-layout.adoc[leveloffset=+2]
+=======
+ include::modules/operator-project-staffolding-layout.adoc[leveloffset=+2]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ////

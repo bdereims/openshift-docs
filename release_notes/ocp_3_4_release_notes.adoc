@@ -32,7 +32,11 @@ security, privacy, compliance, and governance requirements.
 Red Hat {product-title} version 3.4
 (link:https://access.redhat.com/errata/RHBA-2017:0066[RHBA-2017:0066]) is now
 available. This release is based on
+<<<<<<< HEAD
 link:https://github.com/openshift/origin/releases/tag/v1.4.0[OpenShift Origin 1.4]. New features, changes, bug fixes, and known issues that pertain to
+=======
+link:https://github.com/openshift/origin/releases/tag/v1.4.0-rc1[OpenShift Origin 1.4]. New features, changes, bug fixes, and known issues that pertain to
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} 3.4 are included in this topic.
 
 For initial installations, see the
@@ -208,7 +212,11 @@ policy. The most-specific path wins; for example, `bar.foo.com` is matched
 before `foo.com`.
 
 See
+<<<<<<< HEAD
 xref:../architecture/core_concepts/routes.adoc#wildcard-subdomain-route-policy[Creating Routes Specifying a Wildcard Subdomain Policy] and
+=======
+xref:../architecture/networking/routes.adoc#wildcard-subdomain-route-policy[Creating Routes Specifying a Wildcard Subdomain Policy] and
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 xref:../install_config/router/default_haproxy_router.adoc#using-wildcard-routes[Using Wildcard Routes (for a Subdomain)] for more details.
 
 [[ocp-34-installation]]
@@ -768,7 +776,11 @@ This fix addresses the JavaScript bug and the HTML page is refreshed after delet
 
 * A bug in the processing of Apache Camel routes defined in XML caused an error in the Apache Camel application. This bug fix corrected the XML by adding expected namespaces, resolving the error in the Apache Camel application. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1401511[*BZ#1401511*])
 
+<<<<<<< HEAD
 * On the Web Console's *BuildConfig* edit screen, the *Learn more* link next to *Triggers* gave a 404 Not Found error. The help link in the console contained the .org suffix instead of .com, therefore the build triggers help link would return a 404 because the requested page did not exist under the link:https://docs.okd.io[] website. In the bug fix, the help link was updated to the correct URL. The help link now loads the correct help documentation for OpenShift Container Platform. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1390890[*BZ#1390890*])
+=======
+* On the Web Console's *BuildConfig* edit screen, the *Learn more* link next to *Triggers* gave a 404 Not Found error. The help link in the console contained the .org suffix instead of .com, therefore the build triggers help link would return a 404 because the requested page did not exist under the link:https://docs.openshift.org[] website. In the bug fix, the help link was updated to the correct URL. The help link now loads the correct help documentation for OpenShift Container Platform. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1390890[*BZ#1390890*])
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * A bug in the JavaScript code prevented the profile page from showing expected content. The bug was fixed and the profile page displays the expected content. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1392341[*BZ#1392341*])
 
@@ -861,13 +873,20 @@ The following features that were formerly in Technology Preview from a previous
 - xref:../dev_guide/builds/build_strategies.adoc#extended-builds[Extended Builds]
 - xref:../dev_guide/secrets.adoc#service-serving-certificate-secrets[Service Serving Certificate Secrets]
 - xref:ocp-34-dynamic-storage-provisioning[Dynamic Storage Provisioning]
+<<<<<<< HEAD
 - xref:../architecture/core_concepts/containers_and_images.adoc#init-containers[Init containers]
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The following features that were formerly in Technology Preview from a previous
 {product-title} release remain in Technology Preview:
 
+<<<<<<< HEAD
 - xref:../dev_guide/scheduled_jobs.adoc#dev-guide-scheduled-jobs[Cron Jobs]
+=======
+- xref:../dev_guide/scheduled_jobs.adoc#dev-guide-scheduled-jobs[Scheduled Jobs]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 
 [[ocp-34-known-issues]]
@@ -940,8 +959,11 @@ xref:../install_config/upgrading/index.adoc#install-config-upgrading-index[upgra
 [[ocp-3-4-0-40]]
 === RHBA-2017:0186 - {product-title} 3.4.0.40 Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2017-01-24
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.4.0.40 is now available. The list of packages and bug
 fixes included in the update are documented in the
 link:https://access.redhat.com/errata/RHBA-2017:0186[RHBA-2017:0186] advisory.
@@ -965,8 +987,11 @@ link:https://access.redhat.com/solutions/2887651[]
 [[ocp-3-4-1-2]]
 === RHBA-2017:0218 - {product-title} 3.4.1.2 Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2017-01-31
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.4.1.2 is now available. The list of packages and bug
 fixes included in the update are documented in the
 link:https://access.redhat.com/errata/RHBA-2017:0218[RHBA-2017:0218] advisory.
@@ -1049,8 +1074,11 @@ This release fixes bugs for the following components:
 [[ocp-3-4-1-5]]
 === RHBA-2017:0268 - {product-title} 3.4.1.5 Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2017-02-09
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.4.1.5 is now available. The list of packages and bug
 fixes included in the update are documented in the
 link:https://access.redhat.com/errata/RHBA-2017:0268[RHBA-2017:0268] advisory.
@@ -1073,8 +1101,11 @@ link:https://access.redhat.com/solutions/2887651[]
 [[ocp-3-4-1-7]]
 === RHBA-2017:0289 - {product-title} 3.4.1.7 Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2017-02-22
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.4.1.7 is now available. The list of packages and bug
 fixes included in the update are documented in the
 link:https://access.redhat.com/errata/RHBA-2017:0289[RHBA-2017:0289] advisory.
@@ -1129,8 +1160,11 @@ This release fixes bugs for the following components:
 [[ocp-3-4-rhsa-2017-0448]]
 === RHSA-2017:0448 - ansible and openshift-ansible Security and Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2017-03-06
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} security and bug fix advisory
 link:https://access.redhat.com/errata/RHSA-2017:0448[RHSA-2017:0448], providing
 updated *atomic-openshift-utils*, *ansible*, and *openshift-ansible* packages
@@ -1183,8 +1217,11 @@ This release fixes bugs for the following components:
 [[ocp-3-4-1-10]]
 === RHBA-2017:0512 - {product-title} 3.4.1.10 Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2017-03-15
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.4.1.10 is now available. The list of packages and bug
 fixes included in the update are documented in the
 link:https://access.redhat.com/errata/RHBA-2017:0512[RHBA-2017:0512] advisory.
@@ -1247,7 +1284,11 @@ a user that does. You can also run the following command as a user with
 `cluster-admin` permissions to give another user enough permission:
 
 ----
+<<<<<<< HEAD
 $ oadm policy add-cluster-role-to-user registry-viewer <user>
+=======
+$ oc adm policy add-cluster-role-to-user registry-viewer <user>
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 
 The script does not apply any changes unless the `-a` option is included. Run
@@ -1292,8 +1333,11 @@ This release fixes bugs for the following components:
 [[ocp-3-4-1-12]]
 === RHBA-2017:0865 - {product-title} 3.4.1.12 Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2017-04-04
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.4.1.12 is now available. The list of packages and bug
 fixes included in the update are documented in the
 link:https://access.redhat.com/errata/RHBA-2017:0865[RHBA-2017:0865] advisory.
@@ -1309,6 +1353,7 @@ base image, where applicable.
 To upgrade an existing {product-title} 3.3 or 3.4 cluster to this latest release, use the
 automated upgrade playbook. See
 xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing Automated In-place Cluster Upgrades] for instructions.
+<<<<<<< HEAD
 
 [[ocp-3-4-1-16]]
 === RHBA-2017:0989 - {product-title} 3.4.1.16 Bug Fix Update
@@ -1905,3 +1950,5 @@ link:https://access.redhat.com/errata/RHBA-2018:3751[RHBA-2018:3751] advisory.
 To upgrade an existing {product-title} 3.3 or 3.4 cluster to this latest
 release, use the automated upgrade playbook. See
 xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing Automated In-place Cluster Upgrades] for instructions.
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

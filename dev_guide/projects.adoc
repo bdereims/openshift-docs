@@ -116,9 +116,15 @@ overview] for that project.
 
 Clicking on the kebab menu for a particular project presents you with the
 following options:
+<<<<<<< HEAD
 
 image::3-7-project-kebab-options.png[Project Kebab Menu]
 
+=======
+
+image::3-7-project-kebab-options.png[Project Kebab Menu]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[check-project-status]]
 == Checking Project Status
 
@@ -167,6 +173,7 @@ image::3.7-overview-filter-by-label-value.png["Web Console Filter Step 3"]
 or by clicking individual filters to remove them:
 +
 image::3.7-clear-filter.png[Clear filters]
+<<<<<<< HEAD
 
 [[web-console-bookmarking-page-states]]
 == Bookmarking Page States
@@ -178,6 +185,24 @@ other settings.
 
 When you do something to change the page's state, like switching between tabs,
 the URL in the browser's navigation bar is automatically updated.
+=======
+
+ifdef::openshift-enterprise[]
+
+[[web-console-bookmarking-page-states]]
+== Bookmarking Page States
+
+The {product-title}
+xref:../architecture/infrastructure_components/web_console.adoc#architecture-infrastructure-components-web-console[web
+console] now bookmarks page states, which is helpful in saving label filters and
+other settings.
+
+When you do something to change the page's state, like switching between tabs,
+the URL in the browser's navigation bar is automatically updated.
+
+endif::openshift-enterprise[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[delete-a-project]]
 
@@ -223,7 +248,11 @@ within the project.
 === Adding Collaborators
 {product-title} Pro subscribers can add collaborators by following these steps:
 
+<<<<<<< HEAD
 . Each user you want to add as a collaborator must create an account at
+=======
+. Each user you want to add as a collaborator must create a free account at
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
  link:https://developers.redhat.com/[developers.redhat.com]. Once your
  collaborator has confirmed their Red Hat Developers account, you can add them
  to your subscription.

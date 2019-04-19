@@ -8,6 +8,10 @@
 :toc: macro
 :toc-title:
 
+<<<<<<< HEAD
+=======
+ifdef::openshift-enterprise[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[introduction]]
 
 == Introduction
@@ -32,6 +36,11 @@ _Think_ of OpenShift as an operating system, images as applications that you run
 on them, and the containers as the actual running instances of those
 applications.
 
+<<<<<<< HEAD
+=======
+endif::[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ifdef::openshift-origin,openshift-enterprise,openshift-dedicated[]
 
 If you already have {product-title} installed, find the appropriate topic based

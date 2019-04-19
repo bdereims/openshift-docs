@@ -1,5 +1,9 @@
 [[configuring-masquerade]]
+<<<<<<< HEAD
 = Configuring masquerade mode
+=======
+=== Configuring masquerade mode
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 You can use masquerade mode to hide a virtual machine's outgoing traffic behind
 the pod IP address. Masquerade mode uses Network Address Translation (NAT) to
@@ -32,4 +36,8 @@ spec:
     pod: {}
 ----
 <1> Connect using masquerade mode
+<<<<<<< HEAD
 <2> Allow incoming traffic on port 80
+=======
+<2> Allow incoming traffic on port 80
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 // Module included in the following assemblies:
 //
 // * cnv_users_guide/cnv_users_guide.adoc
 
 [[ovs]]
 = Using an Open vSwitch bridge as the network source for a VM
+=======
+[[ovs]]
+=== Using an Open vSwitch bridge as the network source for a VM
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 With {ProductName}, you can connect a virtual machine
 instance to an Open vSwitch bridge that is configured on the node.

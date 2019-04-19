@@ -18,8 +18,13 @@ security. For information on pod-level security in general, see
 xref:../../admin_guide/manage_scc.adoc#admin-guide-manage-scc[Managing Security Context Constraints
 (SCC)] and the
 xref:../../architecture/additional_concepts/authorization.adoc#security-context-constraints[Security
+<<<<<<< HEAD
 Context Constraint] concept topic. For information on the {product-title}
 persistent volume (PV) framework in general, see the
+=======
+Context Constraint] concept topic. For information on the {product-title} persistent
+volume (PV) framework in general, see the
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 xref:../../architecture/additional_concepts/storage.adoc#architecture-additional-concepts-storage[Persistent Storage]
 concept topic.
 
@@ -128,8 +133,13 @@ metadata:
 ----
 <1> Name of the SCC that the pod used (in this case, a custom SCC).
 <2> Name of the pod.
+<<<<<<< HEAD
 <3> Name of the project. "Namespace" is interchangeable with "project" in
 {product-title}. See
+=======
+<3> Name of the project. "Namespace" is interchangeable with "project" in {product-title}.
+See
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 xref:../../architecture/core_concepts/projects_and_users.adoc#namespaces[Projects
 and Users] for details.
 ====

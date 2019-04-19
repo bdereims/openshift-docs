@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 // Module included in the following assemblies:
 //
 // * cnv_install/cnv_install.adoc
 
 [[install_cnv]]
 = Installing {ProductName} to {product-title}
+=======
+[[install_cnv]]
+=== Installing {ProductName} to {product-title}
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The `kubevirt-ansible` RPM contains the latest automation for deploying
 {ProductName}. This procedure installs all {ProductName} components to your
@@ -66,4 +71,8 @@ $ ansible-playbook -i <inventory_file> -e @vars/cnv.yml playbooks/kubevirt.yml \
 
 . Verify the installation by navigating to the web console at
 `kubevirt-web-ui.your.app.subdomain.host.com`. Log in by using your
+<<<<<<< HEAD
 {product-title} credentials.
+=======
+{product-title} credentials.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

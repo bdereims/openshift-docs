@@ -33,9 +33,15 @@ The tutorial assumes that you have:
 [[bw-setup]]
 == Setup
 
+<<<<<<< HEAD
 In this section, you will _fork_ the {product-title} Node.js sample application
 on GitHub and clone the repository to your local machine so that you can deploy
 and edit the application.
+=======
+In this section, you will _fork_ the OpenShift Node.js sample application on GitHub
+and clone the repository to your local machine so that you can deploy and edit
+the app.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 . On GitHub, navigate to the
 https://github.com/sclorg/nodejs-ex[*openshift/nodejs-ex*] repository. In the

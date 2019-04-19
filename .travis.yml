@@ -16,12 +16,20 @@ install:
 
 script:
  - python build.py --distro openshift-enterprise --product "OpenShift Container Platform" --version 3 --no-upstream-fetch
+<<<<<<< HEAD
  - if [ "$TRAVIS_BRANCH" == "enterprise-3.11" ]; then python build.py --distro openshift-online --product "OpenShift Container Platform" --version 3 --no-upstream-fetch; fi
  - if [ "$TRAVIS_BRANCH" == "enterprise-3.11" ]; then python build.py --distro openshift-dedicated --product "OpenShift Container Platform" --version 3 --no-upstream-fetch; fi
+=======
+ - if [ "$TRAVIS_BRANCH" == "enterprise-3.9" ] || [ "$TRAVIS_BRANCH" == "enterprise-3.10" ]; then python build.py --distro openshift-online --product "OpenShift Container Platform" --version 3 --no-upstream-fetch; fi
+ - if [ "$TRAVIS_BRANCH" == "enterprise-3.7" ] || [ "$TRAVIS_BRANCH" == "enterprise-3.9" ] || [ "$TRAVIS_BRANCH" == "enterprise-3.10" ]; then python build.py --distro openshift-dedicated --product "OpenShift Container Platform" --version 3 --no-upstream-fetch; fi
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
  - python makeBuild.py
 
 after_success:
  - bash autopreview.sh
+<<<<<<< HEAD
 
 after_failure:
  - bash autocomment.sh
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

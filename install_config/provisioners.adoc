@@ -34,6 +34,10 @@ independently of {product-title}.
 
 [[provisioners-before-you-begin]]
 == Before You Begin
+<<<<<<< HEAD
+=======
+An link:https://github.com/openshift/openshift-ansible/blob/master/playbooks/openshift-provisioners/config.yml[Ansible Playbook] is also available to deploy and upgrade external provisioners.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [NOTE]
 ====
@@ -66,10 +70,16 @@ which the `install` variable is `true`.
 |If `true`, deploy all provisioners that have their respective `install` variables set as `true`, otherwise, remove them.
 
 |`openshift_provisioners_image_prefix`
+<<<<<<< HEAD
 |The prefix for the component images.
 ifdef::openshift-origin[]
 For example, with `openshift/origin-efs-provisioner:v1.0.0`, set prefix
 `openshift/origin-`.
+=======
+|The prefix for the component images. For example, with
+ifdef::openshift-origin[]
+`openshift/origin-efs-provisioner:v1.0.0`, set prefix `openshift/origin-`.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 endif::[]
 ifdef::openshift-enterprise[]
 Defaults to `registry.redhat.io/openshift3/`, set it to a different
@@ -77,6 +87,7 @@ value if you are using an alternative registry.
 endif::[]
 
 |`openshift_provisioners_image_version`
+<<<<<<< HEAD
 |The version for the component images.
 ifdef::openshift-origin[]
 For example, with `openshift/origin-efs-provisioner:v1.0.0`, set version  as
@@ -84,6 +95,14 @@ For example, with `openshift/origin-efs-provisioner:v1.0.0`, set version  as
 endif::[]
 ifdef::openshift-enterprise[]
 Defaults to `latest`.
+=======
+|The version for the component images. For example, with
+ifdef::openshift-origin[]
+`openshift/origin-efs-provisioner:v1.0.0`, set version  as `v1.0.0`.
+endif::[]
+ifdef::openshift-enterprise[]
+`openshift3/efs-provisioner:v3.6`, set version as `v3.6`.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 endif::[]
 
 |`openshift_provisioners_project`

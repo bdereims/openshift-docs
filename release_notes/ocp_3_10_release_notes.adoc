@@ -31,10 +31,18 @@ governance requirements.
 Red Hat {product-title} version 3.10
 (link:https://access.redhat.com/errata/RHBA-2018:1816[RHBA-2018:1816]) is now
 available. This release is based on
+<<<<<<< HEAD
 link:https://github.com/openshift/origin/releases/tag/v3.10.0-rc.0[OKD 3.10] and it uses Kubernetes 1.10. New features, changes, bug fixes, and
 known issues that pertain to {product-title} 3.10 are included in this topic.
 
 {product-title} 3.10 is supported on RHEL 7.4 and later with the latest packages
+=======
+link:https://github.com/openshift/origin/releases/tag/v3.10.0-rc.0[OpenShift
+Origin 3.10] and it uses Kubernetes 1.10. New features, changes, bug fixes, and
+known issues that pertain to {product-title} 3.10 are included in this topic.
+
+{product-title} 3.10 is supported on RHEL 7.4 and 7.5 with the latest packages
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 from Extras, including Docker 1.13. It is also supported on Atomic Host 7.4.5
 and newer. The *docker-latest* package is now deprecated.
 
@@ -103,7 +111,11 @@ and container name match).
 *** Execute a command inside the container to support the backup of etcd. Use these sparingly.
 
 See xref:ocp-310-containerized-installation-removed[Containerized Installation
+<<<<<<< HEAD
 Method Support Changes] and xref:ocp-310-control-plane-changes[Control Plane as Static
+=======
+Method Removed] and xref:ocp-310-control-plane-changes[Control Plane as Static
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Pods] for more information.
 
 *Debugging Tips*
@@ -245,7 +257,11 @@ Technology Preview feature has tested EBS and HostPath. The tenant must stop the
 pods and start them manually.
 
 . The administrator runs an external provisioner for the cluster. These are images
+<<<<<<< HEAD
 from the Red Hat Container Catalog.
+=======
+from the Red hat Container Catalog.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 . The tenant made a PVC and owns a PV from one of the supported storage
 solutions.The administrator must create a new `StorageClass` in the cluster with:
@@ -287,6 +303,32 @@ spec:
   storageClassName: snapshot-promoter
 ----
 
+<<<<<<< HEAD
+=======
+[[ocp-310-arbiter-volume-support]]
+==== Arbiter Volume Support by Red Hat OpenShift Container Storage
+
+In {product-title} 3.10, there is Arbiter Volume Support by Red Hat OpenShift
+Container Storage (RHOCS), xref:ocp-310-CNS-is-now-RHOCS[formerly called CNS].
+
+There is a new volume type (2 replicas + 1 metadata brick).  Arbiter volume is a
+3-way replicated volume where every third replica is copied metadata. Arbiter
+nodes can be daisy chained or dedicated.
+
+Arbiter volume can be created using the Heketi CLI or by updating the
+*_storageclass_* file:
+
+----
+heketi-cli volume create --size=4 --gluster-volumeoptions='user.heketi.arbiter true'
+----
+
+Storage Class Volume Options:
+
+----
+volumeoptions: "user.heketi.arbiter true,user.heketi.average-file-size 1024"
+----
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[ocp-310-scale]]
 === Scale
 
@@ -562,8 +604,11 @@ Podman is a daemon-less CLI/API for running, managing, and debugging OCI contain
 * Has remote management API via Varlink.
 * Provides systemd integration and advanced namespace isolation.
 
+<<<<<<< HEAD
 For more information, see link:https://blog.openshift.com/crictl-vs-podman/[Crictl Vs Podman].
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[ocp-310-metrics-and-logging]]
 === Metrics and Logging
 
@@ -869,6 +914,7 @@ pending certificates).
 
 [discrete]
 [[ocp-310-containerized-installation-removed]]
+<<<<<<< HEAD
 ==== Containerized Installation Method Support Changes
 
 Documentation for previous versions of {product-title} referred to the
@@ -891,6 +937,18 @@ These containerized installation methods are now the only supported methods for
 their respective RHEL variants, and the former method (where {product-title}
 components run as standard container images) has been removed and is no longer
 supported starting in 3.10.
+=======
+==== Containerized Installation Method Removed
+
+The containerized installation method for OpenShift Container Platform (where
+components run as standard container images) has been removed and is no longer
+supported starting in 3.10. The 3.10 upgrade migrates RHEL Server hosts to the
+RPM-based method and RHEL Atomic Hosts to the system container-based method (for
+the node service only), which are the only supported methods for the respective
+RHEL variants. If you upgrade from {product-title} 3.9 to 3.10 and standalone
+etcd was run as containerized on RHEL, then the installation will remain
+containerized after the upgrade.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [discrete]
 ===== Why?
@@ -1067,7 +1125,11 @@ removed in a future release, so it is recommended that you switch to
 === batch/v2alpha1 API Version No Longer Served by Default
 
 The `batch/v2alpha1` API version is no longer served by default. If required, it
+<<<<<<< HEAD
 can be re-enabled in the *_master-config.yaml_* file with this configuration:
+=======
+can be re-enabled with this configuration:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ----
 kubernetesMasterConfig:
@@ -1797,10 +1859,17 @@ features marked *GA* indicate _General Availability_.
 |Dropped
 |-
 
+<<<<<<< HEAD
 |xref:../install/running_install.adoc#running-the-advanced-installation-system-container[Installing from a system container]
 |TP
 |GA
 |GA
+=======
+|xref:../install/running_install.adoc#running-the-advanced-installation-system-container[System Container for installer and Kubelet]
+|TP
+|GA
+|Dropped
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 |Hawkular Agent
 |Dropped
@@ -1957,6 +2026,7 @@ xref:../upgrading/downgrade.adoc#install-config-downgrade[Downgrading OpenShift]
 documentation, an issue was found with the steps for restoring etcd. The
 document has since been updated and this is no longer an issue.
 
+<<<<<<< HEAD
 * {product-title} 3.10 adds the ability for multiple instances of an APB to be
 invoked in the same namespace. This new ability requires relying on a globally
 unique identifier (GUID) for each instance. While instances deployed by an 3.9
@@ -1985,6 +2055,8 @@ xref:../install_config/oab_broker_configuration.adoc#install-config-oab-modifyin
 (link:https://bugzilla.redhat.com/show_bug.cgi?id=1586108[*BZ#1586108*])
 --
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[ocp-310-asynchronous-errata-updates]]
 == Asynchronous Errata Updates
 
@@ -2020,6 +2092,7 @@ For any {product-title} release, always review the instructions on
 xref:../upgrading/index.adoc#install-config-upgrading-index[upgrading your cluster] properly.
 ====
 
+<<<<<<< HEAD
 [[ocp-3-10-34]]
 === RHBA-2018:2376 - {product-title} 3.10.34 Bug Fix and Enhancement Update
 
@@ -2502,10 +2575,30 @@ secret, or explicitly specify the base image in the buildconfig.
 (link:https://bugzilla.redhat.com/show_bug.cgi?id=1648775[*BZ#1648775*])
 
 [[ocp-3-10-83-upgrading]]
+=======
+////
+[[ocp-3-10-x]]
+=== Async Update 1
+
+Issued: 2018-XX-XX
+
+{product-title} release 3.10.x is now available. The packages and bug fixes
+included in the update are documented in the
+link:https://access.redhat.com/errata/RHBA-2018:1566[RHBA-2018:1566] advisory.
+The container images included in the update are provided by the
+link:https://access.redhat.com/errata/RHBA-2018:1567[RHBA-2018:1567] advisory.
+
+Space precluded documenting all of the bug fixes and images for this release in
+the advisory. See the following sections for notes on upgrading and details on
+the bug fixes and images included in this release.
+
+[[ocp-3-10-x-upgrading]]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ==== Upgrading
 
 To upgrade an existing {product-title} 3.9 or 3.10 cluster to this latest
 release, use the automated upgrade playbook. See
+<<<<<<< HEAD
 xref:../upgrading/automated_upgrades.adoc#install-config-upgrading-automated-upgrades[Performing
 Automated In-place Cluster Upgrades] for instructions.
 
@@ -2721,3 +2814,11 @@ To upgrade an existing {product-title} 3.9 or 3.10 cluster to this latest
 release, use the automated upgrade playbook. See
 xref:../upgrading/automated_upgrades.adoc#install-config-upgrading-automated-upgrades[Performing
 Automated In-place Cluster Upgrades] for instructions.
+=======
+xref:../upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing
+Automated In-place Cluster Upgrades] for instructions.
+
+[[ocp-3-10-x-bug-fixes]]
+==== Bug Fixes
+////
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

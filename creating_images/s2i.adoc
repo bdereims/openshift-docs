@@ -229,6 +229,10 @@ Therefore you should ensure that your S2I builder image either does not contain
 `ONBUILD` instructions, or ensure that it has the necessary `sh` and `tar` binary
 prerequisites.
 
+<<<<<<< HEAD
+=======
+[[external-references]]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 == External References
 * link:https://blog.openshift.com/create-s2i-builder-image/[S2I Image Creation Tutorial]
 * link:https://github.com/openshift/source-to-image[S2I Project Repository]

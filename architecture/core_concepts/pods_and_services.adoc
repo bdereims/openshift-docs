@@ -199,7 +199,11 @@ Once bound to a node, a pod will never be bound to another node. This means that
 | `Always`.
 
 |Pods that need to run one-per-machine
+<<<<<<< HEAD
 |xref:../../dev_guide/daemonsets.adoc#dev-guide-daemonsets[Daemonset]
+=======
+|Daemonset
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 |Any
 |===
 
@@ -213,13 +217,21 @@ applications need to handle temporary files, locks, incomplete output, and so fo
 For details on how {product-title} uses restart policy with failed containers, see
 the link:https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#example-states[Example States] in the Kubernetes documentation.
 
+<<<<<<< HEAD
+=======
+ifdef::openshift-enterprise,openshift-origin[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[pods-services-init-containers]]
 == Init Containers
 
 An link:https://kubernetes.io/docs/concepts/workloads/pods/init-containers/[init container] is a container in a pod that is started before the pod app containers are started. Init containers can share volumes, perform network operations, and perform computations before the remaining containers start. Init containers can also block or delay the startup of application containers until some precondition is met.
 
 When a pod starts, after the network and volumes are initialized, the init containers are started in order. Each init container must exit successfully before the next is invoked. If an init container fails to start (due to the runtime) or exits with failure, it is retried according to the pod
+<<<<<<< HEAD
 xref:../../architecture/core_concepts/pods_and_services.adoc#admin-manage-pod-restart[restart policy].
+=======
+xref:admin-manage-pod-restart[restart policy].
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 A pod cannot be ready until all init containers have succeeded.
 
@@ -261,6 +273,11 @@ Each init container has all of the xref:example-pod-definition[fields of an app 
 
 Init containers can include xref:../../dev_guide/jobs.adoc#jobs-setting-maximum-duration[`activeDeadlineSeconds`] on the pod and xref:../../dev_guide/application_health.adoc#container-health-checks-using-probes[`livenessProbe`] on the container to prevent init containers from failing forever. The active deadline includes init containers.
 
+<<<<<<< HEAD
+=======
+endif::openshift-enterprise,openshift-origin[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[services]]
 
 == Services
@@ -329,9 +346,13 @@ ifdef::openshift-enterprise,openshift-origin[]
 [[service-externalip]]
 === Service externalIPs
 
+<<<<<<< HEAD
 In addition to the cluster's internal IP addresses, the user can configure IP
 addresses that are external to the cluster. The administrator is responsible for
 ensuring that traffic arrives at a node with this IP.
+=======
+In addition to the cluster's internal IP addresses, the user can configure IP addresses that are external to the cluster. The administrator is responsible for ensuring that traffic arrives at a node with this IP.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The externalIPs must be selected by the cluster adminitrators from the
 *externalIPNetworkCIDRs* range configured in
@@ -420,7 +441,11 @@ ifdef::openshift-origin,openshift-enterprise[]
 
 Setting the service `type=NodePort` will allocate a port from a flag-configured range (default: 30000-32767), and each node will proxy that port (the same port number on every node) into your service.
 
+<<<<<<< HEAD
 The selected port will be reported in the service configuration, under [x-]`spec.ports[*].nodePort`.
+=======
+The selected port will be reported in the service configuration, under  `spec.ports[*].nodePort`.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 To specify a custom port just place the port number in the nodePort field. The custom port number must be in the configured range for nodePorts. When '*master-config.yaml*' is changed the master services must be restarted.
 
@@ -653,10 +678,15 @@ xref:../../dev_guide/integrating_external_services.adoc#dev-guide-integrating-ex
 the Endpoints object manually].
 
 Note that {product-title} will not let most users manually create an
+<<<<<<< HEAD
 Endpoints object that points to an IP address in
 xref:../../install_config/configuring_sdn.adoc#configuring-the-pod-network-on-masters[the
 network blocks reserved for pod and service IPs]. Only
 xref:../../architecture/additional_concepts/authorization.adoc#roles[cluster admins]
 or other users with xref:../../architecture/additional_concepts/authorization.adoc#evaluating-authorization[permission
+=======
+Endpoints object that points to an IP address in the network blocks reserved for pod and service IPs. Only cluster admins or other users with
+xref:../../architecture/additional_concepts/authorization.adoc#evaluating-authorization[permission
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 to `create` resources under `endpoints/restricted`] can create such
 Endpoint objects.

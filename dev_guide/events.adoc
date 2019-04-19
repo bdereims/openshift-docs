@@ -34,6 +34,7 @@ You can see events in your project from the web console from the *Browse* ->
 *Events* page. Many other objects, such as pods and deployments, have their own
 *Events* tab as well, which shows events related to that object.
 
+<<<<<<< HEAD
 ifdef::openshift-online[]
 [[failure-notifications]]
 == Failure Notifications
@@ -54,6 +55,18 @@ This section describes the events of {product-title}.
 |===
 | Name | Description
 
+=======
+[[events-reference]]
+== Comprehensive List of Events
+
+This section describes the events of {product-title}.
+
+.Configuration Events
+[cols="2,8",options="header"]
+|===
+| Name | Description
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 |`*FailedValidation*`
 |Failed pod configuration validation.
 |===

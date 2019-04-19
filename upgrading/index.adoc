@@ -14,7 +14,11 @@ toc::[]
 When new versions of {product-title} are released, you can upgrade your existing
 cluster to apply the latest enhancements and bug fixes.
 ifdef::openshift-origin[]
+<<<<<<< HEAD
 For OKD, see the
+=======
+For OpenShift Origin, see the
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 https://github.com/openshift/origin/releases[Releases page] on GitHub to review
 the latest changes.
 endif::[]

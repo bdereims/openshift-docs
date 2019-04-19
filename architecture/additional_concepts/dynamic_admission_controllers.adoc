@@ -403,11 +403,16 @@ Fail open can result in unpredictable behavior for all clients.
 [[architecture-additional-concepts-dynamic-admission-webhooks-writing]]
 === Create the Admission Webhook
 
+<<<<<<< HEAD
 To create an admission webhook, create an admission webhook object in {product-title}, 
 create a service, and add labels to the object you want acted upon by the admission webhook.
 
 Make sure the webhook and external webhook server are working properly. 
 Otherwise, depending whether the webhook is configured as `fail open` or 
+=======
+First deploy the external webhook server and ensure
+it is working properly. Otherwise, depending whether the webhook is configured as `fail open` or 
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 `fail closed`, operations will be unconditionally accepted or rejected. 
 
 . Configure a xref:architecture-additional-concepts-dynamic-admission-webhooks-ex-m[mutating] 

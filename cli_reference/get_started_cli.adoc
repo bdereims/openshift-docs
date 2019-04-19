@@ -17,6 +17,15 @@ lower level tools to interact with each component of your system. This topic
 guides you through getting started with the CLI, including installation and
 logging in to create your first project.
 
+<<<<<<< HEAD
+=======
+ifdef::atomic-registry[]
+[NOTE]
+Some sections of this document refer to OpenShift. {product-title} is
+based on OpenShift technology.
+endif::[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ifdef::openshift-enterprise,openshift-origin,openshift-dedicated[]
 [[cli-prereqs]]
 == Prerequisites
@@ -73,9 +82,15 @@ Hat Customer Portal]
 
 Alternatively, if the cluster administrator has enabled it, you can download and
 unpack the CLI from the *About* page on the web console.
+<<<<<<< HEAD
 
 *Tutorial Video:*
 
+=======
+
+*Tutorial Video:*
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 The following video walks you through this process:
 https://access.redhat.com/videos/2212891[Click here to watch]
 
@@ -87,7 +102,11 @@ The CLI for Windows is provided as a *_zip_* archive; you can download it from
 the *Command Line Tools* page on the web console.
 endif::[]
 
+<<<<<<< HEAD
 ifdef::openshift-origin[]
+=======
+ifdef::openshift-origin,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 The CLI for Windows is provided as a *_zip_* archive; you can download it from
 the https://github.com/openshift/origin/releases[Releases page] of the OpenShift
 Origin source repository on GitHub:
@@ -135,24 +154,32 @@ The CLI for Mac OS X is provided as a *_tar.gz_* archive; you can download it
 from the *Command Line Tools* page on the web console.
 endif::[]
 
+<<<<<<< HEAD
 ifdef::openshift-origin[]
+=======
+ifdef::openshift-origin,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 The CLI for Mac OS X is provided as a *_zip_* archive; you can download it from
 the https://github.com/openshift/origin/releases[Releases page] of the OpenShift
 Origin source repository on GitHub:
 
 https://github.com/openshift/origin/releases[*Download the CLI from GitHub*]
 endif::[]
+<<<<<<< HEAD
 
 ifdef::openshift-origin[]
 Alternatively, if the cluster administrator has enabled it, you can download and
 unpack the CLI from the *About* page on the web console.
 endif::[]
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 Then,
 ifdef::openshift-enterprise,openshift-online,openshift-dedicated[]
 unpack the archive
 endif::[]
 ifdef::openshift-origin[]
+<<<<<<< HEAD
 unzip the archive with a ZIP program
 endif::[]
 and move the `oc` binary to a directory on your PATH.
@@ -209,7 +236,112 @@ endif::[]
 ifdef::openshift-online,openshift-dedicated[]
 The CLI for Linux is provided as a *_tar.gz_* archive; you can download it from
 the *Command Line Tools* page on the web console.
+=======
+Alternatively, if the cluster administrator has enabled it, you can download and
+unpack the CLI from the *About* page on the web console.
 endif::[]
+
+Then,
+ifdef::openshift-enterprise,openshift-online,openshift-dedicated[]
+unpack the archive
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
+endif::[]
+ifdef::openshift-origin,atomic-registry[]
+unzip the archive with a ZIP program
+endif::[]
+and move the `oc` binary to a directory on your PATH.
+To check your PATH, open a Terminal window and run:
+
+----
+$ echo $PATH
+----
+
+ifdef::openshift-origin,atomic-registry[]
+[[homebrew]]
+Alternatively, Mac OS X users can install the CLI using
+http://brew.sh/[Homebrew]:
+
+----
+$ brew install openshift-cli
+----
+endif::[]
+
+[[cli-linux]]
+=== For Linux
+
+ifdef::openshift-enterprise[]
+For Red Hat Enterprise Linux (RHEL) 7, you can install the CLI as an RPM using
+Red Hat Subscription Management (RHSM) if you have an active OpenShift
+Enterprise subscription on your Red Hat account:
+
+----
+# subscription-manager register
+# subscription-manager refresh
+# subscription-manager attach --pool=<pool_id> <1>
+# subscription-manager repos --enable="rhel-7-server-ose-3.11-rpms"
+# yum install atomic-openshift-clients
+----
+<1> Pool ID for an active OpenShift Enterprise subscription
+
+For RHEL, Fedora, and other Linux distributions, you can also download the CLI
+directly from the https://access.redhat.com/downloads/content/290[Red Hat
+Customer Portal] as a *_tar.gz_* archive. After logging in with your Red Hat
+account, you must have an active OpenShift Enterprise subscription to access the
+downloads page.
+
+https://access.redhat.com/downloads/content/290[Download the CLI from the Red
+Hat Customer Portal]
+
+*Tutorial Video:*
+
+The following video walks you through this process:
+https://access.redhat.com/videos/2213051[Click here to watch]
+
+image::cli_linux.png[CLI Install for Linux, 580, 249, link="https://access.redhat.com/videos/2213051"]
+endif::[]
+
+ifdef::openshift-online,openshift-dedicated[]
+The CLI for Linux is provided as a *_tar.gz_* archive; you can download it from
+the *Command Line Tools* page on the web console.
+endif::[]
+
+ifdef::openshift-origin,atomic-registry[]
+The CLI for Linux is provided as a *_tar.gz_* archive; you can download it from
+the https://github.com/openshift/origin/releases[Releases page] of the OpenShift
+Origin source repository on GitHub:
+
+https://github.com/openshift/origin/releases[*Download the CLI from GitHub*]
+endif::[]
+
+ifdef::openshift-enterprise,openshift-origin[]
+Alternatively, if the cluster administrator has enabled it, you can download and
+unpack the CLI from the *About* page on the web console.
+endif::[]
+
+Then, unpack the archive and move the `oc` binary to a directory on your PATH.
+To check your path, run:
+
+----
+$ echo $PATH
+----
+
+To unpack the archive:
+
+----
+$ tar -xf <file>
+----
+
+[NOTE]
+====
+If you do not use RHEL or Fedora, ensure that *libc* is installed in a directory on your library path.
+If *libc* is not available, you might see the following error when you run CLI commands:
+
+----
+oc: No such file or directory
+----
+====
+
+// end::installcli[]
 
 ifdef::openshift-origin[]
 The CLI for Linux is provided as a *_tar.gz_* archive; you can download it from
@@ -385,6 +517,17 @@ project during xref:basic-setup-and-login[initial setup] to be used with
 subsequent commands. Use the following command to display the project currently
 in use:
 endif::[]
+<<<<<<< HEAD
+=======
+
+ifdef::atomic-registry[]
+Most `oc` commands run in the context of a
+xref:../architecture/core_concepts/projects_and_users.adoc#projects[project]. The `oc login`
+selects a default project during xref:basic-setup-and-login[initial setup] to
+be used with subsequent commands. Use the following command to display the
+project currently in use:
+endif::[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ----
 $ oc project
@@ -446,3 +589,14 @@ After you have xref:get_started_cli.adoc#basic-setup-and-login[logged in], you
 can xref:../dev_guide/application_lifecycle/new_app.adoc#dev-guide-new-app[create a new application] and explore some
 common xref:basic_cli_operations.adoc#cli-reference-basic-cli-operations[CLI operations].
 endif::[]
+<<<<<<< HEAD
+=======
+
+ifdef::atomic-registry[]
+== What's Next?
+
+After you have xref:get_started_cli.adoc#basic-setup-and-login[logged in],
+explore administrator xref:admin_cli_operations.adoc#cli-reference-admin-cli-operations[CLI operations].
+
+endif::[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

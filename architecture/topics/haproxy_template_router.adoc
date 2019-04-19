@@ -54,8 +54,12 @@ image::router_model.png[HAProxy Router Data Flow]
 The HAProxy router exposes or publishes metrics in
 link:https://Prometheus.io/docs/concepts/data_model/[Prometheus format]
 for consumption by external metrics collection and aggregation systems (e.g. Prometheus, statsd).
+<<<<<<< HEAD
 The router can be
 xref:../../install_config/router/default_haproxy_router.adoc#exposing-the-router-metrics[configured]
+=======
+The router can be configured
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 to provide
 link:https://cbonte.github.io/haproxy-dconv/1.5/configuration.html#9[HAProxy CSV format] metrics, or
 provide no router metrics at all.
@@ -77,6 +81,14 @@ counters are collected for each back end and the "S" server counters are
 collected for each server. Otherwise, the "B" counters are collected for each
 back end and no server counters are collected.
 
+<<<<<<< HEAD
+=======
+ifdef::openshift-enterprise,openshift-origin[]
+See xref:../../architecture/networking/routes.adoc#env-variables[router environment variables]
+for more information.
+endif::openshift-enterprise,openshift-origin[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 In the following table:
 
 Column 1 - Index from HAProxy CSV statistics

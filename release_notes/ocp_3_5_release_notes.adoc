@@ -383,7 +383,11 @@ members of at least one of the listed teams will be allowed to log in. If this
 is not specified, then any person with a valid GitHub account can log in.
 
 See
+<<<<<<< HEAD
 xref:../admin_solutions/authentication.adoc#admin-solutions-authentication[Authentication]
+=======
+xref:../install_config/configuring_authentication.adoc#GitHub[Authentication]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 for more information.
 
 [[ocp-35-storage]]
@@ -1653,8 +1657,11 @@ The following new features are now available in Technology Preview:
 - xref:ocp-35-network-policy[Network Policy Plug-in]
 - xref:ocp-35-kubelet-collection-of-node-attriutes-for-scheduling-considerations[Kubelet Collection of Node Attributes for Scheduling Considerations]
 - xref:ocp-35-ingress-object-support[Ingress Object Support]
+<<<<<<< HEAD
 - xref:../architecture/core_concepts/containers_and_images.adoc#init-containers[Init
 containers]
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The following features that were formerly in Technology Preview from a previous
 {product-title} release remain in Technology Preview:
@@ -2028,6 +2035,7 @@ xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-pla
 * Due to a coding error, `Pop()` operations could panic and cause the router to stop. This bug fix updates this logic and as a result panics no longer occur. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1464563[*BZ#1464563*])
 
 * When master controller routines watch for persistent volume Recycle success events, they may never receive one, but still keep trying indefinitely. This caused the potential for high CPU usage by the master controller as it leaks routines. This bug fix updates the routines to stop watching for these Recycle success events when they will never be received. As a result, the chance of high CPU usage by the master controller is reduced. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1460289[*BZ#1460289*])
+<<<<<<< HEAD
 
 [[ocp-3-5-rhba-2017-1828]]
 === RHBA-2017:1828 - {product-title} 3.5.5.31 Bug Fix Update
@@ -2515,3 +2523,5 @@ link:https://access.redhat.com/errata/RHSA-2018:3624[RHSA-2018:3624] advisory.
 To upgrade an existing {product-title} 3.4 or 3.5 cluster to this latest
 release, use the automated upgrade playbook. See
 xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing Automated In-place Cluster Upgrades] for instructions.
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

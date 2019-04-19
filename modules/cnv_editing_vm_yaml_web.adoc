@@ -3,7 +3,11 @@
 // * cnv_users_guide/cnv_users_guide.adoc
 
 [[cnv-editing-vm-yaml-web]]
+<<<<<<< HEAD
 = Editing the YAML of a virtual machine
+=======
+== Editing the YAML of a virtual machine
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 You can edit the YAML configuration of a virtual machine directly within the web console. 
 

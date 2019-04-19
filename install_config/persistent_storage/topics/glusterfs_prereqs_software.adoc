@@ -8,7 +8,12 @@ be installed:
 
 ifdef::openshift-enterprise[]
 This package comes installed on every RHEL system. However, it is recommended to
+<<<<<<< HEAD
 update to the latest available version from {gluster}. To do this, the following
+=======
+update to the latest available version from {gluster} if your servers use x86_64
+architecture. To do this, the following
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 RPM repository must be enabled:
 
 ----

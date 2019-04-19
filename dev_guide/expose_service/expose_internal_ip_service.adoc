@@ -64,7 +64,11 @@ request to reach the IP address.
 * Make sure there is at least one user with cluster admin role. To add this role to a user, run the following command:
 +
 ----
+<<<<<<< HEAD
 oadm policy add-cluster-role-to-user cluster-admin username
+=======
+oc adm policy add-cluster-role-to-user cluster-admin username
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 
 * Have an  {product-title} cluster with at least one master and at least one node and a system outside the cluster that has network access to the cluster. This procedure assumes that the external system is on the same subnet as the cluster. The additional networking required for external systems on a different subnet is out-of-scope for this topic.
@@ -474,19 +478,31 @@ To configure IP failover:
 . On the master, make sure the `ipfailover` service account has sufficient security privileges:
 +
 ----
+<<<<<<< HEAD
 oadm policy add-scc-to-user privileged -z ipfailover
+=======
+oc adm policy add-scc-to-user privileged -z ipfailover
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 
 . Run the following command to create the IP failover:
 +
 ----
+<<<<<<< HEAD
 oadm ipfailover --virtual-ips=<exposed-ip-address> --watch-port=<exposed-port> --replicas=<number-of-pods> --create
+=======
+oc adm ipfailover --virtual-ips=<exposed-ip-address> --watch-port=<exposed-port> --replicas=<number-of-pods> --create
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 +
 For example:
 +
 ----
+<<<<<<< HEAD
 oadm ipfailover --virtual-ips="172.30.233.169" --watch-port=32315 --replicas=4 --create
+=======
+oc adm ipfailover --virtual-ips="172.30.233.169" --watch-port=32315 --replicas=4 --create
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 --> Creating IP failover ipfailover ...
     serviceaccount "ipfailover" created
     deploymentconfig "ipfailover" created

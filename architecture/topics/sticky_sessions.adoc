@@ -24,13 +24,21 @@ from other connections, or turn off stickiness entirely.
 By default, sticky sessions for passthrough routes are implemented using the
 `source` xref:load-balancing[load balancing strategy]. The default can be
 changed for all passthrough routes by using the `ROUTER_TCP_BALANCE_SCHEME`
+<<<<<<< HEAD
 environment variable, and for individual routes by using the
+=======
+xref:env-variables[environment variable], and for individual routes by using the
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 `*haproxy.router.openshift.io/balance*` xref:route-specific-annotations[route
 specific annotation].
 
 Other types of routes use the `leastconn` xref:load-balancing[load balancing
 strategy] by default, which can be changed by using the
+<<<<<<< HEAD
 `ROUTER_LOAD_BALANCE_ALGORITHM` environment variable. It
+=======
+`ROUTER_LOAD_BALANCE_ALGORITHM` xref:env-variables[environment variable]. It
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 can be changed for individual routes by using the
 `*haproxy.router.openshift.io/balance*` xref:route-specific-annotations[route
 specific annotation].
@@ -57,8 +65,13 @@ Specific configuration for this router implementation is stored in the
 directory of the router container. 
 ifdef::openshift-enterprise,openshift-origin[]
 The file may be
+<<<<<<< HEAD
 xref:../../install_config/router/customized_haproxy_router.adoc#install-config-router-customized-haproxy[customized]
 endif::[]
+=======
+xref:../../install_config/router/customized_haproxy_router.adoc#install-config-router-customized-haproxy[customized].
+endif::openshift-enterprise,openshift-origin[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [NOTE]
 ====

@@ -14,8 +14,12 @@ toc::[]
 [[overview]]
 == Overview
 {product-title} provides three images suitable for use as Jenkins agents: the
+<<<<<<< HEAD
 *_Base_*, *_Maven_*, and *_Node.js_* images. These are used by the Kubernetes plug-in
 to run build containers inside a Jenkins slave pod.
+=======
+*_Base_*, *_Maven_*, and *_Node.js_* images.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The first is a link:https://github.com/openshift/jenkins/tree/master/slave-base[base image] for Jenkins agents:
 
@@ -153,14 +157,22 @@ recommended to override this.
 +
 Specifies additional options for the Jenkins agent JVM. These options are
 appended to all other options, including the Java options above, and may be used
+<<<<<<< HEAD
 to override any of them if necessary. Separate each additional option with a
+=======
+to override any of them if necessary.  Separate each additional option with a
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 space; if any option contains space characters, escape them with a backslash.
 Example settings: `-Dfoo -Dbar`; `-Dfoo=first\ value -Dbar=second\ value`.
 
 [[usage]]
 == Usage
 
+<<<<<<< HEAD
 [[memory-slaves-requirements]]
+=======
+[[memory-requirements]]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 === Memory Requirements
 
 A JVM is used in all Jenkins agents to host the Jenkins JNLP agent, as well as
@@ -186,7 +198,11 @@ agent container, e.g. shell scripts or `oc` commands run from pipelines, may not
 be able to use more than the remaining 50% memory limit without provoking an OOM
 kill.
 
+<<<<<<< HEAD
 By default, each further JVM process run in a Jenkins agent container uses
+=======
+By default, each further JVM process run in a Jenkins agent container will use
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 up to 25% of the container memory limit for their heap. It may be necessary to
 tune this for many build workloads. See
 xref:../../dev_guide/application_memory_sizing.adoc#sizing-openjdk[Sizing

@@ -743,7 +743,11 @@ link:https://github.com/openshift/jenkins/blob/master/2/contrib/openshift/config
 Docker Image] for {product-title} is an example of image promotion within
 {product-title} within the constructs of Jenkins. Setup for this sample is
 located in the
+<<<<<<< HEAD
 link:https://github.com/openshift/origin/blob/master/examples/jenkins/README.md[OKD source repository].
+=======
+link:https://github.com/openshift/origin/blob/master/examples/jenkins/README.md[OpenShift Origin source repository].
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 
 This sample includes:

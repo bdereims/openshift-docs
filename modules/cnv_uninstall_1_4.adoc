@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 // Module included in the following assemblies:
 //
 // * cnv_install/cnv_install.adoc
 
 [[uninstall_cnv]]
 = Uninstalling {ProductName}
+=======
+[[uninstall_cnv]]
+=== Uninstalling {ProductName}
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 You can uninstall {ProductName} with the same `ansible-playbook` command you
 used for deployment if you change the `apb_action` parameter value to
@@ -57,4 +62,8 @@ $ subscription-manager repos --disable=rhel-7-server-cnv-1.4-tech-preview-rpms
 +
 ----
 $ oc get pods --all-namespaces
+<<<<<<< HEAD
 ----
+=======
+----
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

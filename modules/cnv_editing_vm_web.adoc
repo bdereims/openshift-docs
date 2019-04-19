@@ -3,7 +3,11 @@
 // * cnv_users_guide/cnv_users_guide.adoc
 
 [[cnv-editing-vm-web]]
+<<<<<<< HEAD
 = Editing a virtual machine 
+=======
+== Editing a virtual machine 
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 You can edit some values of a virtual machine in the web console, either by editing the xref:cnv-editing-vm-yaml-web[YAML directly], or from the *Virtual Machine Overview* screen.
 

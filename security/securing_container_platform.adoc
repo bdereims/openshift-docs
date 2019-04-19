@@ -24,7 +24,11 @@ major system components.
 [[security-platform-orchestration-further-reading-2]]
 ==== Further Reading
 
+<<<<<<< HEAD
 - {product-title} _Architecture_: xref:../architecture/index.adoc#how-is-openshift-container-platform-secured[How Is {product-title} Secured?]
+=======
+- {product-title} _Architecture_: xref:../architecture/index.adoc#architecture-index[How Is {product-title} Secured?]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[security-platform-auth]]
 == Authentication and Authorization
@@ -174,7 +178,11 @@ You can configure custom serving certificates for the public host names of the
 API server and web console during initial installation or when redeploying
 certificates. You can also use a custom CA.
 
+<<<<<<< HEAD
 During initial advanced installations using Ansible playbooks, custom
+=======
+During initial cluster installations using Ansible playbooks, custom
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 certificates can be configured using the
 `openshift_master_overwrite_named_certificates` Ansible variable, which is
 configurable in the inventory file. For example:
@@ -183,9 +191,15 @@ configurable in the inventory file. For example:
 openshift_master_named_certificates=[{"certfile": "/path/on/host/to/custom1.crt", "keyfile": "/path/on/host/to/custom1.key", "cafile": "/path/on/host/to/custom-ca1.crt"}]
 ----
 
+<<<<<<< HEAD
 See the Advanced Installation's
 xref:../install/configuring_inventory_file.adoc#advanced-install-custom-certificates[Configuring Custom Certificates] for more options and instructions on how to run the
 installation playbook.
+=======
+See
+xref:../install/configuring_inventory_file.adoc#advanced-install-custom-certificates[Configuring Custom Certificates]
+section for more options and instructions on how to run the installation playbook.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The installer provides Ansible playbooks for checking on the expiration dates of
 all cluster certificates. Additional playbooks can automatically redeploy all

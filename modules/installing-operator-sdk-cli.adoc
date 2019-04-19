@@ -1,13 +1,21 @@
 // Module included in the following assemblies:
 //
+<<<<<<< HEAD
 // * operators/osdk-getting-started.adoc
 // * operators/osdk-helm.adoc
+=======
+// * operators/osdk-getting-startedadoc
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [id='installing-operator-sdk-cli_{context}']
 = Installing the Operator SDK CLI
 
 The Operator SDK has a CLI tool that assists developers in creating, building,
+<<<<<<< HEAD
 and deploying a new Operator project. You can install the SDK CLI on your
+=======
+and deploying a new operator project. You can install the SDK CLI on your
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 workstation so you are prepared to start authoring your own Operators.
 
 .Prerequisites
@@ -16,9 +24,15 @@ workstation so you are prepared to start authoring your own Operators.
 - link:https://git-scm.com/downloads[Git]
 - link:https://golang.org/dl/[Go] v1.10+
 - link:https://docs.docker.com/install/[Docker] v17.03+
+<<<<<<< HEAD
 - link:https://kubernetes.io/docs/tasks/tools/install-kubectl/[`kubectl`] v1.11.3+
 - Access to a cluster based on Kubernetes v1.11.3+
 - Access to a container registry
+=======
+- link:https://kubernetes.io/docs/tasks/tools/install-kubectl/[`kubectl`] v1.11.0+
+- Access to a cluster based on Kubernetes v1.11.0+
+- Access to a container image registry
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [NOTE]
 ====
@@ -30,7 +44,11 @@ registry.
 
 .Procedure
 
+<<<<<<< HEAD
 . Clone an `operator-sdk` repository:
+=======
+. Clone and `operator-sdk` repository:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 +
 ----
 $ mkdir -p $GOPATH/src/github.com/operator-framework

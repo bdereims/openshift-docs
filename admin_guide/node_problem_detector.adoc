@@ -36,8 +36,18 @@ endif::[]
 The Node Problem Detector reads system logs and watches for specific entries and makes these problems visible to the control plane,
 which you can view using {product-title} commands, such as `oc get node` and `oc get event`.
 You could then take action to correct these problems as appropriate or capture the messages using a tool of your choice,
+<<<<<<< HEAD
 such as the {product-title} xref:../security/monitoring.adoc#security-monitoring[log monitoring].
 
+=======
+such as the {product-title}
+ifdef::openshift-enterprise,openshift-origin[]
+xref:../security/monitoring.adoc#security-monitoring[log monitoring].
+endif::[]
+ifdef::openshift-dedicated[]
+log monitoring.
+endif::[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Detected problems can be in one of the following categories:
 
 * `NodeCondition`: A permanent problem that makes the node unavailable for pods.
@@ -135,8 +145,18 @@ The Node Problem Detector consumes resources. If you use the Node Problem Detect
 [[admin-guide-node-problem-detector-install]]
 == Installing the Node Problem Detector
 
+<<<<<<< HEAD
 If `openshift_node_problem_detector_install` was set to `true` in the *_/etc/ansible/hosts_* inventory file,
 the xref:../install/index.adoc#install-planning[installation] creates
+=======
+If `openshift_node_problem_detector_install` was set to `true` in the *_/etc/ansible/hosts_* inventory file, the
+ifdef::openshift-enterprise,openshift-origin[]
+xref:../install/index.adoc#install-planning[installation] creates
+endif::[]
+ifdef::openshift-dedicated[]
+installation creates
+endif::[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 a Node Problem Detector daemonset by default and creates a project for the detector, called `openshift-node-problem-detector`.
 
 [NOTE]

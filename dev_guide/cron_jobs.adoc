@@ -20,6 +20,10 @@ link:http://kubernetes.io/docs/user-guide/cron-jobs[Kubernetes] API, which
 can be managed with `oc` commands like other
 xref:../cli_reference/basic_cli_operations.adoc#object-types[object types].
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ifdef::openshift-online[]
 [IMPORTANT]
 ====
@@ -129,7 +133,10 @@ Cron jobs can leave behind artifact resources such as jobs or pods.  As a user i
 to configure history limits so that old jobs and their pods are properly cleaned.  Currently,
 there are two fields within cron job's spec responsible for that:
 
+<<<<<<< HEAD
 [source,yaml]
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 apiVersion: batch/v1beta1
 kind: CronJob

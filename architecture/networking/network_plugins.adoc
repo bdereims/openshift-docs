@@ -46,6 +46,7 @@ ifdef::openshift-enterprise,openshift-origin[]
 include::architecture/topics/nuage.adoc[]
 endif::[]
 
+<<<<<<< HEAD
 ////
 === Contrail
 <Why is this preferred?>
@@ -63,5 +64,10 @@ endif::[]
 ifdef::openshift-origin,openshift-enterprise[]
 [[kuryr-sdn]]
 === Kuryr SDN
+=======
+ifdef::openshift-origin,openshift-enterprise[]
+[[kuryr-sdn]]
+== Kuryr SDN for {product-title}
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 include::architecture/topics/kuryr.adoc[]
 endif::[]

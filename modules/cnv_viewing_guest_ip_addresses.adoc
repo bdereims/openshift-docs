@@ -2,8 +2,13 @@
 //
 // * cnv_users_guide/cnv_users_guide.adoc
 
+<<<<<<< HEAD
 [id="viewing-guest-ip-addresses-{context}"]
 = Viewing guest IP addresses
+=======
+[id='viewing-guest-ip-addresses-{context}']
+=== Viewing guest IP addresses
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 You can view the IP addresses that are assigned to your Linux virtual machines
 by installing a QEMU guest agent on the virtual machine. When the guest agent is
@@ -60,4 +65,8 @@ Interfaces:
 ====
 You can also view the IP address information by running `ip addr` on the virtual
 machine, or by running `oc get vmi -o yaml`.
+<<<<<<< HEAD
 ====
+=======
+====
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

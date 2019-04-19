@@ -224,8 +224,11 @@ configuration, delete, then re-run the process:
 ----
 ////
 ////
+<<<<<<< HEAD
 [[using-maven-behind-a-proxy]]
 == Using Maven Behind a Proxy
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 There are three options for using Maven behind a proxy on {product-title}:
 
@@ -347,7 +350,11 @@ $ oc set env dc/frontend HTTP_PROXY=http://<user>:<password>@<ip_addr>:<port>
 ----
 
 If you have a xref:../dev_guide/deployments/basic_deployment_operations.adoc#triggers[ConfigChange trigger]
+<<<<<<< HEAD
 set up in your {product-title}t instance, the changes happen automatically.
+=======
+set up in your {product-title} instance, the changes happen automatically.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Otherwise, manually redeploy your application for the changes to take effect.
 
 [[git-repository-access]]

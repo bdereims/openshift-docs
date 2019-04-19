@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 // Module included in the following assemblies:
 //
 // * cnv_install/cnv_install.adoc
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[Requirements]]
 
 {ProductName} requires an existing {product-title} cluster

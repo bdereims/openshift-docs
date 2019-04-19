@@ -17,10 +17,24 @@ databases, or an external SaaS endpoint. These external resources can be modeled
 as native {product-title} services, so that applications can work with them as
 they would any other internal service.
 
+<<<<<<< HEAD
+=======
+ifdef::openshift-enterprise,openshift-origin[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 xref:../admin_guide/managing_networking.adoc#admin-guide-controlling-egress-traffic[Egress
 traffic] can be controlled by firewall rules or an Egress router. This permits
 having a static IP address for their application service.
 
+<<<<<<< HEAD
+=======
+endif::openshift-enterprise,openshift-origin[]
+
+ifdef::openshift-dedicated[]
+Egress traffic can be controlled by firewall rules. This permits having a static IP address for their application service.
+endif::openshift-dedicated[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 == Defining a Service for an External Database
 
 One of the most common types of external services is an external database. To
@@ -130,6 +144,7 @@ addresses changing.
 `ExternalName` services do not have selectors, or any defined ports or
 endpoints, therefore, you can use an `ExternalName` service to direct traffic to
 an external service.
+<<<<<<< HEAD
 
 [source, yaml]
 ----
@@ -152,6 +167,30 @@ record telling the client to look up the returned name to get the IP address.
 
 === Step 2: Consume a Service
 
+=======
+
+[source, yaml]
+----
+kind: "Service"
+apiVersion: "v1"
+metadata:
+  name: "external-mysql-service"
+spec:
+  type: ExternalName
+  externalName: example.domain.name
+selector: {} <1>
+----
+<1> The `selector` field to leave blank.
+
+Using an external domain name service tells the system that the DNS name in the
+`externalName` field (`example.domain.name` in the previous example) is the
+location of the resource that backs the service. When a DNS request is made
+against the Kubernetes DNS server, it returns the `externalName` in a CNAME
+record telling the client to look up the returned name to get the IP address.
+
+=== Step 2: Consume a Service
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Now that the service and endpoints are defined, give the appropriate pods
 access to the credentials to use the service by setting environment variables in
 the appropriate containers:
@@ -222,6 +261,7 @@ The application is responsible for reading the coordinates and credentials for
 the service from the environment and establishing a connection with the database
 via the service.
 
+[[external-saas-provider]]
 == External SaaS Provider
 
 A common type of external service is an external SaaS endpoint. To support an

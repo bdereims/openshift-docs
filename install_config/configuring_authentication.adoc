@@ -60,6 +60,7 @@ to be assigned to administer the setup with an external user.
 ====
 
 After making changes to an identity provider, you must restart the master services for the changes to take effect:
+<<<<<<< HEAD
 ----
 # master-restart api
 # master-restart controllers
@@ -68,6 +69,17 @@ After making changes to an identity provider, you must restart the master servic
 [[identity-providers_parameters]]
 == Identity provider parameters
 
+=======
+
+----
+# master-restart api
+# master-restart controllers
+----
+
+[[identity-providers_parameters]]
+== Identity provider parameters
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 There are four parameters common to all identity providers:
 
 [cols="2a,8a",options="header"]
@@ -365,18 +377,32 @@ The `htpasswd` utility is in the `httpd-tools` package:
 # yum install httpd-tools
 ----
 ====
+<<<<<<< HEAD
 
 {product-title} supports the Bcrypt, SHA-1, and MD5 cryptographic hash
 functions, and MD5 is the default for `htpasswd`. Plaintext, encrypted text, and
 other hash functions are not currently supported.
 
+=======
+
+{product-title} supports the Bcrypt, SHA-1, and MD5 cryptographic hash
+functions, and MD5 is the default for `htpasswd`. Plaintext, encrypted text, and
+other hash functions are not currently supported.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 The flat file is reread if its modification time changes, without requiring a
 server restart.
 
 To use the htpasswd command:
+<<<<<<< HEAD
 
 // tag::htpasswd[]
 
+=======
+
+// tag::htpasswd[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 * To create a flat file with a user name and hashed password, run:
 +
 ----
@@ -745,6 +771,7 @@ an identity and user object for each LDAP user.
 
 [[BasicAuthPasswordIdentityProvider]]
 === Basic authentication (remote)
+<<<<<<< HEAD
 
 Basic Authentication is a generic backend integration mechanism that allows
 users to log in to {product-title} with credentials validated against a remote
@@ -758,6 +785,21 @@ link:https://github.com/openshift/basic-authentication-provider-example[containe
 repository as a starting point for another advanced remote basic authentication
 configuration.
 
+=======
+
+Basic Authentication is a generic backend integration mechanism that allows
+users to log in to {product-title} with credentials validated against a remote
+identity provider.
+
+Because basic authentication is generic, you can use this identity
+provider for advanced authentication configurations. You can configure
+xref:../install_config/sssd_for_ldap_failover.adoc#setting-up-for-ldap-failover[LDAP failover]
+or use the
+link:https://github.com/openshift/basic-authentication-provider-example[containerized basic authentication]
+repository as a starting point for another advanced remote basic authentication
+configuration.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [CAUTION]
 ====
 Basic authentication must use an HTTPS connection to the remote server to
@@ -917,6 +959,7 @@ prompted to log in using their Basic authentication credentials.
 
 [[basic-troubleshooting]]
 ==== Troubleshooting
+<<<<<<< HEAD
 
 The most common issue relates to network connectivity to the backend server. For
 simple debugging, run `curl` commands on the master. To test for a successful
@@ -963,6 +1006,54 @@ human-readable name exists. This is used as a hint when provisioning the
 
 *Failed responses*
 
+=======
+
+The most common issue relates to network connectivity to the backend server. For
+simple debugging, run `curl` commands on the master. To test for a successful
+login, replace the `<user>` and `<password>` in the following example command
+with valid credentials. To test an invalid login, replace them with false
+credentials.
+
+----
+curl --cacert /path/to/ca.crt --cert /path/to/client.crt --key /path/to/client.key -u <user>:<password> -v https://www.example.com/remote-idp
+----
+
+*Successful responses*
+
+A `200` status with a `sub` (subject) key indicates success:
+
+----
+{"sub":"userid"}
+----
+The subject must be unique to the authenticated user, and must not be able to
+be modified.
+
+A successful response may optionally provide additional data, such as:
+
+* A display name using the `name` key:
++
+----
+{"sub":"userid", "name": "User Name", ...}
+----
+* An email address using the `email` key:
++
+----
+{"sub":"userid", "email":"user@example.com", ...}
+----
+* A preferred user name using the `preferred_username` key:
++
+----
+{"sub":"014fbff9a07c", "preferred_username":"bob", ...}
+----
++
+The `preferred_username` key is useful when
+the unique, unchangeable subject is a database key or UID, and a more
+human-readable name exists. This is used as a hint when provisioning the
+{product-title} user for the authenticated identity.
+
+*Failed responses*
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 - A `401` response indicates failed authentication.
 - A non-`200` status or the presence of a non-empty "error" key indicates an
 error: `{"error":"Error message"}`
@@ -1093,6 +1184,7 @@ a value is used as the preferred user name when provisioning. Optional, case-ins
 ifdef::openshift-enterprise[]
 
 [IMPORTANT]
+<<<<<<< HEAD
 ====
 Using SSPI connection support on Microsoft Windows is a Technology Preview feature.
 ifdef::openshift-enterprise[]
@@ -1106,6 +1198,21 @@ For more information on Red Hat Technology Preview features support scope, see
 https://access.redhat.com/support/offerings/techpreview/.
 endif::[]
 ====
+=======
+====
+Using SSPI connection support on Microsoft Windows is a Technology Preview feature.
+ifdef::openshift-enterprise[]
+Technology Preview features are not supported with Red Hat production service
+level agreements (SLAs), might not be functionally complete, and Red Hat does
+not recommend to use them for production. These features provide early access to
+upcoming product features, enabling customers to test functionality and provide
+feedback during the development process.
+
+For more information on Red Hat Technology Preview features support scope, see
+https://access.redhat.com/support/offerings/techpreview/.
+endif::[]
+====
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 endif::[]
 
@@ -2104,7 +2211,11 @@ configuration. So, if a client is using a particular library or
 binary, they will be prevented from accessing the API.
 
 The following user agent example denies the Kubernetes 1.2 client binary,
+<<<<<<< HEAD
 OKD 1.1.3 binary, and the POST and PUT *httpVerbs*:
+=======
+OpenShift Origin 1.1.3 binary, and the POST and PUT *httpVerbs*:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ====
 ----

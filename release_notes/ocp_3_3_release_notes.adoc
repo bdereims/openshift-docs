@@ -145,6 +145,7 @@ $ oc policy add-role-to-group registry-viewer system:unauthenticated
 {product-title} 3.3 adds a Google Cloud Storage (GCS) driver to enable its use
 as the storage back end for the registry's container images. Prior to GCS driver
 initialization, the {product-title} admin must set a
+<<<<<<< HEAD
 link:https://github.com/docker/docker.github.io/blob/master/registry/storage-drivers/gcs.md[bucket
 parameter] to define the name of the GCS bucket to store objects in.
 
@@ -154,6 +155,18 @@ parameter] to define the name of the GCS bucket to store objects in.
 The {product-title} 3.3 registry is based on Docker Distribution registry 2.4,
 and its features will be backported to {product-title} 3.2. Version 2.4 of the
 registry includes a variety of performance and usability enhancements, notably:
+=======
+link:https://github.com/docker/distribution/blob/master/docs/storage-drivers/gcs.md[bucket
+parameter] to define the name of the GCS bucket to store objects in.
+
+[[ocp-support-docker-distribution-2-4]]
+==== Support for docker distribution 2.4
+
+The {product-title} 3.3 registry provides support for docker distribution
+registry 2.4, and the features will be backported to {product-title} 3.2.
+Version 2.4 of the registry includes a variety of performance and usability
+enhancements, notably:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 *Cross-repo Mounting When Pushing Images That Already Exist in the Registry*
 
@@ -170,6 +183,7 @@ proceed, unoptimized, and the client will push the entire blob to the target
 repository from the primary source repository without assistance from the
 secondary source repository.
 
+<<<<<<< HEAD
 *Support for the New schema 2 Storage Format for Images*
 
 The image manifest version 2, *schema 2*, introduces the ability to hash an image's
@@ -181,16 +195,31 @@ However, images pushed to the internal registry will be converted to *schema 1*
 for compatibility with older docker versions. For clusters not in need of
 compatibility preservation, accepting of *schema 2* during pushes can be
 manually enabled:
+=======
+*Support for the New schema2 Storage Format for Images*
+
+The image manifest version 2, schema2, allows multi-architecture images via a
+manifest list which references image manifests for one or more platform-specific
+versions of an image (e.g., `amd64` versus `ppc64le`). Schema 2 also supports
+the ability to hash an image's configuration, to create an ID for the image and
+provide docker content-addressable information about the image.
+
+To preserve compatibility with older docker versions, support for schema 2 must
+be manually enabled:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ----
 $ oc login -u system:admin
 $ oc set env dc/docker-registry -n default REGISTRY_MIDDLEWARE_REPOSITORY_OPENSHIFT_ACCEPTSCHEMA2=true
 ----
 
+<<<<<<< HEAD
 Manifest lists, introduced by *schema 2* to provide support for
 multi-architecture images (e.g., amd64 versus ppc64le), are not yet supported
 in {product-title} 3.3.
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[ocp-33-allow-image-pull-through]]
 ==== Allow Image "Pull-Through" from a Remote Registry
 
@@ -636,20 +665,32 @@ call out to the ergress router pod's service (e.g.,
 `service.project.cluster.domainname.com`) in their application (e.g., the JDBC
 connection information) rather than the actual protected service url.
 
+<<<<<<< HEAD
 See xref:../admin_guide/managing_pods.adoc#admin-guide-controlling-egress-traffic[Controlling Egress Traffic] for more details.
+=======
+See xref:../admin_guide/managing_networking.adoc#admin-guide-controlling-egress-traffic[Controlling Egress Traffic] for more details.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[ocp-33-router-sharding]]
 ==== Router Sharding
 
 {product-title} offers a
+<<<<<<< HEAD
 xref:../architecture/additional_concepts/sdn.adoc#architecture-additional-concepts-sdn[multi-tenant],
+=======
+xref:../architecture/networking/sdn.adoc#architecture-additional-concepts-sdn[multi-tenant],
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 docker-compliant platform. Thousands of tenants can be placed on the platform,
 some of which may be subsidiary corporations or have drastically different
 affiliations. With such diversity, often times business rules and regulatory
 requirements will dictate that tenants not flow through the same routing tier.
 
 To solve this issue, {product-title} 3.3 introduces
+<<<<<<< HEAD
 xref:../architecture/core_concepts/routes.adoc#router-sharding[router sharding].
+=======
+xref:../architecture/networking/routes.adoc#router-sharding[router sharding].
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 With router sharding, a platform administrator can xref:../install_config/router/default_haproxy_router.adoc#using-router-shards[group specific routes or namespaces into shards] and then assign those shards to routers that may be up
 and running on the platform or be external to the platform. This allows tenants
 to have separation of egress traffic at the routing tiers.
@@ -1105,6 +1146,7 @@ they did before, returning port info.
 
 This release fixes bugs for the following components:
 
+<<<<<<< HEAD
 [discrete]
 ===== Authentication
 
@@ -1112,6 +1154,13 @@ This release fixes bugs for the following components:
 
 [discrete]
 ===== Builds
+=======
+*Authentication*
+
+* Multiple API servers starting simultaneously with an empty etcd datastore would race to populate the default system policy. A partially created policy could result, leaving a new cluster with a policy that would forbid system components from making some API calls. This bug fix updates the policy APIs to perform the same `*resourceVersion*` checking as other APIs, and fault-tolerant logic was added to the initial policy population step. As a result, new clusters populate default policy as expected. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1359900[*BZ#1359900*])
+
+*Builds*
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * The transition between serial and parallel builds was not handled correctly. If parallel builds were queued after a running serial build, the first parallel build would also run serially, instead of running all the parallel builds in parallel when the serial build completed. After this bug fix, when the first parallel build is run, any other parallel builds in the queue are also run. As a result, all parallel builds in the queue start simultaneously when the last serial build finishes. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1357786[*BZ#1357786*])
 
@@ -1119,6 +1168,7 @@ This release fixes bugs for the following components:
 
 * Updates to a build configuration via the replace mechanism would previously reset the build sequence count to zero if no value was specified in the update. Builds would fail to start if the reset sequence number caused collisions with existing builds that used those the sequence number previously. After this bug fix, the sequence number is no longer reset during updates to the build configuration. As a result, build configurations can be updated and the existing sequence number is preserved, so new builds do not collide with previously used sequence numbers. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1357791[*BZ#1357791*])
 
+<<<<<<< HEAD
 [discrete]
 ===== Command Line Interface
 
@@ -1126,22 +1176,39 @@ This release fixes bugs for the following components:
 
 [discrete]
 ===== Images
+=======
+*Command Line Interface*
+
+* An improper argument parsing rejected valid values caused parameter values containing equal signs to be incorrectly rejected. This bug fix changes parsing to tolerate values containing equal signs. As a result, parameter values containing equal signs are tolerated. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1375275[*BZ#1375275*])
+
+*Image*
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * This enhancement updates the Perl S2I builder image to support proxy configurations. Previously, the image could not access remote resources if the customer network required a proxy be used. The Perl image now respects the `*HTTP_PROXY*` environment variable for configuring the proxy to use when requesting remote resources during the build process. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1348945[*BZ#1348945*])
 
 * Previously, the timeout for liveness probe for the Jenkins readiness check was too short. This caused Jenkins pods to fail to report as ready then get restarted. This bug fix increases the timeout for the readiness probe, and Jenkins pods now have sufficient time to start before the readiness probe fails. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1368967[*BZ#1368967*])
 
+<<<<<<< HEAD
 [discrete]
 ===== Image Registry
 
 * The S3 communication library was not efficient enough to support high loads of data. This caused some pushes to the registry to take relatively long. This bug fix updates both the Docker Distribution code along with the S3 driver. As a result, docker push operations experience improved stability and performance. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1314381[*BZ#1314381*])
+=======
+*Image Registry*
+
+* The S3 communication library was not efficient enough to support high loads of data. This caused some pushes to the registry to take relatively long. This bug fix updates both the docker distribution code along with the S3 driver. As a result, docker push operations experience improved stability and performance. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1314381[*BZ#1314381*])
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * A bug in an older registry version prevented it from working with a Swift storage back-end while having the content-offload feature turned off, causing the registry to be unusable in these conditions. This bug fix updates the registry version, which has reworked storage drivers. As a result, the registry is now usable in these conditions. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1348031[*BZ#1348031*])
 
 * When pruning images, a user was previously presented with too many log details by default. This bug fix hides some debug information behind increased `--loglevel` settings. As a result, logs presented to user should be more readable. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1341527[*BZ#1341527*])
 
+<<<<<<< HEAD
 [discrete]
 ===== Installer
+=======
+*Installer*
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * Previously, the installer did not correctly format the registry 2.4 configuration file when using S3 storage. This bug fix corrects this formatting issue and the installer now correctly provisions S3-based registry components when configured to do so. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1356823[*BZ#1356823*])
 
@@ -1151,8 +1218,12 @@ This release fixes bugs for the following components:
 
 * The quick installer previously did not verify file system paths when read from a configuration file. This caused the quick installer to attempt to read a file which did not exist, throw a stack trace, and abort the installation. This bug fix ensures that the file system path is now verified to exist when read from a configuration file, and as a result the quick installer no longer crashes. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1368296[*BZ#1368296*])
 
+<<<<<<< HEAD
 [discrete]
 ===== Kubernetes
+=======
+*Kubernetes*
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * This enhancement adds volume affinity to {product-title} (OCP). Cloud providers typically use multiple zones/regions for their virtual machines and storage offerings. A virtual machine in one zone/region can only mount storage from the same zone/region in which it resides. OCP pods that use cloud storage must be scheduled onto virtual machines in the same zone/region for their associated storage; otherwise, the pods will fail to run. With this enhancement, pods are now scheduled to the same zone/region as their associated storage. Note that if you are not using the default scheduler configuration, you must ensure that the `*NoVolumeZoneConflict*` scheduler predicate is enabled in your scheduler configuration file in order for volume affinity to function correctly. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1356010[*BZ#1356010*])
 
@@ -1164,8 +1235,12 @@ This release fixes bugs for the following components:
 
 * Diagnostics previously reported an error when the registry was not backed by a persistent storage volume on the pod, without considering alternative methods of storage. If the registry had been reconfigured to use S3 as storage, for example, diagnostics reported this error. This bug fix updates the diagnostic check to see if registry configuration has been customized and does not report an error if so. As a result, it is assumed the cluster administrator that does the configuration knows what they are doing, and false alerts on S3-configured registries are no longer reported. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1359771[*BZ#1359771*])
 
+<<<<<<< HEAD
 [discrete]
 ===== Logging
+=======
+*Logging*
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * This enhancement adds auto-tuning for Elasticsearch memory heap usage based on container limit. Elasticsearch recommends hard limits for proper usage and these limits may significantly exceed what is available to the container. Elasticsearch should limit itself from the onset. With this enhancement, the container runscript evaluates the available memory and sets the minimum and maximum heap size. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1370115[*BZ#1370115*])
 
@@ -1183,8 +1258,12 @@ This bug is fixed in {product-title} 3.3 by not relying on image streams and dep
 
 * The *OpenShift-Elasticsearch-Plugin* did not remove the `.all` Kibana mapping for users that were *cluster-admin* but then had the role reverted. If a user was no longer a *cluster-admin*, they could still be able to view the `.all` Kibana mapping. They would not be able to see the logs for projects they did not have access to, but they would still incorrectly see the mapping. This bug fix updates the *OpenShift-Elasticsearch-Plugin* to remove the `.all` Kibana mapping to users that are not *cluster-admin*. As a result, non-*cluster-admin* users are not able to see the `.all` mapping if they are no longer *cluster-admin*. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1372277[*BZ#1372277*])
 
+<<<<<<< HEAD
 [discrete]
 ===== Web Console
+=======
+*Web Console*
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * The builder images in the web console were not ordered by semantic version. In some cases, a newer technology version could be hidden under a *See All* link because it had a lower sort order. With this bug fix, the builders are now properly ordered by their semantic version. As a result, more recent version are sorted to the top and are no longer hidden. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1325069[*BZ#1325069*])
 
@@ -1200,6 +1279,7 @@ This bug is fixed in {product-title} 3.3 by not relying on image streams and dep
 
 * On the pod metrics tab in the web console, the available CPU and memory is shown for pods that have resource limits. If a pod was using more CPU or memory than its limit, the available amount would show as a negative value. This bug fix updates the web console to show the amount over the limit in these cases. As a result, negative values no longer display for available pod CPU and memory. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1369160[*BZ#1369160*])
 
+<<<<<<< HEAD
 [discrete]
 ===== Metrics
 
@@ -1207,11 +1287,19 @@ This bug is fixed in {product-title} 3.3 by not relying on image streams and dep
 
 [discrete]
 ===== Networking
+=======
+*Metrics*
+
+* The web console previously used the client's clock to calculate the start time for displaying metrics. If the client's clock was more than one hour faster than the server clock, an occur would occur when opening the metrics tab in the web console. The web console now uses the server time for calculating start and end times for metrics. As a result, metrics display properly even if the client clock is out of sync with the server. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1361061[*BZ#1361061*])
+
+*Networking*
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * The new unidling feature had a bug where it removed the service proxier when unidling was disabled, causing the service to not work. This bug fix addresses this issue, and the service now works properly. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1370435[*BZ#1370435*])
 
 * When ipfailover was configured for the router, *keepalived* pods were previously being labeled with the selector of the router service. The router service then selected both router pods and *keepalived* pods. Because both types of pods use host networking by default, their IP addresses would be the same if deployed to the same hosts, and the service would appear to be selecting duplicate endpoints. This bug fix ensures that *keepalived* pods are now given a label that is distinct from that applied to the router pods. As a result, the router service no longer displays duplicate IP addresses when ipfailover is configured. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1365176[*BZ#1365176*])
 
+<<<<<<< HEAD
 [discrete]
 ===== Quick Starts
 
@@ -1224,6 +1312,17 @@ This bug is fixed in {product-title} 3.3 by not relying on image streams and dep
 
 [discrete]
 ===== Routing
+=======
+*Quick Starts*
+
+* This enhancement adds default resource limits to templates. Systems which require limits be set would prevent deployment of templates when the template did not specify resource limits. Templates can now be deployed on systems that require resource limits be specified. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1314899[*BZ#1314899*])
+
+*REST API*
+
+* Access to new endpoints was not automatically added to existing discovery roles during an upgrade. Checking the server version from the command line using `oc version` would display a forbidden error. This bug fix correctly adds permission to the new endpoint during an upgrade. As a result, `oc version` displays the server version as expected. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1372579[*BZ#1372579*])
+
+*Routing*
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * Erroneous xref:../install_config/router/default_haproxy_router.adoc#preventing-connection-failures-during-restarts[Patch the Router Deployment Configuration to Create a Privileged Container] documentation caused pods to not have enough privilege to edit `iptables`. This bug fix updates the documentation with the correct procedure. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1269488[*BZ#1269488*])
 
@@ -1237,15 +1336,23 @@ This bug is fixed in {product-title} 3.3 by not relying on image streams and dep
 
 * A comment in the *_haproxy-config.template_* file about creating back ends was incomplete, causing confusion. The comment has now been completed. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1368031[*BZ#1368031*])
 
+<<<<<<< HEAD
 [discrete]
 ===== Storage
+=======
+*Storage*
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * A race condition in {product-title} (OCP) code could cause persistent volume (PV) objects to not be deleted when their retention policy was set to Delete and the appropriate persistent volume claim (PVC) was deleted. PV handling was rewritten in OCP 3.3, and as a result PVs are now deleted at the end of their lifetime. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1339154[*BZ#1339154*])
 
 * A race condition in {product-title} (OCP) code could cause an AWS EBS volume not to be detached from a node when a pod that used the volume was terminated. The volume would be attached to the node forever, consuming AWS resources. This volume had to be detached manually. The code that attaches and detaches volume to and from nodes has been rewritten in OCP 3.3, and as a result AWS EBS volumes are now detached from nodes when the last pod that uses the volume is terminated. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1327384[*BZ#1327384*])
 
+<<<<<<< HEAD
 [discrete]
 ===== Upgrades
+=======
+*Upgrade*
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * Previous versions allowed the user to specify `*AWS_ACCESS_KEY_ID*` and `*AWS_SECRET_ACCESS_KEY*` in their *_/etc/sysconfig/_* files for {product-title} services. During upgrade, these files were updated according to a template, and if the user had not yet switched to using the new cloud provider framework their pre-existing AWS variables would be overwritten. The upgrade process has been modified to preserve these variables if they are present during upgrade, and a cloud provider is not configured. (link:https://bugzilla.redhat.com/show_bug.cgi?id=1353354[*BZ#1353354*])
 
@@ -1268,7 +1375,10 @@ The following features are in Technology Preview:
 - xref:ocp-33-pipelines[OpenShift Pipelines]
 - xref:../dev_guide/builds.adoc#extended-builds[Extended Builds]
 - xref:../dev_guide/secrets.adoc#service-serving-certificate-secrets[Service Serving Certificate Secrets]
+<<<<<<< HEAD
 - xref:../architecture/core_concepts/containers_and_images.adoc#init-containers[Init Containers]
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 - Introduced in OpenShift Enterprise 3.1.1,
 xref:../install_config/persistent_storage/dynamically_provisioning_pvs.adoc#install-config-persistent-storage-dynamically-provisioning-pvs[dynamic provisioning] of persistent storage volumes from Amazon EBS, Google Compute
 Disk, OpenStack Cinder storage providers remains in Technology Preview for
@@ -1320,8 +1430,11 @@ xref:../install_config/upgrading/index.adoc#install-config-upgrading-index[upgra
 [[ocp-3-3-0-34]]
 === RHBA-2016:1988 - {product-title} 3.3.0.34 Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2016-10-04
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.3.0.34 is now available. The list of packages and bug
 fixes included in the update are documented in the
 link:https://access.redhat.com/errata/RHBA-2016:1988[RHBA-2016:1988] advisory.
@@ -1338,8 +1451,11 @@ xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-pla
 [[ocp-3-3-1-3]]
 === RHBA-2016:2084 - {product-title} 3.3.1.3 Bug Fix and Enhancement Update
 
+<<<<<<< HEAD
 Issued: 2016-10-27
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.3.1.3 is now available. The list of packages included
 in the update are documented in the
 link:https://access.redhat.com/errata/RHBA-2016:2084[RHBA-2016:2084] advisory.
@@ -1412,7 +1528,11 @@ https://bugzilla.redhat.com/show_bug.cgi?id=1380544[*BZ#1380544*]::
 Binaries compiled with Golang versions prior to 1.7 will segfault most of the
 time in macOS Sierra (10.12) given incompatibilities between the Go syscall
 wrappers and Darwin. Users of the OpenShift Container Platform (OCP)
+<<<<<<< HEAD
 command-line tools (`oc`, `oadm`, and others) in macOS Sierra (10.12) get a
+=======
+command-line tools (`oc`, `oc adm`, and others) in macOS Sierra (10.12) get a
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 stack trace in the attempt of running commands. The Go 1.7 fix was backported by
 the go-tools team to Go 1.6, which was then used to compile OCP's command-line
 tools in this release. As a result, users of the OCP command-line tools can use
@@ -1518,8 +1638,11 @@ extended termination time, however, should make normal shutdown scenarios safer.
 [[ocp-33-relnotes-rhba-2016-2122]]
 === RHBA-2016:2122 - atomic-openshift-utils Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2016-10-27
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} bug fix advisory
 link:https://access.redhat.com/errata/RHBA-2016:2122[RHBA-2016:2122],
 providing updated *atomic-openshift-utils* and *openshift-ansible* packages that
@@ -1617,9 +1740,15 @@ The `*MONGODB_VERSION*` parameter has been added to the MongoDB templates,
 allowing users to choose which version of MongoDB to deploy.
 
 https://bugzilla.redhat.com/show_bug.cgi?id=1382636[*BZ#1382636*]::
+<<<<<<< HEAD
 The `oadm` symlink incorrectly pointing to `oc` rather than the `openshift`
 binary on containerized master hosts. This caused upgrades to fail, complaining
 about missing `oadm` functionality. This bug fix transitions to using `oc adm`
+=======
+The `oc adm` symlink incorrectly pointing to `oc` rather than the `openshift`
+binary on containerized master hosts. This caused upgrades to fail, complaining
+about missing `oc adm` functionality. This bug fix transitions to using `oc adm`
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 throughout the playbooks. As a result, the upgrade will now pass in these
 environments.
 
@@ -1642,7 +1771,11 @@ result, nodes will restart before being set schedulable again.
 https://bugzilla.redhat.com/show_bug.cgi?id=1382380[*BZ#1382380*]::
 The node service was incorrectly being restarted after upgrading master RPM
 packages. In some environments, a version mismatch could trigger between the
+<<<<<<< HEAD
 node service and the master service that had not been restarted yet, causing the
+=======
+node service and the master services that had not been restarted yet, causing the
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 upgrade to fail. This bug fix removes the incorrect node restart and shuffles
 logic to ensure masters are upgraded and restarted before proceeding to node
 upgrade and restart. As a result, the upgrade now completes successfully.
@@ -1719,8 +1852,11 @@ xref:../install/host_preparation.adoc#installing-docker[Installing Docker] secti
 [[ocp-3-3-1-4]]
 === RHSA-2016:2696 - {product-title} 3.3.1.4 Security and Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2016-11-15
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.3.1.4 is now available. The list of packages and bug
 fixes included in the update are documented in the
 link:https://access.redhat.com/errata/RHSA-2016:2696[RHSA-2016:2696] advisory.
@@ -1737,8 +1873,11 @@ xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-pla
 [[ocp-3-3-1-5]]
 === RHBA-2016:2801 - {product-title} 3.3.1.5 Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2016-11-17
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.3.1.5 is now available. The list of packages and bug
 fixes included in the update are documented in the
 link:https://access.redhat.com/errata/RHBA-2016:2801[RHBA-2016:2801] advisory.
@@ -1755,8 +1894,11 @@ xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-pla
 [[ocp-3-3-1-7]]
 === RHSA-2016:2915 - {product-title} 3.3.1.7 Security and Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2016-12-07
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.3.1.7 is now available. The list of packages and bug
 fixes included in the update are documented in the
 link:https://access.redhat.com/errata/RHSA-2016:2915[RHSA-2016:2915] advisory.
@@ -1769,6 +1911,7 @@ link:https://access.redhat.com/errata/RHBA-2016:2916[RHBA-2016:2916] advisory.
 To upgrade an existing {product-title} 3.2 or 3.3 cluster to this latest release, use the
 automated upgrade playbook. See
 xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing Automated In-place Cluster Upgrades] for instructions.
+<<<<<<< HEAD
 
 [[ocp-3-3-1-11]]
 === RHBA-2017:0199 - {product-title} 3.3.1.11 Bug Fix Update
@@ -2250,3 +2393,5 @@ link:https://access.redhat.com/errata/RHBA-2018:3753[RHBA-2018:3753] advisory.
 To upgrade an existing {product-title} 3.2 or 3.3 cluster to this latest release, use the
 automated upgrade playbook. See
 xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing Automated In-place Cluster Upgrades] for instructions.
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

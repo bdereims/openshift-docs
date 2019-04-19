@@ -101,6 +101,7 @@ references to the binding secret from the deployment. Otherwise, the next
 rollout will fail.
 ====
 
+<<<<<<< HEAD
 ifdef::openshift-enterprise,openshift-origin[]
 [[service-catalog-route-planning]]
 == Service catalog compatibility with services outside of the cluster
@@ -129,6 +130,8 @@ networking section of the cluster administrator guide] for more information on
 `NetworkPolicy` objects.
 endif::openshift-enterprise,openshift-origin[]
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[service-catalog-concepts-terminology]]
 == Concepts and Terminology
 

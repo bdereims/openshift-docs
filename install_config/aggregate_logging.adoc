@@ -171,6 +171,14 @@ secret to be used for pulling component images from an authenticated registry.
 |`openshift_logging_curator_run_minute`
 | The minute of the hour Curator will run.
 
+<<<<<<< HEAD
+=======
+|`openshift_logging_curator_run_timezone`
+|The timezone Curator uses for figuring out its run time. Provide the
+timezone as a string in the tzselect(8) or timedatectl(1) "Region/Locality"
+format, for example `America/New_York` or `UTC`.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 |`openshift_logging_curator_script_log_level`
 |The script log level for Curator.
 
@@ -944,7 +952,11 @@ logging playbook.
 for example:
 +
 ----
+<<<<<<< HEAD
 $ for dc in $(oc get deploymentconfig --selector logging-infra=elasticsearch -o name); do
+=======
+$ for dc in $(oc get deploymentconfig --selector component=es -o name); do
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
     oc scale $dc --replicas=0
     oc patch $dc \
        -p '{"spec":{"template":{"spec":{"containers":[{"name":"elasticsearch","securityContext":{"privileged": true}}]}}}}'
@@ -986,19 +998,31 @@ $ oc label node <nodename3> logging-es-node=3
 For information about adding a label to a node, see
 xref:../admin_guide/manage_nodes.adoc#updating-labels-on-nodes[Updating Labels on Nodes].
 
+<<<<<<< HEAD
 To automate applying the node selector you can instead use the `oc patch` command:
+=======
+To automate applying the node selector, you can instead use the `oc patch` command:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ----
 $ oc patch dc/logging-es-<suffix> \
    -p '{"spec":{"template":{"spec":{"nodeSelector":{"logging-es-node":"1"}}}}}'
 ----
 
+<<<<<<< HEAD
 Once you have completed these steps, you can apply a local host mount to each
 replica. The following example assumes storage is mounted at the same path
 on each node.
 
 ----
 $ for dc in $(oc get deploymentconfig --selector logging-infra=elasticsearch -o name); do
+=======
+Once you have completed these steps, you can apply a local host mount to
+each replica. The following example assumes storage is mounted at the same path on each node.
+
+----
+$ for dc in $(oc get deploymentconfig --selector component=es -o name); do
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
     oc set volume $dc \
           --add --overwrite --name=elasticsearch-storage \
           --type=hostPath --path=/usr/local/es-storage
@@ -1633,7 +1657,11 @@ you need to log in:
 
 * on the first use
 * after logging out
+<<<<<<< HEAD
 * after 1 week from initial log in
+=======
+//* after 1 week from initial log in
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ====
 
 You can scale the Kibana deployment as usual for redundancy:
@@ -1748,6 +1776,7 @@ Use:
 
 ----
 config.yaml: |
+<<<<<<< HEAD
 
 # uncomment and use this to override the defaults from env vars
 #.defaults: <1>
@@ -1769,18 +1798,41 @@ config.yaml: |
       weeks: 8
 
   .defaults: <5>
+=======
+  myapp-dev:
+    delete:
+      days: 1
+
+  myapp-qe:
+    delete:
+      weeks: 1
+
+  .operations:
+    delete:
+      weeks: 8
+
+  .defaults:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
     delete:
       days: 31
 
   .regex:
+<<<<<<< HEAD
     - pattern: '^project\..+\-dev\..*$' <6>
       delete:
         days: 1
     - pattern: '^project\..+\-test\..*$' <7>
+=======
+    - pattern: '^project\..+\-dev\..*$'
+      delete:
+        days: 1
+    - pattern: '^project\..+\-test\..*$'
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
       delete:
         days: 2
 ----
 
+<<<<<<< HEAD
 <1> Optionally, change the default number of days between run and the run hour and run minute.
 <2> Delete indices in the *myapp-dev* project older than `1 day`
 <3> Delete indices in the *myapp-qe* project older than `1 week`
@@ -1790,6 +1842,8 @@ config.yaml: |
 <7> Delete indices older than 2 days that are matched by the '^project\..+\-test.*$' regex
 
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [IMPORTANT]
 ====
 When you use `months` as the `$UNIT` for an operation, Curator starts counting at

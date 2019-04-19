@@ -14,8 +14,12 @@ with them. In {product-title} clusters, the *default* project has VNID 0. This
 facilitates certain services, such as the load balancer, to communicate with
 all other pods in the cluster and vice versa.
 * The *ovs-networkpolicy* plug-in allows project
+<<<<<<< HEAD
 administrators to configure their own isolation policies using
 xref:../../admin_guide/managing_networking.adoc#admin-guide-networking-networkpolicy[NetworkPolicy objects].
+=======
+administrators to configure their own isolation policies using NetworkPolicy objects.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ifdef::openshift-enterprise,openshift-origin[]
 [NOTE]

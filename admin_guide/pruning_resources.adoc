@@ -11,8 +11,13 @@
 toc::[]
 
 == Overview
+<<<<<<< HEAD
 Over time, xref:../architecture/core_concepts/index.adoc#architecture-core-concepts-index[API objects] created in
 {product-title} can accumulate in the
+=======
+Over time, xref:../architecture/core_concepts/index.adoc#architecture-core-concepts-index[API objects] created
+in {product-title} can accumulate in the
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 xref:../architecture/infrastructure_components/kubernetes_infrastructure.adoc#master[etcd
 data store] through normal user operations, such as when building and deploying
 applications.
@@ -404,7 +409,11 @@ $ oc adm prune images --prune-over-size-limit --confirm
 [[pruning-images-secure-or-insecure]]
 === Using secure or insecure connections
 
+<<<<<<< HEAD
 The secure connection is the preferred and recomended approach. It is done over
+=======
+The secure connection is the preferred and recommended approach. It is done over
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 HTTPS protocol with a mandatory certificate verification. The `prune` command
 always attempts to use it if possible. If not possible, in some cases it can
 fall-back to insecure connection, which is dangerous. In this case, either
@@ -491,8 +500,13 @@ naming.]
 [[using-secure-connection-against-insecure-registry]]
 ==== Using a secure connection against insecure registry
 
+<<<<<<< HEAD
 If you see a message similar to the following in the output of the `oadm prune
 images`, then your registry is not secured and the `oadm prune images` client
+=======
+If you see a message similar to the following in the output of the `oc adm prune
+images`, then your registry is not secured and the `oc adm prune images` client
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 will attempt to use secure connection:
 
 ----
@@ -508,9 +522,15 @@ recommended)*.
 [[using-insecure-connection-against-secured-registry]]
 ==== Using an insecure connection against a secured registry
 
+<<<<<<< HEAD
 If you see one of the following errors in the output of the `oadm prune images`
 command, it means that your registry is secured using a certificate signed by a
 certificate authority other than the one used by `oadm prune images` client for
+=======
+If you see one of the following errors in the output of the `oc adm prune images`
+command, it means that your registry is secured using a certificate signed by a
+certificate authority other than the one used by `oc adm prune images` client for
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 connection verification.
 
 ----

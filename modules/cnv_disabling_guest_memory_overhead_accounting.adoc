@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 // Module included in the following assemblies:
 //
 // * cnv_users_guide/cnv_users_guide.adoc
 
 [[disabling-guest-memory-overhead-accounting]]
 = Disabling guest memory overhead accounting
+=======
+[[disabling-guest-memory-overhead-accounting]]
+=== Disabling guest memory overhead accounting
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 WARNING: This procedure is only useful in certain use-cases and should
 only be attempted by advanced users.

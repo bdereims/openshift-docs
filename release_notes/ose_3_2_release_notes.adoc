@@ -77,6 +77,19 @@ Placement] for details.
 - The `oc adm diagnostics` command can now launch a diagnostic pod that reports on
 more potential issues with pod networking, DNS configuration, and registry
 authentication.
+<<<<<<< HEAD
+=======
+////
+- Using the `openshift.io/imagestreamtags` and `openshift.io/imagestreamimages`
+resources, you can restrict the number of unique image references in a project
+using quota.
+////
+- By setting `*Max["storage"]*` on the `*openshift.io/imagesize*` limit type, you
+can restrict the maximum image size that can be pushed to a project using limit
+ranges. See
+xref:../install_config/registry/index.adoc#install-config-registry-overview[Deploying
+a Docker Registry] for details on setting the storage quota.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 - Support for security context constraints (SCCs) has been added to the `oc
 describe` command.
 - The `*NO_PROXY*` environment variable will now accept a CIDR in a number of
@@ -120,7 +133,11 @@ Authentication] for details.
 - The `SETUID` and `SETGID` capabilities have been added back to the *anyuid* SCC,
 which ensures that programs that start as root and then drop to a lower
 permission level will work by default.
+<<<<<<< HEAD
 - Quota support has been added for `*emptydir*`. When the quota is enabled on an
+=======
+- Quota support has been added for `*emptyDir*`. When the quota is enabled on an
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 XFS system, nodes will limit the amount of space any given project can use on a
 node to a fixed upper bound. The quota is tied to the `*FSGroup*` of the
 project. Administrators can control this value by editing the project directly
@@ -164,9 +181,15 @@ on the same node. See xref:../admin_guide/scheduler.adoc#admin-guide-scheduler[S
 ==== Administrator CLI
 
 - The administrative commands are now exposed via `oc adm` so you have access to
+<<<<<<< HEAD
 them in a client context. The `oadm` commands will still work, but will be a
 symlink to the `openshift` binary.
 - The help output of the `oadm policy` command has been improved.
+=======
+them in a client context. The `oc adm` commands will still work, but will be a
+symlink to the `openshift` binary.
+- The help output of the `oc adm policy` command has been improved.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 - Service accounts are now supported for the router and registry:
 ** The router can now be created without specifying `--credentials` and it will use
 the router service account in the current project.
@@ -277,7 +300,11 @@ with:
 ----
 $ oc logs dc/<name>
 ----
+<<<<<<< HEAD
 - The `oc env` and `oc volume` commands have been moved to `oc set env` and `oc
+=======
+- The `oc set env` and `oc volume` commands have been moved to `oc set env` and `oc
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 set volume`, and future commands that modify aspects of existing resources will
 be located under this command.
 - When a pod is crash-looping, meaning it is starting and exiting repeatedly, an
@@ -333,7 +360,11 @@ rebuild every time that image is updated.
 Previously, secrets could be used for Git cloning but now secrets can also be
 made available to the build process itself so that build operations such as
 Maven packaging can use a secret for credentials. See
+<<<<<<< HEAD
 xref:../dev_guide/builds.adoc#using-secrets[Using Secrets During a Build] for
+=======
+xref:../dev_guide/builds/build_secrets.adoc#build-secrets[Build Secrets] for
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 details.
 
 - Builds now properly use Git submodules when checking out the source repository.
@@ -515,7 +546,11 @@ OpenShift Enterprise 3.2 introduces the following notable technical changes:
 
 By default, services with external IPs are now rejected because, in some cases,
 they can be used to allow services to pretend to act as nodes. The new
+<<<<<<< HEAD
 `*networkConfig.externalIPNetworkCIDR*` parameter has been added to the
+=======
+`*networkConfig.externalIPNetworkCIDRs*` parameter has been added to the
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 *_master-config.yaml_* file to control the allowable values for external IPs. By
 default, it is empty, which rejects all values. Cluster administrators can set
 it to `0.0.0.0/0` to emulate the behavior from OpenShift Enterprise 3.1.
@@ -680,7 +715,11 @@ process is correctly running before continuing.
 rapidly, reducing the time before the old deployment is scaled back up.
 - Persistent volume claims (PVCs) are no longer blocked by the default SCC policy
 for users.
+<<<<<<< HEAD
 - Continue to support host ports on the `oadm router` command. Administrators can
+=======
+- Continue to support host ports on the `oc adm router` command. Administrators can
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 disable them with `--host-ports=false` when `--host-network=false` is also set.
 - Events are now emitted when the cancellation of a deployment fails.
 - When invoking a binary build, retry if the input image stream tag does not exist
@@ -752,8 +791,13 @@ https://bugzilla.redhat.com/show_bug.cgi?id=1328950[*BZ#1328950*])
 
 - Internally-managed images cannot be pulled from an image reference referencing
 another image stream. See
+<<<<<<< HEAD
 xref:../install_config/install/docker_registry.adoc#registry-known-issues[Deploying
 a container image registry] for more information.
+=======
+xref:../install_config/registry/registry_known_issues.adoc#install-config-registry-known-issues[Deploying
+a Docker Registry] for more information.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 - See also the xref:ose-3-2-1-1-known-issues[Known Issues for {product-title}
 3.2.1.1].
@@ -798,8 +842,11 @@ cluster] properly.
 [[ose-32-relnotes-rhba-2016-1208]]
 === RHBA-2016:1208 - atomic-openshift-utils Bug Fix Update
 
+<<<<<<< HEAD
 Issued: 2016-06-07
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 OpenShift Enterprise bug fix advisory
 https://access.redhat.com/errata/product/290/ver=3.2/rhel---7/x86_64/RHBA-2016:1208[RHBA-2016:1208],
 providing updated *atomic-openshift-utils* and *openshift-ansible* packages that
@@ -952,8 +999,11 @@ these options correctly.
 [[ose-3-2-1-1]]
 === RHBA-2016:1343 - OpenShift Enterprise 3.2.1.1 bug fix and enhancement update
 
+<<<<<<< HEAD
 Issued: 2016-06-27
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.2.1.1
 (https://access.redhat.com/errata/product/290/ver=3.1/rhel---7/x86_64/RHBA-2016:1343[RHBA-2016:1343])
 is now available.
@@ -973,7 +1023,11 @@ available.
 
 However, if you are upgrading from {product-title} 3.1, you can use the
 *_v3_1_to_v3_2_* upgrade playbook as described in the
+<<<<<<< HEAD
 xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-2[Upgrading
+=======
+xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-3[Upgrading
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 to OpenShift Enterprise 3.2] automated cluster upgrade steps to upgrade all the
 way to the latest asynchronous release at once.
 
@@ -1173,8 +1227,11 @@ link:https://github.com/openshift/origin/issues/9491[*openshift/origin#9491*])
 [[ose-3-2-1-4]]
 === RHBA-2016:1383 - OpenShift Enterprise 3.2.1.4 bug fix and enhancement update
 
+<<<<<<< HEAD
 Issued: 2016-07-05
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.2.1.4
 (https://access.redhat.com/errata/product/290/ver=3.1/rhel---7/x86_64/RHBA-2016:1383[RHBA-2016:1383])
 is now available. The list of bug fixes included in the update are documented in
@@ -1187,7 +1244,11 @@ section of the advisory.
 
 At the initial release of {product-title} 3.2.1.4, only the
 xref:../install_config/upgrading/manual_upgrades.adoc#install-config-upgrading-manual-upgrades[manual
+<<<<<<< HEAD
 cluster upgrade steps] were available for applying this asynchronous errata
+=======
+cluster upgrade steps] was available for applying this asynchronous errata
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 update from {product-title} 3.2.x to 3.2.1.4. An automated playbook for this
 minor upgrade path was still in development at the time, which has now been
 released as of xref:ose-3-2-1-9[{product-title} 3.2.1.9].
@@ -1195,15 +1256,22 @@ released as of xref:ose-3-2-1-9[{product-title} 3.2.1.9].
 If you are upgrading from {product-title} 3.1, you can use the *_v3_2_*  upgrade
 playbook (previously located in a *_v3_1_to_v3_2_* directory) as described in
 the
+<<<<<<< HEAD
 xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-2[Upgrading
+=======
+xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-3[Upgrading
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 to OpenShift Enterprise 3.2] automated cluster upgrade steps to upgrade all the
 way to the latest asynchronous release at once.
 
 [[ose-3-2-1-9]]
 === RHBA-2016:1466 - OpenShift Enterprise 3.2.1.9 security and bug fix update
 
+<<<<<<< HEAD
 Issued: 2016-07-20
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} release 3.2.1.9
 (https://access.redhat.com/errata/product/290/ver=3.2/rhel---7/x86_64/RHBA-2016:1466[RHBA-2016:1466])
 is now available. The list of security and bug fixes included in the update are documented in
@@ -1215,41 +1283,87 @@ section of the advisory.
 ==== Upgrading
 
 With the release of {product-title} 3.2.1.9, an
+<<<<<<< HEAD
 xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-2-asynchronous-releases[automated
 upgrade playbook] is now available and supported for applying asynchronous
 errata updates within the {product-title} 3.2 minor version (e.g., 3.2.1.4 to
 3.2.1.9). See
 xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-2-asynchronous-releases[Upgrading
+=======
+xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-3-asynchronous-releases[automated
+upgrade playbook] is now available and supported for applying asynchronous
+errata updates within the {product-title} 3.2 minor version (e.g., 3.2.1.4 to
+3.2.1.9). See
+xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-3-asynchronous-releases[Upgrading
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 to {product-title} 3.2 Asynchronous Releases] for instructions.
 
 If you are upgrading from {product-title} 3.1, you can use the *_v3_2_*  upgrade
 playbook (previously located in a *_v3_1_to_v3_2_* directory) as described in
 the
+<<<<<<< HEAD
 xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-2[Upgrading
+=======
+xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-3[Upgrading
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 to OpenShift Enterprise 3.2] automated cluster upgrade steps to upgrade all the
 way to the latest asynchronous release at once.
 
 [[ose-3-2-1-13]]
 === RHBA-2016:1608 - OpenShift Enterprise 3.2.1.13 bug fix and enhancement update
 
+<<<<<<< HEAD
 Issued: 2016-08-11
 
 {product-title} release 3.2.1.13 is now available. The list of packages,
 container images, and bug fixes included in the update are documented in the
 link:https://access.redhat.com/errata/RHBA-2016:1608[RHBA-2016:1608] advisory.
+=======
+{product-title} release 3.2.1.13
+(https://access.redhat.com/errata/product/290/ver=3.2/rhel---7/x86_64/RHBA-2016:1608[RHBA-2016:1608])
+is now available. The list of bug fixes and enhancement included in the update
+are documented in the
+https://access.redhat.com/errata/product/290/ver=3.2/rhel---7/x86_64/RHBA-2016:1608[Description]
+section of the advisory.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[ose-3-2-1-13-upgrading]]
 ==== Upgrading
 
+<<<<<<< HEAD
 To upgrade an existing {product-title} 3.1 or 3.2 cluster to the latest 3.2
 release, use the automated upgrade playbook. See
 xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing Automated Cluster Upgrades] for instructions.
+=======
+To apply the {product-title} 3.2.1.13 update to an existing {product-title} 3.2
+cluster, use the automated upgrade playbook. See
+xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-3-asynchronous-releases[Upgrading
+to {product-title} 3.2 Asynchronous Releases] for instructions.
+
+[IMPORTANT]
+====
+If you have previously deployed aggregated logging, ensure that you also follow
+the related instructions for upgrading the EFK logging stack in
+xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-3-asynchronous-releases[Upgrading
+to {product-title} 3.2 Asynchronous Releases].
+====
+
+If you are upgrading from {product-title} 3.1, you can use the *_v3_2_*  upgrade
+playbook (previously located in a *_v3_1_to_v3_2_* directory) as described in
+the
+xref:../install_config/upgrading/automated_upgrades.adoc#upgrading-to-openshift-enterprise-3-3[Upgrading
+to OpenShift Enterprise 3.2] automated cluster upgrade steps to upgrade all the
+way to the latest asynchronous release at once.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[ose-32-relnotes-rhba-2016-1639]]
 === RHBA-2016:1639 - atomic-openshift-utils Bug Fix and Enhancement Update
 
+<<<<<<< HEAD
 Issued: 2016-08-18
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 OpenShift Enterprise bug fix advisory
 https://access.redhat.com/errata/product/290/ver=3.2/rhel---7/x86_64/RHBA-2016:1639[RHBA-2016:1639],
 providing updated *atomic-openshift-utils* and *openshift-ansible* packages that
@@ -1367,6 +1481,7 @@ systems during upgrades, which would fail due to a missing `repoquery` command.
 This bug fix modifies the upgrade process to skip this section that attempts to
 upgrade Docker, as this is not possible on RHEL Atomic Host. As a result,
 upgrades now complete successfully on RHEL Atomic Host systems.
+<<<<<<< HEAD
 
 [[ose-3-2-1-15]]
 === RHSA-2016:1853 - OpenShift Enterprise 3.2.1.15 security and bug fix update
@@ -1745,3 +1860,5 @@ link:https://access.redhat.com/errata/RHBA-2018:3741[RHBA-2018:3741] advisory.
 To upgrade an existing {product-title} 3.1 or 3.2 cluster to the latest 3.2
 release, use the automated upgrade playbook. See
 xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing Automated Cluster Upgrades] for instructions.
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

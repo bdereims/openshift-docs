@@ -67,7 +67,11 @@ into your {mgmt-app} deployment, this role includes a script which allows you
 to add multiple container platforms as container providers in any arbitrary
 {mgmt-app} server. The container platforms can be {product-title} or
 ifdef::openshift-enterprise[]
+<<<<<<< HEAD
 OKD.
+=======
+OpenShift Origin.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 endif::[]
 ifdef::openshift-origin[]
 OpenShift Container Platform.

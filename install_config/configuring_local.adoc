@@ -75,9 +75,15 @@ script or `/etc/fstab` entries, for example:
 You can change the labels of mounted file systems to allow this, for example:
 +
 [source, bash]
+<<<<<<< HEAD
 ----
 $ chcon -R unconfined_u:object_r:svirt_sandbox_file_t:s0 /mnt/local-storage/
 ----
+=======
+---
+$ chcon -R unconfined_u:object_r:svirt_sandbox_file_t:s0 /mnt/local-storage/
+---
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[local-volume-configure-local-provisioner]]
 == Configuring the local provisioner

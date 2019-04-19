@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 // Module included in the following assemblies:
 //
 // * cnv_install/cnv_install.adoc
 
 [[installing-virtctl-client]]
 = Installing virtctl client utility
+=======
+[[installing-virtctl-client]]
+=== Installing virtctl client utility
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The *virtctl* client utility is used to manage the state of the virtual
 machine, forward ports from the virtual machine pod to the node, and

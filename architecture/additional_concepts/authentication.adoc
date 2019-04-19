@@ -94,9 +94,12 @@ the `system:anonymous` virtual user and the `system:unauthenticated` virtual
 group to the request. This allows the authorization layer to determine which
 requests, if any, an anonymous user is allowed to make.
 
+<<<<<<< HEAD
 See the xref:../../rest_api/index.adoc#rest-api-index[REST API Overview] for more information
 and examples.
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[authentication-impersonation]]
 === Impersonation
 A request to the {product-title} API can include an *Impersonate-User* header,
@@ -199,6 +202,7 @@ grantMethod: prompt <4>
 <1> The `name` of the OAuth client is used as the `client_id` parameter when making requests to `_<master>_/oauth/authorize` and `_<master>_/oauth/token`.
 <2> The `secret` is used as the `client_secret` parameter when making requests to `_<master>_/oauth/token`.
 <3> The `redirect_uri` parameter specified in requests to `_<master>_/oauth/authorize` and `_<master>_/oauth/token` must be equal to (or prefixed by) one of the URIs in `redirectURIs`.
+<<<<<<< HEAD
 <4> The `grantMethod` is used to determine what action to take when this client requests tokens and has not yet been granted access by the user. Uses the same values seen in xref:../../install_config/configuring_authentication.adoc#grant-options[Grant Options].
 ====
 
@@ -335,6 +339,141 @@ Specifying a host name override will replace the host name data from the
 referenced object, which is not likely to be desired behavior.
 ====
 
+=======
+<4> The `grantMethod` is used to determine what action to take when this client requests tokens and has not yet been granted access by the user. Uses the same values seen in Grant Options.
+====
+
+[[service-accounts-as-oauth-clients]]
+=== Service Accounts as OAuth Clients
+
+A service account can be used as a constrained form of OAuth client. Service accounts can
+only request a subset of scopes that
+allow access to some basic user information and role-based power inside of the
+service account's own namespace:
+
+* `user:info`
+* `user:check-access`
+* `role:<any_role>:<serviceaccount_namespace>`
+* `role:<any_role>:<serviceaccount_namespace>:!`
+
+When using a service account as an OAuth client:
+
+* `client_id` is `system:serviceaccount:<serviceaccount_namespace>:<serviceaccount_name>`.
+* `client_secret` can be any of the API tokens for that service account. For example:
++
+----
+$ oc sa get-token <serviceaccount_name>
+----
+
+* To get `WWW-Authenticate` challenges, set an
+`serviceaccounts.openshift.io/oauth-want-challenges` annotation on the service
+account to *true*.
+
+* `redirect_uri` must match an annotation on the service account.
+xref:redirect-uris-for-service-accounts[Redirect URIs for Service Accounts as
+OAuth Clients] provides more information.
+
+[[redirect-uris-for-service-accounts]]
+=== Redirect URIs for Service Accounts as OAuth Clients
+
+Annotation keys must have the prefix
+`serviceaccounts.openshift.io/oauth-redirecturi.` or
+`serviceaccounts.openshift.io/oauth-redirectreference.` such as:
+
+----
+serviceaccounts.openshift.io/oauth-redirecturi.<name>
+----
+
+In its simplest form, the annotation can be used to directly specify valid
+redirect URIs. For example:
+
+----
+"serviceaccounts.openshift.io/oauth-redirecturi.first":  "https://example.com"
+"serviceaccounts.openshift.io/oauth-redirecturi.second": "https://other.com"
+----
+
+The `first` and `second` postfixes in the above example are used to separate the
+two valid redirect URIs.
+
+In more complex configurations, static redirect URIs may not be enough. For
+example, perhaps you want all ingresses for a route to be considered valid. This
+is where dynamic redirect URIs via the
+`serviceaccounts.openshift.io/oauth-redirectreference.` prefix come into play.
+
+For example:
+
+----
+"serviceaccounts.openshift.io/oauth-redirectreference.first": "{\"kind\":\"OAuthRedirectReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"Route\",\"name\":\"jenkins\"}}"
+----
+
+Since the value for this annotation contains serialized JSON data, it is easier
+to see in an expanded format:
+
+----
+
+{
+  "kind": "OAuthRedirectReference",
+  "apiVersion": "v1",
+  "reference": {
+    "kind": "Route",
+    "name": "jenkins"
+  }
+}
+
+----
+
+Now you can see that an `OAuthRedirectReference` allows us to reference the
+route named `jenkins`. Thus, all ingresses for that route will now be considered
+valid.  The full specification for an `OAuthRedirectReference` is:
+
+----
+
+{
+  "kind": "OAuthRedirectReference",
+  "apiVersion": "v1",
+  "reference": {
+    "kind": ..., <1>
+    "name": ..., <2>
+    "group": ... <3>
+  }
+}
+
+----
+
+<1> `kind` refers to the type of the object being referenced. Currently, only `route` is supported.
+<2> `name` refers to the name of the object. The object must be in the same namespace as the service account.
+<3> `group` refers to the group of the object. Leave this blank, as the group for a route is the empty string.
+
+Both annotation prefixes can be combined to override the data provided by the
+reference object. For example:
+
+----
+"serviceaccounts.openshift.io/oauth-redirecturi.first":  "custompath"
+"serviceaccounts.openshift.io/oauth-redirectreference.first": "{\"kind\":\"OAuthRedirectReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"Route\",\"name\":\"jenkins\"}}"
+----
+
+The `first` postfix is used to tie the annotations together. Assuming that the
+`jenkins` route had an ingress of *_\https://example.com_*, now
+*_\https://example.com/custompath_* is considered valid, but
+*_\https://example.com_* is not.  The format for partially supplying override
+data is as follows:
+
+[cols="4a,8a",options="header"]
+|===
+|Type | Syntax
+|Scheme| "https://"
+|Hostname| "//website.com"
+|Port| "//:8000"
+|Path| "examplepath"
+|===
+
+[NOTE]
+====
+Specifying a host name override will replace the host name data from the
+referenced object, which is not likely to be desired behavior.
+====
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Any combination of the above syntax can be combined using the following format:
 
 `<scheme:>//<hostname><:port>/<path>`
@@ -610,6 +749,7 @@ the built-in OAuth server. For example, they may need to discover what the
 address of the `<master>` server is without manual configuration.  To aid in
 this, {product-title} implements the IETF
 link:https://tools.ietf.org/html/draft-ietf-oauth-discovery-10[OAuth 2.0 Authorization Server Metadata] draft specification.
+<<<<<<< HEAD
 
 Thus, any application running inside the cluster can issue a `GET` request to
 *_\https://openshift.default.svc/.well-known/oauth-authorization-server_* to fetch
@@ -691,6 +831,89 @@ $ curl -H "X-Remote-User: <username>" \
      -I https://<master-address>/oauth/authorize?response_type=token\&client_id=openshift-challenging-client | grep -oP "access_token=\K[^&]*"
 ----
 
+=======
+
+Thus, any application running inside the cluster can issue a `GET` request to
+*_\https://openshift.default.svc/.well-known/oauth-authorization-server_* to fetch
+the following information:
+
+----
+{
+  "issuer": "https://<master>", <1>
+  "authorization_endpoint": "https://<master>/oauth/authorize", <2>
+  "token_endpoint": "https://<master>/oauth/token", <3>
+  "scopes_supported": [ <4>
+    "user:full",
+    "user:info",
+    "user:check-access",
+    "user:list-scoped-projects",
+    "user:list-projects"
+  ],
+  "response_types_supported": [ <5>
+    "code",
+    "token"
+  ],
+  "grant_types_supported": [ <6>
+    "authorization_code",
+    "implicit"
+  ],
+  "code_challenge_methods_supported": [ <7>
+    "plain",
+    "S256"
+  ]
+}
+----
+<1> The authorization server's issuer identifier, which is a URL that uses the
+`https` scheme and has no query or fragment components. This is the location
+where `.well-known` link:https://tools.ietf.org/html/rfc5785[RFC 5785] resources
+containing information about the authorization server are published.
+<2> URL of the authorization server's authorization endpoint. See
+link:https://tools.ietf.org/html/rfc6749[RFC 6749].
+<3> URL of the authorization server's token endpoint. See
+link:https://tools.ietf.org/html/rfc6749[RFC 6749].
+<4> JSON array containing a list of the OAuth 2.0
+link:https://tools.ietf.org/html/rfc6749[RFC 6749] scope values that this
+authorization server supports. Note that not all supported scope values are
+advertised.
+<5> JSON array containing a list of the OAuth 2.0 `response_type` values that this
+authorization server supports. The array values used are the same as those used
+with the `response_types` parameter defined by "OAuth 2.0 Dynamic Client
+Registration Protocol" in link:https://tools.ietf.org/html/rfc7591[RFC 7591].
+<6> JSON array containing a list of the OAuth 2.0 grant type values that this
+authorization server supports. The array values used are the same as those used
+with the `grant_types` parameter defined by *OAuth 2.0 Dynamic Client
+Registration Protocol* in link:https://tools.ietf.org/html/rfc7591[RFC 7591].
+<7> JSON array containing a list of PKCE
+link:https://tools.ietf.org/html/rfc7636[RFC 7636] code challenge methods
+supported by this authorization server. Code challenge method values are used in
+the `code_challenge_method` parameter defined in
+link:https://tools.ietf.org/html/rfc7636#section-4.3[Section 4.3 of RFC 7636].
+The valid code challenge method values are those registered in the IANA *PKCE
+Code Challenge Methods* registry.  See
+link:http://www.iana.org/assignments/oauth-parameters[IANA OAuth Parameters].
+
+
+[[obtaining-oauth-tokens]]
+=== Obtaining OAuth Tokens
+
+The OAuth server supports standard
+link:https://tools.ietf.org/html/rfc6749#section-4.1[authorization code grant]
+and the link:https://tools.ietf.org/html/rfc6749#section-4.2[implicit grant]
+OAuth authorization flows.
+
+Run the following command to request an OAuth token by using the authorization code
+grant method:
+
+[source,bash]
+----
+$ curl -H "X-Remote-User: <username>" \
+     --cacert /etc/origin/master/ca.crt \
+     --cert /etc/origin/master/admin.crt \
+     --key /etc/origin/master/admin.key \
+     -I https://<master-address>/oauth/authorize?response_type=token\&client_id=openshift-challenging-client | grep -oP "access_token=\K[^&]*"
+----
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 When requesting an OAuth token using the implicit grant flow
 (`response_type=token`) with a client_id configured to request `WWW-Authenticate
 challenges` (like `openshift-challenging-client`), these are the possible server
@@ -776,6 +999,11 @@ set to `token`.
 You can also use the `Code Grant` method to request a token
 
 
+<<<<<<< HEAD
+=======
+ifdef::openshift-enterprise,openshift-origin[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[authentication-prometheus-system-metrics]]
 === Authentication Metrics for Prometheus
 
@@ -786,3 +1014,7 @@ You can also use the `Code Grant` method to request a token
 * `openshift_auth_form_password_count` counts the number of web console login attempts.
 * `openshift_auth_form_password_count_result` counts the number of web console login attempts by result (success or error).
 * `openshift_auth_password_total` counts the total number of `oc login` and web console login attempts.
+<<<<<<< HEAD
+=======
+endif::openshift-enterprise,openshift-origin[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

@@ -13,6 +13,7 @@ toc::[]
 
 == Overview
 
+<<<<<<< HEAD
 Red Hat {product-title} provides developers and IT organizations with a cloud
 application platform for deploying new applications on secure, scalable
 resources with minimal configuration and management overhead. {product-title}
@@ -24,6 +25,20 @@ secure and scalable multi-tenant operating system for today’s enterprise-class
 applications, while providing integrated application runtimes and libraries.
 {product-title} enables organizations to meet security, privacy, compliance, and
 governance requirements.
+=======
+Red Hat {product-title} is a Platform as a Service (PaaS) that provides
+developers and IT organizations with a cloud application platform for deploying
+new applications on secure, scalable resources with minimal configuration and
+management overhead. {product-title} supports a wide selection of
+programming languages and frameworks, such as Java, Ruby, and PHP.
+
+Built on Red Hat Enterprise Linux and Google Kubernetes, {product-title}
+provides a secure and scalable multi-tenant operating system for today’s
+enterprise-class applications, while providing integrated application runtimes
+and libraries. {product-title} brings the OpenShift PaaS platform to customer
+data centers, enabling organizations to implement a private PaaS that meets
+security, privacy, compliance, and governance requirements.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[ocp-37-about-this-release]]
 == About This Release
@@ -35,12 +50,18 @@ link:https://github.com/openshift/origin/releases/tag/v3.7.0-rc.0[OpenShift
 Origin 3.7]. New features, changes, bug fixes, and known issues that pertain to
 {product-title} 3.7 are included in this topic.
 
+<<<<<<< HEAD
 {product-title} 3.7 is supported on RHEL 7.3, 7.4.2, 7.5, and Atomic Host 7.4.2 and
 newer with the latest packages from Extras, including Docker 1.12.
 
 TLSV1.2 is the only supported security version in {product-title} version 3.4
 and later. You must update if you are using TLSV1.0 or TLSV1.1.
 
+=======
+{product-title} 3.7 is supported on RHEL 7.3, 7.4.2, and Atomic Host 7.4.2 and
+newer with the latest packages from Extras, including Docker 1.12.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 For initial installations, see the
 xref:../install_config/install/planning.adoc#install-config-install-planning[Installing
 a Cluster] topics in the
@@ -116,7 +137,11 @@ detected.
 ====
 
 When CRI-O use is enabled, it is installed alongside `docker`, which currently
+<<<<<<< HEAD
 is required to perform build and push operations to the registry. Over time,
+=======
+is required to perform build and push operations to the reigstry. Over time,
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 temporary `docker` builds can accumulate on nodes. You can optionally set the
 following parameter to enable garbage collection. You must configure the node
 selector so that the garbage collector runs only on nodes where `docker` is
@@ -390,7 +415,11 @@ Cinder snapshotting API. This Technology Preview feature has tested EBS and
 HostPath. The tenant must stop the pods and start them manually.
 
 . The administrator runs an external provisioner for the cluster. These are images
+<<<<<<< HEAD
 from the Red Hat Container Catalog.
+=======
+from the Red hat Container Catalog.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 . The tenant made a PVC and owns a PV from one of the supported storage
 solutions.The administrator must create a new `StorageClass` in the cluster with:
@@ -751,6 +780,7 @@ $ curl --head https://$route -k
    ...
 ----
 
+<<<<<<< HEAD
 [[ocp-37-enabling-static-IPs-for-external-project-traffic]]
 ==== Enabling Static IPs for External Project Traffic (Technology Preview)
 
@@ -769,6 +799,17 @@ rules.
 
 See
 xref:../admin_guide/managing_networking.adoc#enabling-static-ips-for-external-project-traffic[Managing
+=======
+[[ocp-37-semi-automatic-namespace-wide-egress-ip]]
+==== Semi-automatic Namespace-wide Egress IP
+
+All outgoing external connections from a project will share a single
+fixed-source IP address and will send all traffic via that IP so that external
+firewalls can recognize the application associated with a packet.
+
+See
+xref:../admin_guide/managing_networking.adoc#admin-guide-manage-networking[Managing
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Networking] for more information.
 
 [[ocp-37-master]]
@@ -962,11 +1003,19 @@ $ ansible-playbook -v -e container_providers_config=/tmp/cp.yml \
 [NOTE]
 ====
 The *_/tmp/cp.yml_* file requires some manual configurations to create and use
+<<<<<<< HEAD
 it correctly.
 
 // Commenting out this section till CFME merges
 See Multiple Container Providers for more information.
 //
+=======
+it correctly. 
+
+//// Commenting out this section till CFME merges
+See Multiple Container Providers for more information.
+////
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ====
 
 [[ocp-37-diagnostics]]
@@ -1023,6 +1072,26 @@ openshift_checks_output_dir=/tmp/checks
 [[ocp-37-metrics-and-logging]]
 === Metrics and Logging
 
+<<<<<<< HEAD
+=======
+[[ocp-37-journald-system-logs]]
+==== Jourald for System Logs and JSON File for Container Logs
+
+Docker log driver is set to `json-file` as the default for all nodes. Docker
+`log-driver` can be set to `journal`, but there is no log rate throttling with
+journal driver. So, there is always a risk for denial-of-service attacks from
+rogue containers.
+
+Fluentd will automatically determine which log driver (`journald` or
+`json-file`) the container runtime is using. Fluentd will now always read logs
+from journald and also *_/var/log/containers_* (if `log-driver` is set to
+`json-file`). Fluentd will no longer read from *_/var/log/messages_*.
+
+See
+xref:../install_config/aggregate_logging.adoc#install-config-aggregate-logging[Aggregating
+Container Logs] for more information.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[ocp-37-docker-events-and-api-calls-aggregated-to-efk-as-logs]]
 ==== Docker Events and API Calls Aggregated to EFK as Logs
 
@@ -1150,6 +1219,7 @@ Cluster Metrics] for more information.
 [[ocp-37-developer-experience]]
 === Developer Experience
 
+<<<<<<< HEAD
 [[ocp-37-aws-service-broker]]
 ==== AWS Service Broker
 
@@ -1161,11 +1231,19 @@ Broker] and
 link:https://github.com/awslabs/aws-servicebroker-documentation/blob/master/getting-started.md[Getting
 Started Guide].
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[ocp-37-template-instantation-api]]
 ==== Template Instantiation API
 
 Clients can now easily invoke a server API instead of relying on client logic.
 
+<<<<<<< HEAD
+=======
+See xref:../rest_api/examples.adoc#template-instantiation[Template
+Instantiation] for more information.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[ocp-37-dev-experience-metrics]]
 ==== Metrics
 
@@ -1177,6 +1255,7 @@ running, failing, failure reasons, and so on).
 * Timing information on build objects themselves to show how long they spent in
 various steps (not exposed as Prometheus metrics).
 
+<<<<<<< HEAD
 [[ocp-37-cli-plug-ins]]
 ==== CLI Plug-ins (Technology Preview)
 
@@ -1212,6 +1291,8 @@ combinations of the two, compared with S2i strategy only for Extended Builds.
 * Better separation of concerns between the step that produces the application
 artifacts and the step that puts them into an application image.
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[ocp-37-web-console]]
 === Web Console
 
@@ -1372,6 +1453,7 @@ explicitly setting `env name` to  `key mappings`.
 {product-title} 3.7 introduces the following notable technical changes.
 
 [discrete]
+<<<<<<< HEAD
 [[use-ansible-version-that-ships-with-OCP]]
 === Use the Ansible Version Shipping with {product-title}
 
@@ -1384,6 +1466,8 @@ link:https://bugzilla.redhat.com/show_bug.cgi?id=1575063[BZ#1575063] for
 additional information.
 
 [discrete]
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[api-connectivity-variables-now-deprecated]]
 === API Connectivity Variables OPENSHIFT_MASTER and KUBERNETES_MASTER Are Now Deprecated
 
@@ -1419,12 +1503,15 @@ documentation] has been updated to use the newer variable names. The deprecated
 variable names are planned for removal in the next minor release of OpenShift
 Container Platform.
 
+<<<<<<< HEAD
 See
 xref:../install_config/install/advanced_install.adoc#advanced-install-cluster-metrics[Configuring
 Cluster Metrics] and
 xref:../install_config/install/advanced_install.adoc#advanced-install-cluster-logging[Configuring
 Cluster Logging] for more information.
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [discrete]
 [[removed-generatedeploymentconfig-api-endpoint]]
 === Removed generatedeploymentconfig API Endpoint
@@ -1461,7 +1548,10 @@ client will just fail hard against a 3.7 server.
 
 In {product-title} 3.7, containerized installations require Red Hat Enterprise
 Linux Atomic Host version 7.4.2.1 or newer.
+<<<<<<< HEAD
 You can also perform containerized installations on Red Hat Enterprise Linux.
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [discrete]
 [[installer-labeling-clusters-for-aws]]
@@ -1802,10 +1892,17 @@ routine to hang. This caused many builds to hang during the registry push.This
 bug fix corrects the regulator. As a result, concurrent pushes no longer hang.
 (link:https://bugzilla.redhat.com/show_bug.cgi?id=1436841[*BZ#1436841*])
 
+<<<<<<< HEAD
 * Previously, the `oc adm prune images` command would print confusing errors (such
 as operation timeout). This bug fix enables errors to be printed with hints. As
 a result, users are able to prune images, including images outside of the
 OpenShift cluster.
+=======
+* N00b is now able to prune images, including images outside of the OpenShift
+cluster. Previously, issuing the `oc adm prune images` command would print
+confusing errors (e.g.,  operation timeout). This bug fix enables errors to be
+printed with hints.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 (link:https://bugzilla.redhat.com/show_bug.cgi?id=1469654[*BZ#1469654*])
 
 * The registry previously appended forwarded target ports to redirected location
@@ -1843,6 +1940,19 @@ uppercase letter. This bug fix ensures that hostnames for node objects are
 created with lowercase letters.
 (link:https://bugzilla.redhat.com/show_bug.cgi?id=1396350[*BZ#1396350*])
 
+<<<<<<< HEAD
+=======
+* When upgrading between versions (specifically 3.3/1.3 or earlier to 3.4 or
+later) the default values for `clusterNetworkCIDR` and `hostSubnetLength`
+changed. If the inventory file did not specify corresponding inventory
+variables, the upgrade would fail. This caused the controller service to not
+start back up. This bug fix requires that the inventory variables be set before
+upgrading or installing. As a result, if the required inventory variables are
+not set, the upgrade or installation will stop and tell the administrator to set
+the variables.
+(link:https://bugzilla.redhat.com/show_bug.cgi?id=1451023[*BZ#1451023*])
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 * Previously, the node service was not restarted when Open vSwitch was restarted,
 which could result in a misconfigured networking environment. This bug fix
 updates the services to ensure that the node service is restarted whenever Open
@@ -2840,12 +2950,19 @@ Features Support Scope]
 
 The following new features are now available in Technology Preview:
 
+<<<<<<< HEAD
 - xref:ocp-37-prometheus[Prometheus Cluster Monitoring]
 - xref:ocp-37-local-persistent-volumes[Local Storage Persistent Volumes]
 - xref:ocp-37-crio[CRI-O]
 - xref:ocp-37-tenant-driven-storage-snapshotting[Tenant-driven Storage Snapshotting]
 - xref:ocp-37-cli-plug-ins[CLI Plug-ins]
 - xref:ocp-37-enabling-static-IPs-for-external-project-traffic[Enabling Static IPs for External Project Traffic]
+=======
+- Prometheus Cluster Monitoring
+- xref:ocp-37-local-persistent-volumes[Local Storage Persistent Volumes]
+- xref:ocp-37-crio[CRI-O]
+- xref:ocp-37-tenant-driven-storage-snapshotting[Tenant-driven Storage Snapshotting]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The following features that were formerly in Technology Preview from a previous
 {product-title} release are now fully supported:
@@ -2870,7 +2987,11 @@ Deployments Support]
 - xref:../admin_guide/quota.adoc#limited-resources-quota[Require Explicit Quota to Consume a Resource]
 - xref:../architecture/additional_concepts/storage.adoc#pv-mount-options[Mount Options]
 - xref:../install_config/install/advanced_install.adoc#advanced-install-configuring-system-containers[Installation of etcd, Docker Daemon, and Ansible Installer as System Containers]
+<<<<<<< HEAD
 - xref:../install_config/install/advanced_install.adoc#running-the-advanced-installation-system-container[Running OpenShift Installer as a System Container]
+=======
+- Running OpenShift Installer as a System Container
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 - xref:ocp-37-integrated-approach-to-adding-hosa[Integrated Approach to Adding Hawkular OpenShift Agent]
 - Bind in Context
 - `mux`
@@ -2878,11 +2999,14 @@ Deployments Support]
 [[ocp-37-known-issues]]
 == Known Issues
 
+<<<<<<< HEAD
 * When users are redirected to an external domain after successfully logging in,
 users should only be redirected to specific URLs. This is a known issue and will
 be fixed in {product-title} 3.9.
 (link:https://bugzilla.redhat.com/show_bug.cgi?id=1525538[*BZ1525538*])
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 * The installer can not deploy system container-based installations when the
 specified registry requires authentication credentials in order to pull the
 required system container images. The fix for this depends on an update to the
@@ -2943,6 +3067,7 @@ detailed in subsections that follow.
 For any {product-title} release, always review the instructions on
 xref:../upgrading/index.adoc#install-config-upgrading-index[upgrading your cluster] properly.
 ====
+<<<<<<< HEAD
 
 [[ocp-3-7-14]]
 === RHBA-2017:3464 - {product-title} 3.7.14 Bug Fix and Enhancement Update
@@ -4174,3 +4299,5 @@ To upgrade an existing {product-title} 3.6 or 3.7 cluster to this latest
 release, use the automated upgrade playbook. See
 xref:../upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing
 Automated In-place Cluster Upgrades] for instructions.
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

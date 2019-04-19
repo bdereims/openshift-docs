@@ -13,7 +13,11 @@ toc::[]
 
 == Overview
 
+<<<<<<< HEAD
 This topic includes known issues for {product-title} {product-version}.
+=======
+This topic includes known issues for {product-title}.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[known-issues-list]]
 == Known Issues

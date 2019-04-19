@@ -1,7 +1,11 @@
 #!/bin/bash
 set -ev
 
+<<<<<<< HEAD
 ALLOWED_USERS=("mburke5678" "vikram-redhat" "ariordan-redhat" "ahardin-rh" "kalexand-rh" "adellape" "bmcelvee" "ousleyp" "jhoyt-rh" "JStickler" "geekspertise" "rh-max" "bergerhoffer" "huffmanca" "sheriff-rh" "jboxman" "dhoyle-rh")
+=======
+ALLOWED_USERS=("gaurav-nelson" "tmorriso-rh" "mburke5678" "vikram-redhat" "ahardin-rh" "kalexand-rh" "adellape" "bfallonf" "bmcelvee" "ousleyp" "dhoyle-rh")
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 USERNAME=${TRAVIS_PULL_REQUEST_SLUG::-15}
 COMMIT_HASH="$(git rev-parse @~)"
 mapfile -t FILES_CHANGED < <(git diff --name-only "$COMMIT_HASH")

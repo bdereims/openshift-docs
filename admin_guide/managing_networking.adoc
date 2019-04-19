@@ -165,6 +165,7 @@ $ master-restart controllers
 endif::openshift-enterprise,openshift-origin[]
 
 ifdef::openshift-enterprise,openshift-origin[]
+<<<<<<< HEAD
 [[admin-guide-managing-networking-ingress]]
 == Setting up the HAProxy router to accept ingress objects
 
@@ -220,6 +221,8 @@ $ oc adm policy add-cluster-role-to-user \
 endif::openshift-enterprise,openshift-origin[]
 
 ifdef::openshift-enterprise,openshift-origin[]
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[admin-guide-controlling-egress-traffic]]
 == Controlling Egress Traffic
 
@@ -270,6 +273,10 @@ because it allows you to secure an external database so that only specific pods
 in a namespace can talk to a service (the egress router), which proxies the
 traffic to your database.
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 xref:admin-guide-limit-pod-access-iptables[iptables]::
 In addition to the above {product-title}-internal solutions, it is also
 possible to create iptables rules that will be applied to outgoing
@@ -301,6 +308,11 @@ same access to `<project B>`. Or, you can restrict application developers from
 updating from (Python) pip mirrors, and force updates to only come from approved
 sources.
 
+<<<<<<< HEAD
+=======
+ifdef::openshift-enterprise,openshift-origin[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [CAUTION]
 ====
 You must have the
@@ -318,6 +330,11 @@ with only one policy per project, and will not work with projects that share a
 network, such as global projects.
 ====
 
+<<<<<<< HEAD
+=======
+endif::openshift-enterprise,openshift-origin[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Project administrators can neither create `EgressNetworkPolicy` objects, nor
 edit the ones you create in their project. There are also several other
 restrictions on where `EgressNetworkPolicy` can be created:
@@ -399,6 +416,12 @@ get the updated IP before the egress controller. Due to this current limitation,
 domain name usage in `EgressNetworkPolicy` is only recommended for domains with
 infrequent IP address changes.
 +
+<<<<<<< HEAD
+=======
+
+ifdef::openshift-enterprise,openshift-origin[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [NOTE]
 ====
 The egress firewall always allows pods access to the external interface of the
@@ -1653,6 +1676,12 @@ objects:
 ...
 ----
 
+<<<<<<< HEAD
+=======
+endif::openshift-enterprise,openshift-origin[]
+
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[admin-guide-enabling-hsts]]
 == Enabling HTTP Strict Transport Security
 

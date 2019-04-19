@@ -31,9 +31,15 @@ new settings.
 
 * The `BuildDefaults` admission control plug-in allows administrators to set
 global defaults for settings such as the Git HTTP and HTTPS proxy, as well as
+<<<<<<< HEAD
 default environment variables and image labels. These defaults do not overwrite
 values that have been configured for a specific build. However, if those values
 are not present on the build definition, they are set to the default value.
+=======
+default environment variables. These defaults do not overwrite values that have
+been configured for a specific build. However, if those values are not present
+on the build definition, they are set to the default value.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * The `BuildOverrides` admission control plug-in allows administrators to
 override a setting in a build, regardless of the value stored in the build. The plug-in
@@ -155,7 +161,11 @@ admissionConfig:
         - name: HTTPS_PROXY <5>
           value: https://my.proxy:8443
         - name: BUILD_LOGLEVEL <6>
+<<<<<<< HEAD
           value: "4"
+=======
+          value: 4
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
         - name: CUSTOM_VAR <7>
           value: custom_value
         imageLabels:
@@ -189,6 +199,7 @@ build phases.
 <6> Default environment variable that sets the build log level during the build.
 <7> Additional default environment variable that will be added to
 every build.
+<<<<<<< HEAD
 <8> Labels to be applied to every image built. These can be overridden in `BuildConfig`.
 <9> Build pods will only run on nodes with the `key1=value2` and `key2=value2` labels.
     Users can define a different set of `nodeSelectors` for their builds, causing these
@@ -196,6 +207,14 @@ every build.
 <10> Build pods will have these annotations added to them.
 <11> Sets the default resources to the build pod if the `BuildConfig` does not have related resource defined.
 
+=======
+<8> Labels to be applied to every image built. Users can override these in their `BuildConfig`.
+<9> Build pods will only run on nodes with the `key1=value2` and `key2=value2` labels.
+    Users can define a different set of `nodeSelectors` for their builds in which case these
+    values will be ignored.
+<10> Build pods will have these annotations added to them.
+<11> Sets the default resources to the build pod if the `BuildConfig` does not have related resource defined.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ====
 
 . Restart the master services for the changes to take effect:

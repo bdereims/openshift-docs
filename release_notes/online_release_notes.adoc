@@ -13,16 +13,24 @@ toc::[]
 
 == Overview
 
+<<<<<<< HEAD
 Red Hat {product-title} is Red Hat’s public cloud application development and
 hosting platform that automates the provisioning, management and scaling of
 applications so that you can focus on writing the code for your business,
 startup, or big idea.
+=======
+Red Hat {product-title} is Red Hat’s public cloud application
+development and hosting platform that automates the provisioning, management and
+scaling of applications so that you can focus on writing the code for your
+business, startup, or big idea.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [IMPORTANT]
 ====
 {product-title} Starter is community supported only.
 ====
 
+<<<<<<< HEAD
 To learn more about differences in {product-title} Starter and {product-title}
 Pro services, see
 xref:../getting_started/choose_a_plan.adoc#getting-started-choose-a-plan[Choose
@@ -134,3 +142,14 @@ software.
 Refer to the OpenShift Container Platform
 link:https://docs.openshift.com/container-platform/3.9/release_notes/ocp_3_9_release_notes.html#ocp-39-bug-fixes[3.9
 Release Notes] for more information on bug fixes.
+=======
+[[online-latest-updates]]
+== Latest Updates
+
+For the latest updates about {product-title}, visit the
+link:https://blog.openshift.com/category/products/openshift-online/[{product-title}
+Blog].
+
+[[openshift-online-known-issues]]
+== Known Issues
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

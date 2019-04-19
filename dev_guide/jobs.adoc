@@ -13,10 +13,15 @@ toc::[]
 
 == Overview
 A job, in contrast to
+<<<<<<< HEAD
 xref:../architecture/core_concepts/deployments.adoc#deployments-and-deployment-configurations[a
 deployment] (or
 xref:../architecture/core_concepts/deployments.adoc#replication-controllers[a
 replication controller]), runs a pod with any number of replicas to completion. A
+=======
+xref:../architecture/core_concepts/deployments.adoc#replication-controllers[a
+replication controller], runs a pod with any number of replicas to completion. A
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 job tracks the overall progress of a task and updates its status with information
 about active, succeeded, and failed pods. Deleting a job will clean up any pod
 replicas it created. Jobs are part of the Kubernetes API, which can be managed
@@ -33,8 +38,13 @@ A job configuration consists of the following key parts:
 
 - A pod template, which describes the application the pod will create.
 - An optional `*parallelism*` parameter, which specifies how many pod replicas running in parallel should execute a job. If not specified, this defaults to
+<<<<<<< HEAD
  the value in the `*completions*` parameter.
 - An optional `*completions*` parameter, specifying how many successful pod completions are needed to finish a job. If not specified, this value defaults to one.
+=======
+the value in the `*completions*` parameter.
+- An optional `*completions*` parameter, specifying how many concurrently running pods should execute a job. If not specified, this value defaults to one.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The following is an example of a `*job*` resource:
 
@@ -69,6 +79,7 @@ You can also create and launch a job from a single command using `oc run`. The f
 $ oc run pi --image=perl --replicas=1  --restart=OnFailure \
     --command -- perl -Mbignum=bpi -wle 'print bpi(2000)'
 ----
+<<<<<<< HEAD
 
 [[creating-a-job-known-issues]]
 === Known Limitations
@@ -81,6 +92,20 @@ With the `Never` policy, the _job controller_ performs the restart. With each at
 
 With the `OnFailure` policy, _kubelet_ performs the restart. Each attempt does not increment the number of failures in the job status. In addition, kubelet will retry failed jobs starting pods on the same nodes.
 
+=======
+
+[[creating-a-job-known-issues]]
+=== Known Limitations
+
+The job specification restart policy only applies to the _pods_, and not the _job controller_. However, the job controller is hard-coded to keep retrying jobs to completion.
+
+As such, `restartPolicy: Never` or `--restart=Never` results in the same behavior as `restartPolicy: OnFailure` or `--restart=OnFailure`. That is, when a job fails it is restarted automatically until it succeeds (or is manually discarded). The policy only sets which subsystem performs the restart.
+
+With the `Never` policy, the _job controller_ performs the restart. With each attempt, the job controller increments the number of failures in the job status and create new pods. This means that with each failed attempt, the number of pods increases.
+
+With the `OnFailure` policy, _kubelet_ performs the restart. Each attempt does not increment the number of failures in the job status. In addition, kubelet will retry failed jobs starting pods on the same nodes.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[scaling-a-job]]
 == Scaling a Job
 
@@ -128,9 +153,16 @@ The following example shows the part of a `*Job*` specifying
 
 [[job-failure-policy]]
 == Job Backoff Failure Policy
+<<<<<<< HEAD
 A Job can be considered failed,  after a set amount of retries due to a
 logical error in configuration or other similar reasons.  To specify the number
 of retries for a job set the `.spec.backoffLimit` property.  This field defaults
 to six.  Failed Pods associated with the Job are recreated by the controller with
 an exponential backoff delay (`10s`, `20s`, `40s` …) capped at six minutes. The
 limit is reset if no new failed pods appear between controller checks.
+=======
+A Job can be considered failed, after a set amount of retries due to a
+logical error in configuration or other similar reasons.  To specify the number
+of retries for a job set the `.spec.backoffLimit` property.  This field defaults
+to six.  Failed Pods associated with the Job are recreated by the controller with an exponential backoff delay (`10s`, `20s`, `40s` …) capped at six minutes. The limit is reset if no new failed pods appear between controller checks.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

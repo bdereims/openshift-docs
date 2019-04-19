@@ -18,7 +18,11 @@ xref:../architecture/infrastructure_components/web_console.adoc#architecture-inf
 ifdef::openshift-origin,openshift-dedicated,openshift-enterprise[]
 from a browser at *<master_public_addr>:8443*, you are automatically redirected
 endif::[]
+<<<<<<< HEAD
 ifdef::openshift-online[]
+=======
+ifdef::atomic-registry,openshift-online[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 from a browser, you are automatically redirected
 endif::[]
 to a login page.
@@ -137,7 +141,11 @@ xref:../cli_reference/manage_cli_profiles.adoc#cli-reference-manage-cli-profiles
 
 // tag::systemadminlogin[]
 
+<<<<<<< HEAD
 ifdef::openshift-origin,openshift-enterprise[]
+=======
+ifndef::openshift-online[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [NOTE]
 ====
 If you have access to administrator credentials but are no longer logged in as
@@ -153,6 +161,7 @@ $ oc login -u system:admin -n default
 ----
 ====
 endif::[]
+<<<<<<< HEAD
 ifdef::openshift-dedicated[]
 [NOTE]
 ====
@@ -164,6 +173,8 @@ xref:../cli_reference/get_started_cli.adoc#cli-configuration-files[CLI
 configuration file]. 
 ====
 endif::[]
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 
 // end::systemadminlogin[]

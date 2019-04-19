@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 // Module included in the following assemblies:
 //
 // * cnv_users_guide/cnv_users_guide.adoc
 
 [[importvmdisk-pvc]]
 = Importing a virtual machine disk to a PVC
+=======
+[[importvmdisk-pvc]]
+=== Importing a virtual machine disk to a PVC
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The process of importing a virtual machine disk is handled by the CDI
 controller. When a PVC is created with special

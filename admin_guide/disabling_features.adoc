@@ -59,6 +59,7 @@ kubernetesMasterConfig:
 +
 * `false` disables the specified feature
 
+<<<<<<< HEAD
 Specify multiple feature gates in one, comma-delimited line: 
 
 [source,yaml]
@@ -68,6 +69,8 @@ kubeletArguments:
   - RotateKubeletClientCertificate=true,RotateKubeletServerCertificate=true,ExpandPersistentVolumes=true,HugePages=false
 ----
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[admin-guide-disable-feature-cluster]]
 == Disabling Features for a Cluster
 
@@ -87,6 +90,7 @@ kubernetesMasterConfig:
     feature-gates:
     - HugePages=false
 ----
+<<<<<<< HEAD
 +
 Specify multiple feature gates in one, comma-delimited line: 
 +
@@ -100,6 +104,8 @@ kubernetesMasterConfig:
     feature-gates:
     - RotateKubeletClientCertificate=false,RotateKubeletServerCertificate=false,ExpandPersistentVolumes=true,HugePages=false
 ----
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 . Restart the {product-title} master service to apply the changes.
 +
@@ -131,6 +137,7 @@ kubeletArguments:
   feature-gates:
   - HugePages=false
 ----
+<<<<<<< HEAD
 +
 Specify multiple feature gates in one, comma-delimited line: 
 +
@@ -140,6 +147,8 @@ kubeletArguments:
   feature-gates:
   - RotateKubeletClientCertificate=false,RotateKubeletServerCertificate=false,ExpandPersistentVolumes=true,HugePages=false
 ----
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 . Restart the {product-title} service for the changes to take effect:
 +
@@ -252,7 +261,11 @@ For more information, see xref:../admin_guide/custom_resource_definitions.adoc#a
 Pod affinity has to be specified if requesting a local volume.
 
 | *PodPriority*
+<<<<<<< HEAD
 | Enables the descheduling and preemption of pods based on their priorities.
+=======
+| Enables the xref:../admin_guide/scheduling/descheduler.adoc#admin-guide-descheduler[descheduling] and preemption of pods based on their priorities.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 | *ReadOnlyAPIDataVolumes*
 | Set xref:../dev_guide/secrets.adoc#dev-guide-secrets[secrets], xref:../dev_guide/configmaps.adoc#dev-guide-configmaps[ConfigMap],

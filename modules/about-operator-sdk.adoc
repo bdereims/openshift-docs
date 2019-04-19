@@ -1,8 +1,14 @@
 // Module included in the following assemblies:
 //
+<<<<<<< HEAD
 // * operators/osdk-getting-started.adoc
 
 [id='about-operator-sdk-{context}']
+=======
+// * operators/osdk-getting-startedadoc
+
+[id='about-opreator-sdk-{context}']
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 = About the Operator SDK
 
 The link:https://coreos.com/operators/[Operator Framework] is an open source
@@ -38,6 +44,7 @@ The SDK provides the following workflow to develop a new operator:
 At a high level, an Operator using the SDK processes events for watched
 resources in a user-defined handler and takes actions to reconcile the state of
 the application.
+<<<<<<< HEAD
 
 [discrete]
 === Manager
@@ -62,3 +69,5 @@ mgr, err := manager.New(cfg, manager.Options{Namespace: ""})
 ////
 TODO: Doc on manager options(Sync period, leader election, registering 3rd party types)
 ////
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

@@ -41,8 +41,12 @@ implementation.
 If you are looking to push beyond one Gbps, you can:
 
 * Use
+<<<<<<< HEAD
 xref:../install_config/configuring_native_container_routing.adoc#install-config-configuring-native-container-routing[Native
 Container Routing]. This option has important operational caveats that do not
+=======
+xref:../install_config/configuring_native_container_routing.adoc#install-config-configuring-native-container-routing[Native Container Routing]. This option has important operational caveats that do not
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 exist when using OpenShift SDN, such as updating routing tables on a router.
 * Evaluate network plug-ins that implement different routing techniques, such as
 border gateway protocol (BGP).

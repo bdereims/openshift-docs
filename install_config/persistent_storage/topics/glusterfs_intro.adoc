@@ -1,5 +1,9 @@
 {gluster} can be configured to provide
+<<<<<<< HEAD
 xref:../../architecture/additional_concepts/storage.adoc#architecture-additional-concepts-storage[persistent storage]
+=======
+persistent storage
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 and dynamic provisioning for {product-title}. It can be used both containerized
 within {product-title} (*{gluster-native}*) and non-containerized on its own
 nodes (*{gluster-external}*).

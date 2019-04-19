@@ -60,6 +60,7 @@ spec:
   to:
     kind: Service
     name: frontend
+<<<<<<< HEAD
 ----
 <1> For xref:../architecture/networking/routes.adoc#path-based-routes[path-based routing], specify a path component that can be compared against a URL.
 endif::[]
@@ -79,6 +80,28 @@ $ oc expose svc/frontend --hostname=www.example.com
 The new route inherits the name from the service unless you specify one
 using the `--name` option.
 
+=======
+----
+<1> For xref:../architecture/networking/routes.adoc#path-based-routes[path-based routing], specify a path component that can be compared against a URL.
+
+endif::[]
+ifdef::openshift-online[]
+Using the CLI, create an unsecured route. For {product-title} Starter, follow this example:
+
+----
+$ oc expose svc/frontend
+----
+
+For {product-title} Pro, follow this example, with `--hostname` being optional:
+
+----
+$ oc expose svc/frontend --hostname=www.example.com
+----
+
+The new route inherits the name from the service unless you specify one
+using the `--name` option.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 .YAML Definition of the Unsecured Route Created Above
 [source,yaml]
 ----
@@ -326,7 +349,11 @@ user routes:
 For example:
 
 ----
+<<<<<<< HEAD
 <route-name>-<namespace>.1d35.starter-us-east-1.openshiftapps.com
+=======
+<route-name>-<namespace>.44fs.preview.openshiftapps.com
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----
 
 To determine the external address, run:

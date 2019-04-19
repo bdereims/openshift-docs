@@ -59,6 +59,7 @@ endif::[]
 [[cluster-metrics-before-you-begin]]
 == Before You Begin
 
+<<<<<<< HEAD
 ifdef::openshift-origin[]
 [WARNING]
 ====
@@ -81,6 +82,18 @@ various areas of cluster metrics.
 The following describe the various areas and the parameters that can be added to
 the Ansible inventory file in order to modify the defaults:
 
+=======
+An Ansible playbook is available to deploy and upgrade cluster metrics. You
+should familiarize yourself with the
+xref:../install/index.adoc#install-planning[Installing Clusters] guide. This
+provides information for preparing to use Ansible and includes information about
+configuration. Parameters are added to the Ansible inventory file to configure
+various areas of cluster metrics.
+
+The following describe the various areas and the parameters that can be added to
+the Ansible inventory file in order to modify the defaults:
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 - xref:../install_config/cluster_metrics.adoc#metrics-namespace[Metrics Project]
 - xref:../install_config/cluster_metrics.adoc#metrics-data-storage[Metrics Data Storage]
 
@@ -232,6 +245,127 @@ pods, see the
 xref:../scaling_performance/scaling_cluster_metrics.adoc#scaling-performance-cluster-metrics[Scaling
 Cluster Metrics] topic.
 
+<<<<<<< HEAD
+[discrete]
+[[cluster-metrics-known-issues-and-limitations]]
+==== Known Issues and Limitations
+
+Testing found that the `heapster` metrics component is capable of handling up to
+25,000 pods. If the amount of pods exceed that number, Heapster begins to fall
+behind in metrics processing, resulting in the possibility of metrics graphs no
+longer appearing. Work is ongoing to increase the number of pods that Heapster
+can gather metrics on, as well as upstream development of alternate
+metrics-gathering solutions.
+
+[[metrics-non-persistent-storage]]
+=== Non-Persistent Storage
+
+Running {product-title} cluster metrics with non-persistent storage means that
+any stored metrics are deleted when the pod is deleted. While it is much
+easier to run cluster metrics with non-persistent data, running with
+non-persistent data does come with the risk of permanent data loss. However,
+metrics can still survive a container being restarted.
+
+In order to use non-persistent storage, you must set the
+`openshift_metrics_cassandra_storage_type`
+xref:../install_config/cluster_metrics.adoc#metrics-ansible-variables[variable]
+to `emptydir` in the inventory file.
+=======
+.Cassandra Database storage requirements based on number of nodes/pods in the cluster
+[options="header"]
+|===
+|Number of Nodes |Number of Pods |Cassandra Storage growth speed |Cassandra storage growth per day |Cassandra storage growth per week
+
+|210
+|10500
+|500 MB per hour
+|15 GB
+|75 GB
+
+|990
+|11000
+|1 GB per hour
+|30 GB
+|210 GB
+|===
+
+In the above calculation, approximately 20 percent of the expected size was added as
+overhead to ensure that the storage requirements do not exceed calculated value.
+
+If the `METRICS_DURATION` and `METRICS_RESOLUTION` values are kept at the
+default (`7` days and `15` seconds respectively), it is safe to plan Cassandra
+storage size requrements for week, as in the values above.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
+
+[NOTE]
+====
+<<<<<<< HEAD
+When using non-persistent storage, metrics data is written to
+*_/var/lib/origin/openshift.local.volumes/pods_* on the node where the Cassandra
+pod runs Ensure *_/var_* has enough free space to accommodate metrics
+storage.
+====
+
+[[metrics-ansible-role]]
+== Metrics Ansible Role
+
+The {product-title} Ansible `openshift_metrics` role configures and deploys all of the
+metrics components using the variables from the
+xref:../install/configuring_inventory_file.adoc#configuring-ansible[Configuring
+Ansible] inventory file.
+
+[[metrics-ansible-variables]]
+=== Specifying Metrics Ansible Variables
+
+The `openshift_metrics` role included with OpenShift Ansible defines the tasks
+to deploy cluster metrics. The following is a list of role variables that can be
+added to your inventory file if it is necessary to override them.
+
+.Ansible Variables
+[options="header"]
+|===
+
+|Variable |Description
+
+|`openshift_metrics_install_metrics`
+|Deploy metrics if `true`. Otherwise, undeploy.
+
+|`openshift_metrics_start_cluster`
+|Start the metrics cluster after deploying the components.
+
+|`openshift_metrics_startup_timeout`
+|The time, in seconds, to wait until Hawkular Metrics and Heapster start up
+before attempting a restart.
+
+|`openshift_metrics_duration`
+|The number of days to store metrics before they are purged.
+
+|`openshift_metrics_resolution`
+|The frequency that metrics are gathered. Defined as a number and time
+identifier: seconds (s), minutes (m), hours (h).
+
+|`openshift_metrics_cassandra_pvc_prefix`
+|The persistent volume claim prefix created for Cassandra. A serial number is
+appended to the prefix starting from 1.
+
+|`openshift_metrics_cassandra_pvc_size`
+|The persistent volume claim size for each of the Cassandra nodes.
+
+|`openshift_metrics_cassandra_pvc_storage_class_name`
+|If you want to explicitly set the storage class, you must not set
+`openshift_metrics_cassandra_storage_type` to `emptydir` or `dynamic`.
+
+=======
+Because {product-title} metrics uses the Cassandra database as a datastore for
+metrics data, if `USE_PERSISTANT_STORAGE=true` is set during the metrics set up
+process, `PV` will be on top in the network storage, with NFS as the default.
+However, using network storage in combination with Cassandra is not recommended,
+as per the
+link:http://docs.datastax.com/en/landing_page/doc/landing_page/planning/planningAntiPatterns.html#planningAntiPatterns__AntiPatNAS[Cassandra
+documentation].
+====
+
 [discrete]
 [[cluster-metrics-known-issues-and-limitations]]
 ==== Known Issues and Limitations
@@ -314,6 +448,7 @@ appended to the prefix starting from 1.
 |If you want to explicitly set the storage class, you must not set
 `openshift_metrics_cassandra_storage_type` to `emptydir` or `dynamic`.
 
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 |`openshift_metrics_cassandra_storage_type`
 |Use `emptydir` for ephemeral storage (for testing); `pv` for persistent volumes,
 which need to be created before the installation; or `dynamic` for dynamic
@@ -429,7 +564,11 @@ See xref:../dev_guide/compute_resources.adoc#dev-compute-resources[Compute
 Resources] for further discussion on how to specify requests and limits.
 
 If you are using
+<<<<<<< HEAD
 xref:../install_config/cluster_metrics.adoc#metrics-persistent-storage[persistent
+=======
+xref:metrics-persistent-storage[persistent
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 storage] with Cassandra, it is the administrator's responsibility to set a
 sufficient disk size for the cluster using the `openshift_metrics_cassandra_pvc_size` variable.
 It is also the administrator's responsibility to monitor disk usage to make sure
@@ -453,6 +592,7 @@ components and generates a
 xref:../architecture/networking/routes.adoc#secured-routes[re-encrypting route] to expose
 the Hawkular Metrics service. This route is what allows the web console to access the Hawkular Metrics
 service.
+<<<<<<< HEAD
 
 In order for the browser running the web console to trust the connection through
 this route, it must trust the route's certificate. This can be accomplished by
@@ -472,6 +612,27 @@ route], you can set the `openshift_metrics_hawkular_cert`,
 xref:../install_config/cluster_metrics.adoc#metrics-ansible-variables[variables]
 in your inventory file.
 
+=======
+
+In order for the browser running the web console to trust the connection through
+this route, it must trust the route's certificate. This can be accomplished by
+xref:metrics-using-secrets-byo-certs[providing your own certificates] signed by
+a trusted Certificate Authority. The `openshift_metrics` role allows you to
+specify your own certificates, which it then uses when creating the route.
+
+The router's default certificate are used if you do not provide your own.
+
+[[metrics-using-secrets-byo-certs]]
+==== Providing Your Own Certificates
+
+To provide your own certificate, which is used by the
+xref:../architecture/networking/routes.adoc#secured-routes[re-encrypting
+route], you can set the `openshift_metrics_hawkular_cert`,
+`openshift_metrics_hawkular_key`, and `openshift_metrics_hawkular_ca`
+xref:../install_config/cluster_metrics.adoc#metrics-ansible-variables[variables]
+in your inventory file.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 The `hawkular-metrics.pem` value needs to contain the certificate in its *_.pem_*
 format. You may also need to provide the certificate for the Certificate Authority
 which signed this *_pem_* file via the `hawkular-metrics-ca.cert` secret.
@@ -532,6 +693,7 @@ $ ansible-playbook [-i </path/to/inventory>] <OPENSHIFT_ANSIBLE_DIR>/playbooks/o
 Because this is being deployed without persistent storage, metric data loss
 can occur.
 ====
+<<<<<<< HEAD
 
 [[metrics-diagnostics]]
 === Metrics Diagnostics
@@ -543,6 +705,19 @@ metrics stack. To execute diagnostics for metrics:
 $ oc adm diagnostics MetricsApiProxy
 ----
 
+=======
+
+[[metrics-diagnostics]]
+=== Metrics Diagnostics
+
+The are some diagnostics for metrics to assist in evaluating the state of the
+metrics stack. To execute diagnostics for metrics:
+
+----
+$ oc adm diagnostics MetricsApiProxy
+----
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[install-setting-the-metrics-public-url]]
 == Setting the Metrics Public URL
 
@@ -590,6 +765,7 @@ specified in `metricsPublicURL` and accept that certificate.
 To avoid this issue, use certificates which are configured to be acceptable by
 your browser.
 ====
+<<<<<<< HEAD
 
 [[cluster-metrics-accessing-hawkular-metrics-directly]]
 == Accessing Hawkular Metrics Directly
@@ -612,6 +788,30 @@ metrics enter the system via Heapster. If write access is enabled, any user
 can write metrics to the system, which can affect performance and
 cause Cassandra disk usage to unpredictably increase.
 ====
+=======
+
+[[cluster-metrics-accessing-hawkular-metrics-directly]]
+== Accessing Hawkular Metrics Directly
+
+To access and manage metrics more directly, use the
+link:https://github.com/openshift/origin-metrics/blob/master/docs/hawkular_metrics.adoc#accessing-metrics-using-hawkular-metrics[Hawkular
+Metrics API].
+
+[NOTE]
+====
+When accessing Hawkular Metrics from the API, you are only able to perform
+reads. Writing metrics is disabled by default. If you want individual
+users to also be able to write metrics, you must set the
+`openshift_metrics_hawkular_user_write_access`
+xref:../install_config/cluster_metrics.adoc#metrics-ansible-variables[variable]
+to *true*.
+
+However, it is recommended to use the default configuration and only have
+metrics enter the system via Heapster. If write access is enabled, any user
+can write metrics to the system, which can affect performance and
+cause Cassandra disk usage to unpredictably increase.
+====
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The link:http://www.hawkular.org/docs/rest/rest-metrics.html[Hawkular Metrics documentation]
 covers how to use the API, but there are a few differences when dealing with the

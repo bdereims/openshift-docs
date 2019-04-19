@@ -9,11 +9,19 @@
 
 The Kubernetes
 xref:../../architecture/additional_concepts/storage.adoc#architecture-additional-concepts-storage[persistent volume]
+<<<<<<< HEAD
 framework allows you to provision an {product-title} cluster with persistent
 storage using networked storage available in your environment. This can be done
 after completing the initial {product-title} installation depending on your
 application needs, giving users a way to request those resources without having
 any knowledge of the underlying infrastructure.
+=======
+framework allows you to provision an {product-title} cluster with persistent storage
+using networked storage available in your environment. This can be done after
+completing the initial {product-title} installation depending on your application
+needs, giving users a way to request those resources without having any
+knowledge of the underlying infrastructure.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 These topics show how to configure persistent volumes in {product-title} using
 the following supported volume plug-ins:

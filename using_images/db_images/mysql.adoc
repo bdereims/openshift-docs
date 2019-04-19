@@ -136,6 +136,7 @@ mysql>
 
 When you are finished, enter *quit* or *exit* to leave the MySQL session.
 
+[[mysql-environment-variables]]
 === Environment Variables
 
 The MySQL user name, password, and database name must be configured with the
@@ -275,7 +276,11 @@ endif::[]
 
 ifndef::openshift-online[]
 Some of the memory-related parameters have two default values. The fixed value
+<<<<<<< HEAD
 is used when a container does not have xref:../../dev_guide/compute_resources.adoc#dev-memory-limits[memory limits]
+=======
+is used when a container does not have link:../../dev_guide/compute_resources.html#memory-limits[memory limits]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 assigned. The other value is calculated dynamically during a container's startup
 based on available memory.
 endif::[]

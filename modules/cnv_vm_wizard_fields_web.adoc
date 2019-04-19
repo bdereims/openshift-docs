@@ -3,7 +3,11 @@
 // * cnv_users_guide/cnv_users_guide.adoc
 
 [[cnv-vm-wizard-fields-web]]
+<<<<<<< HEAD
 = Virtual machine wizard fields
+=======
+== Virtual machine wizard fields
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 |===
 |Name |Parameter |Description

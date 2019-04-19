@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 // Module included in the following assemblies:
 //
 // * cnv_users_guide/cnv_users_guide.adoc
 
 [[template-import-dv]]
 = Template: DataVolume import configuration file
+=======
+[[template-import-dv]]
+=== Template: DataVolume import configuration file
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 *example-import-dv.yaml*
 
@@ -23,4 +28,8 @@ spec:
     resources:
       requests:
         storage: "1G"
+<<<<<<< HEAD
 ----
+=======
+----
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

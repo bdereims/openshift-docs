@@ -63,4 +63,8 @@ registry].
 ----
 $ oc new-app <image-name>
 ----
+<<<<<<< HEAD
 endif::[]
+=======
+endif::openshift-enterprise,openshift-origin[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

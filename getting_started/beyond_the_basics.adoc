@@ -14,6 +14,7 @@ toc::[]
 This getting started experience walks you through the “long way” of getting the
 same sample project from the
 xref:../getting_started/basic_walkthrough.adoc#getting-started-basic-walkthrough[Basic Walkthrough] topic up and
+<<<<<<< HEAD
 running on {product-title} {product-version}.
 
 [NOTE]
@@ -22,6 +23,16 @@ If you are unfamiliar with the core concepts of {product-title} version 3, you
 might want to start by reading about
 xref:../getting_started/online_v2_vs_v3.adoc#getting-started-online-v2-vs-v3[what’s new]. This version of
 {product-title} is significantly different from version 2.
+=======
+running on {product-title}.
+
+[NOTE]
+====
+If you are unfamiliar with the core concepts of OpenShift version 3, you might
+want to start by reading about
+xref:../getting_started/online_v2_vs_v3.adoc#getting-started-online-v2-vs-v3[what’s new]. This version of
+OpenShift is significantly different from version 2.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ====
 
 The following sections guide you through creating a project that contains a
@@ -41,9 +52,15 @@ The tutorial assumes that you have:
 [[btb_setup]]
 == Setup
 
+<<<<<<< HEAD
 In this section, you will _fork_ the {product-title} Node.js sample application
 on GitHub and clone the repository to your local machine so that you can deploy
 and edit the application.
+=======
+In this section, you will _fork_ the OpenShift Node.js sample application on GitHub
+and clone the repository to your local machine so that you can deploy and edit
+the app.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [NOTE]
 ====
@@ -73,9 +90,15 @@ application Git repository and a copy on your local machine.
 [[btb-installing-the-openshift-cli]]
 == Installing the OpenShift CLI
 
+<<<<<<< HEAD
 In this section, you will install the {product-title} CLI. The {product-title}
 CLI exposes commands for managing your applications, as well as lower level
 tools to interact with each component of your system.
+=======
+In this section, you will install the OpenShift CLI. The OpenShift CLI exposes
+commands for managing your applications, as well as lower level tools to
+interact with each component of your system.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 . First, download the {product-title} CLI from the *About* page in the
  {product-title} web console.
@@ -470,9 +493,13 @@ See xref:../dev_guide/pod_autoscaling.adoc#dev-guide-pod-autoscaling[Pod Autosca
 automatically increasing or decreasing the scale of a replication controller or
 deployment configuration, based on metrics.
 
+<<<<<<< HEAD
 You can also check out the
 https://blog.openshift.com/openshift-3-1-pod-autoscaling/[{product-title} blog]
 for an article on autoscaling.
+=======
+You can also check out the https://blog.openshift.com/openshift-3-1-pod-autoscaling/[OpenShift blog] for an article on autoscaling.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[btb-explore-the-developer-guide]]
 === Explore the Developer Guide

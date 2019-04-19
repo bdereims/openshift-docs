@@ -103,8 +103,11 @@ EOF
 |===
 |HTTP Code|Schema
 |200 OK|v1.SubjectRulesReview
+<<<<<<< HEAD
 |201 Created|v1.SubjectRulesReview
 |202 Accepted|v1.SubjectRulesReview
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 |401 Unauthorized|
 |===
 
@@ -182,8 +185,11 @@ EOF
 |===
 |HTTP Code|Schema
 |200 OK|v1.SubjectRulesReview
+<<<<<<< HEAD
 |201 Created|v1.SubjectRulesReview
 |202 Accepted|v1.SubjectRulesReview
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 |401 Unauthorized|
 |===
 

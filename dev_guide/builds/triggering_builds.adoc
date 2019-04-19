@@ -32,6 +32,7 @@ link:https://docs.gitlab.com/ce/user/project/integrations/webhooks.html[GitLab],
 link:https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html[Bitbucket],
 or Generic webhooks.
 
+<<<<<<< HEAD
 Currently, {product-title} webhooks support only the analogous versions of the
 push event for each of the Git-based source code management systems (SCMs). All
 other event types are ignored.
@@ -41,6 +42,13 @@ the branch reference inside the event matches the branch reference in the
 corresponding `BuildConfig`. If so, it then checks out the exact commit
 reference noted in the webhook event on the {product-title} build. If they do
 not match, no build is triggered.
+=======
+{product-title} webhooks currently only support their analogous versions of the push event for each of the Git based source code management
+systems (SCMs).  All other event types are ignored.
+
+When the push events are processed, a confirmation is made as to whether the branch reference inside the event matches the branch reference in the corresponding
+`BuildConfig`.  If they match, then the exact commit reference noted in the webhook event is checked out for the {product-title} build.  If they do not match, no build is triggered.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [NOTE]
 ====
@@ -523,3 +531,7 @@ webhook secret.
 
 For more information, consult the help documentation with `oc set triggers
 --help`
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

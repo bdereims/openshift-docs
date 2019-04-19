@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 // Module included in the following assemblies:
 //
 // * cnv_users_guide/cnv_users_guide.adoc
 
 [[controlvm]]
 = Controlling virtual machines
+=======
+[[controlvm]]
+=== Controlling virtual machines
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 You can start, stop, or restart a virtual machine, depending on its current
 state.

@@ -118,4 +118,8 @@ xref:../../install_config/router/customized_haproxy_router.adoc#install-config-r
 customized HAProxy Router] or
 xref:../../install_config/router/f5_router.adoc#install-config-router-f5[F5
 Router].
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 endif::[]

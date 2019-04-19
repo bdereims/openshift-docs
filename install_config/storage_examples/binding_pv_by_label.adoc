@@ -14,8 +14,12 @@ toc::[]
 [[binding-pv-by-label-overview]]
 == Overview
 This topic provides an end-to-end example for binding
+<<<<<<< HEAD
 xref:../../architecture/additional_concepts/storage.adoc#persistent-volume-claims[persistent
 volume claims (PVCs)] to
+=======
+xref:../../architecture/additional_concepts/storage.adoc#persistent-volume-claims[persistent volume claims (PVCs)] to
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 xref:../../architecture/additional_concepts/storage.adoc#persistent-volumes[persistent
 volumes (PVs)], by defining labels in the PV and matching selectors in the PVC.
 This feature is available for all xref:../persistent_storage/index.adoc#install-config-persistent-storage-index[storage

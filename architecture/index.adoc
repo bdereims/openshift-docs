@@ -19,6 +19,26 @@ is removed in favor of more flexible composition of "services", allowing two web
 containers to reuse a database or expose a database directly to the edge of the
 network.
 endif::[]
+<<<<<<< HEAD
+=======
+ifdef::atomic-registry[]
+{product-title} is based on OpenShift technology which features an
+embedded registry based on the upstream
+link:https://github.com/docker/distribution[Docker Distribution,
+role="external", window="_blank"] library. {product-title} provides the
+following capabilities:
+
+* A user-focused xref:infrastructure_components/web_console.adoc#architecture-infrastructure-components-web-console[web console].
+* Global xref:additional_concepts/authentication.adoc#architecture-additional-concepts-authentication[identity provider authentication].
+* A xref:core_concepts/projects_and_users.adoc#architecture-core-concepts-projects-and-users[project namespace] model to
+enable teams to collaborate through xref:additional_concepts/authorization.adoc#architecture-additional-concepts-authorization[role-based access control (RBAC)]
+authorization.
+* A xref:infrastructure_components/kubernetes_infrastructure.adoc#architecture-infrastructure-components-kubernetes-infrastructure[Kubernetes-based cluster]
+to manage services.
+* An image abstraction called xref:core_concepts/builds_and_image_streams.adoc#architecture-core-concepts-builds-and-image-streams[image streams] to enhance image management.
+
+endif::[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ifdef::openshift-origin,openshift-online,openshift-enterprise,openshift-dedicated[]
 
 [[arch-index-what-are-the-layers]]
@@ -41,6 +61,7 @@ as they flow through your system
 - Application management at scale
 - Team and user tracking for organizing a large developer organization
 - Networking infrastructure that supports the cluster
+<<<<<<< HEAD
 
 .{product-title} Architecture Overview
 image::architecture_overview.png[{product-title} Architecture Overview]
@@ -51,6 +72,18 @@ endif::[]
 [[arch-index-what-is-the-architecture]]
 == What Is the {product-title} Architecture?
 
+=======
+
+.{product-title} Architecture Overview
+image::architecture_overview.png[{product-title} Architecture Overview]
+
+For more information on the node types in the architecture overview, see xref:infrastructure_components/kubernetes_infrastructure.adoc#architecture-infrastructure-components-kubernetes-infrastructure[Kubernetes Infrastructure].
+endif::[]
+
+[[arch-index-what-is-the-architecture]]
+== What Is the {product-title} Architecture?
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} has a microservices-based architecture of smaller, decoupled units
 that work together. It runs on top of a
 xref:infrastructure_components/kubernetes_infrastructure.adoc#architecture-infrastructure-components-kubernetes-infrastructure[Kubernetes
@@ -148,7 +181,11 @@ By default, a new internal PKI is created for each deployment of
 {product-title}. The internal PKI uses 2048 bit RSA keys and SHA-256 signatures.
 endif::[]
 ifdef::openshift-origin,openshift-enterprise[]
+<<<<<<< HEAD
 xref:../install_config/certificate_customization.adoc#install-config-certificate-customization[Custom certificates] for public hosts are supported as well.
+=======
+xref:../install_config/certificate_customization.adoc#install-config-certificate-customization[Custom certificates] for public hosts are supported as well. 
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 endif::[]
 
 {product-title} uses Golang’s standard library implementation of

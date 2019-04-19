@@ -11,6 +11,10 @@
 toc::[]
 
 == Overview
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-title} uses xref:../dev_guide/builds/triggering_builds.adoc#image-change-triggers[image
 change triggers] in a `BuildConfig` to detect when an
 xref:../architecture/core_concepts/builds_and_image_streams.adoc#image-stream-tag[image

@@ -71,7 +71,12 @@ for details.
 
 [IMPORTANT]
 ====
+<<<<<<< HEAD
 {product-title} only supports servers with x86_64 architecture.
+=======
+{product-title} supports servers with x86_64 or IBM POWER architecture. If you
+use IBM POWER servers to host cluster nodes, you can only use IBM POWER servers.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ====
 
 [NOTE]

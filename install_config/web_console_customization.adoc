@@ -102,7 +102,12 @@ web console.
 [NOTE]
 ====
 Additional extension examples are available in the
+<<<<<<< HEAD
 link:https://github.com/openshift/origin-web-console/tree/master/extensions/examples[OKD] repository on GitHub.
+=======
+link:https://github.com/openshift/origin-web-console/tree/master/extensions/examples[OpenShift
+Origin] repository on GitHub.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ====
 
 [[setting-extension-properties]]
@@ -758,7 +763,11 @@ Add the script as described in
 xref:loading-custom-scripts-and-stylesheets[Loading Extension Scripts and Stylesheets].
 
 [[web-console-enable-wildcard-routes]]
+<<<<<<< HEAD
 == Enabling Wildcard Routes
+=======
+=== Enabling Wildcard Routes
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 If you enabled wildcard routes for a router, you can also enable wildcard
 routes in the web console. This lets users enter hostnames starting with an

@@ -36,7 +36,11 @@ it as a volume in {product-title}. All that is required for the iSCSI is the
 iSCSI target portal, a valid iSCSI Qualified Name (IQN), a valid LUN number, the
 filesystem type, and the `*PersistentVolume*` API.
 
+<<<<<<< HEAD
 Optionally, multipath portals and Challenge Handshake Authentication Protocol (CHAP)
+=======
+Optionally, multipath portals and Challenge Handshake Authentication Protocol (CHAP) 
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 configuration can be provided.
 
 .Persistent Volume Object Definition

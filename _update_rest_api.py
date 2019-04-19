@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/usr/bin/env python2
+=======
+#!/usr/bin/python
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 import collections
 import os

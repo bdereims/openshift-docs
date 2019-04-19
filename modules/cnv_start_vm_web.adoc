@@ -3,7 +3,11 @@
 // * cnv_users_guide/cnv_users_guide.adoc
 
 [[cnv-start-vm-web]]
+<<<<<<< HEAD
 = Starting a virtual machine
+=======
+== Starting a virtual machine
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 Virtual machines can be xref:cnv-vm-actions-web[started] using the &#8942; button of each virtual machine in the *Workloads* -> *Virtual Machines* list. 
 

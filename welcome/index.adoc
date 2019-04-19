@@ -1,5 +1,13 @@
 [[welcome-index]]
+<<<<<<< HEAD
+=======
+ifdef::openshift-online[]
+= {product-title} Documentation
+endif::[]
+ifndef::openshift-online[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 = {product-title} {product-version} Documentation
+endif::[]
 {product-author}
 {product-version}
 :data-uri:
@@ -23,7 +31,11 @@ endif::[]
 ifdef::openshift-online[]
 [IMPORTANT]
 ====
+<<<<<<< HEAD
 {product-title} {product-version} is community supported only.
+=======
+{product-title} Starter is community supported only.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ====
 endif::[]
 
@@ -33,6 +45,7 @@ Use the left navigation bar to browse the documentation, the Search bar in the
 top-left to look for something specific, or the links below to access some
 highlights.
 ====
+<<<<<<< HEAD
 
 ifdef::openshift-origin[]
 '''
@@ -65,12 +78,27 @@ endif::openshift-online[]
 ifdef::openshift-origin[]
 * xref:../getting_started/administrators.adoc#getting-started-administrators[As a cluster administrator with an {product-title} environment]
 endif::[]
+=======
+
+ifdef::openshift-origin[]
+'''
+[cols="2",frame="none",grid="none"]
 |===
+
+.^|[big]#Release Notes#
+a|[none]
+
+* link:https://github.com/openshift/origin/releases[Find all release notes on GitHub]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
+|===
+endif::[]
 
 '''
 [cols="2",frame="none",grid="none"]
 |===
 
+<<<<<<< HEAD
 .^|[big]#Learning Resources#
 a|[none]
 
@@ -82,12 +110,65 @@ ifdef::openshift-dedicated[]
 endif::[]
 
 * xref:../architecture/index.adoc#architecture-index[Understand the architecture of {product-title}]
+=======
+.^|[big]#Get Started with {product-title}#
+a|[none]
+
+ifdef::openshift-enterprise,openshift-origin,openshift-dedicated[]
+* xref:../getting_started/developers_console.adoc#getting-started-developers-console[As an application developer with an {product-title} environment]
+endif::openshift-enterprise,openshift-origin,openshift-dedicated[]
+
+ifdef::openshift-online[]
+* xref:../getting_started/index.adoc#getting-started-index[Check out a walkthrough on creating your first app]
+endif::openshift-online[]
+
+ifdef::openshift-origin[]
+* xref:../getting_started/administrators.adoc#getting-started-administrators[As a cluster administrator with an {product-title} environment]
+endif::[]
+|===
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 * xref:../cli_reference/index.adoc#cli-reference-index[Get to know the CLI]
 |===
 
+<<<<<<< HEAD
 ifdef::openshift-enterprise,openshift-origin[]
 '''
+[cols="2",frame="none",grid="none"]
+|===
+
+.^|[big]#Run Your Own Platform-as-a-Service (PaaS)#
+a|[none]
+
+* xref:../install_config/index.adoc#install-config-index[Choose a quick or advanced installation of {product-title} at your site]
+
+* xref:../admin_guide/index.adoc#admin-guide-index[Maintain and administer your {product-title} cluster]
+|===
+endif::[]
+=======
+.^|[big]#Learning Resources#
+a|[none]
+
+ifdef::openshift-enterprise[]
+* xref:../release_notes/ocp_3_11_release_notes.adoc#[Find out what's new in the latest release of {product-title} 3]
+endif::[]
+////
+ifdef::openshift-dedicated[]
+* xref:../release_notes/osd_latest_product_updates.adoc[Find out the what's new in the latest release of {product-title} 3]
+endif::[]
+////
+
+* xref:../architecture/index.adoc#architecture-index[Understand the architecture of {product-title}]
+
+* xref:../cli_reference/index.adoc#cli-reference-index[Get to know the CLI]
+|===
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
+
+ifdef::openshift-enterprise,openshift-origin[]
+'''
+<<<<<<< HEAD
+
+=======
 [cols="2",frame="none",grid="none"]
 |===
 
@@ -102,6 +183,7 @@ endif::[]
 
 '''
 
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [cols="2",frame="none",grid="none"]
 |===
 
@@ -109,11 +191,19 @@ endif::[]
 a|[none]
 
 * xref:../dev_guide/application_lifecycle/development_process.adoc#dev-guide-development-process[Understand the application life cycle on {product-title}]
+<<<<<<< HEAD
 
 * xref:../dev_guide/application_lifecycle/new_app.adoc#dev-guide-new-app[Bring your code or use example repos to create a new application]
 
 * xref:../dev_guide/dev_tutorials/quickstarts.adoc#dev-guide-app-tutorials-quickstarts[Check out the Quickstart templates]
 
+=======
+
+* xref:../dev_guide/application_lifecycle/new_app.adoc#dev-guide-new-app[Bring your code or use example repos to create a new application]
+
+* xref:../dev_guide/dev_tutorials/quickstarts.adoc#dev-guide-app-tutorials-quickstarts[Check out the Quickstart templates]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 * xref:../dev_guide/index.adoc#dev-guide-index[Further explore the Developer's Guide]
 |===
 
@@ -124,7 +214,11 @@ a|[none]
 .^|[big]#Advanced Resources#
 a|[none]
 
+<<<<<<< HEAD
 * xref:../rest_api/index.adoc#rest-api-index[REST API reference]
+=======
+* REST API reference
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 |===
 
 '''
@@ -148,8 +242,13 @@ endif::[]
 
 .^|
 a|[none]
+ifdef::openshift-enterprise,openshift-origin[]
 
 * xref:legal_notice.adoc#welcome-legal-notice[Legal Notice]
+<<<<<<< HEAD
 
+=======
+endif::[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 |===
 '''

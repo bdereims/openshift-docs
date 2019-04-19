@@ -372,7 +372,11 @@ Currently, it is also possible to make them work with native Kubernetes
 resources, such as xref:../dev_guide/jobs.adoc#dev-guide-jobs[jobs],
 xref:../architecture/core_concepts/deployments.adoc#replication-controllers[replication
 controllers], replica sets or
+<<<<<<< HEAD
 ifdef::openshift-enterprise,openshift-origin[]
+=======
+ifndef::openshift-online,openshift-dedicated[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 xref:../dev_guide/deployments/kubernetes_deployments.adoc#dev-guide-kubernetes-deployments-support[Kubernetes
 deployments].
 
@@ -380,7 +384,11 @@ The cluster administrator
 xref:../admin_guide/image_policy.adoc#admin-guide-image-policy[configures
 exactly what resources] can be used.
 
+<<<<<<< HEAD
 endif::[]
+=======
+endif::openshift-online,openshift-dedicated[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ifdef::openshift-online,openshift-dedicated[]
 Kubernetes deployments.
 endif::[]
@@ -389,8 +397,13 @@ When enabled, it is possible to put a reference to an image stream in the
 `*image*` field of a resource. When using this feature, it is only possible to
 reference image streams that reside in the same project as the resource. The
 image stream reference must consist of a single segment value, for example
+<<<<<<< HEAD
 `*ruby:2.4*`, where `*ruby*` is the name of an image stream that has a tag named
 `*2.4*` and resides in the same project as the resource making the reference.
+=======
+`*ruby:2.5*`, where `*ruby*` is the name of an image stream that has a tag named
+`*2.5*` and resides in the same project as the resource making the reference.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 There are two ways to enable this:
 
@@ -506,9 +519,15 @@ endif::[]
 
 The internal registry authenticates using the same
 xref:../architecture/additional_concepts/authentication.adoc#api-authentication[tokens]
+<<<<<<< HEAD
 as the {product-title} API. To perform a `docker login` against the internal
 registry, you can choose any user name and email, but the password must be a
 valid {product-title} token.
+=======
+as the {product-title} API. To perform a `docker login` against the internal registry,
+you can choose any user name and email, but the password must be a valid
+{product-title} token.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 To log into the internal registry:
 
@@ -529,7 +548,11 @@ installed on your system:
 +
 ----
 $ docker login -u <user_name> -e <email_address> \
+<<<<<<< HEAD
 ifdef::openshift-origin,openshift-enterprise,openshift-dedicated[]
+=======
+ifdef::atomic-registry,openshift-origin,openshift-enterprise,openshift-dedicated[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
     -p <token_value> <registry_server>:<port>
 endif::[]
 ifdef::openshift-online[]
@@ -1296,7 +1319,11 @@ ifdef::openshift-enterprise,openshift-origin[]
 xref:../install_config/web_console_customization.adoc#loading-custom-scripts-and-stylesheets[CSS
 customizations]
 endif::[]
+<<<<<<< HEAD
 ifdef::openshift-online,openshift-dedicated[]
+=======
+ifdef::openshift-online,openshift-dedicated,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 CSS customizations
 endif::[]
 that can be added to an {product-title} cluster that uses your
@@ -1313,7 +1340,11 @@ file]. The categories can also be
 ifdef::openshift-enterprise,openshift-origin[]
 xref:../install_config/web_console_customization.adoc#configuring-catalog-categories[customized]
 endif::[]
+<<<<<<< HEAD
 ifdef::openshift-online,openshift-dedicated[]
+=======
+ifdef::openshift-online,openshift-dedicated,atomic-registry[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 customized
 endif::[]
 for the whole cluster.
@@ -1324,3 +1355,7 @@ builder images to the provided source repository.
 <11> The object this image stream tag imports.
 
 For more information on the fields that can be defined in an `ImageStream`, see the xref:../rest_api/apis-image.openshift.io/v1.ImageStream.adoc#object-schema[Imagestream API] and the xref:../rest_api/apis-image.openshift.io/v1.ImageStreamTag.adoc#object-schema[ImagestreamTag API].
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

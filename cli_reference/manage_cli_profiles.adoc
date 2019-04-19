@@ -12,10 +12,16 @@ toc::[]
 
 == Overview
 A CLI configuration file allows you to configure different profiles, or
+<<<<<<< HEAD
 _contexts_, for use with the xref:index.adoc#cli-reference-index[{product-title} CLI]. A context
 consists of xref:../architecture/additional_concepts/authentication.adoc#architecture-additional-concepts-authentication[user
 authentication] and{product-title} server information associated with a
 _nickname_.
+=======
+_contexts_, for use with the xref:index.adoc#cli-reference-index[OpenShift CLI]. A context
+consists of xref:../architecture/additional_concepts/authentication.adoc#architecture-additional-concepts-authentication[user
+authentication] and {product-title} server information associated with a _nickname_.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[switching-between-cli-profiles]]
 
@@ -33,8 +39,12 @@ CLI, either automatically during an `oc login` operation or by
 xref:manually-configuring-cli-profiles[setting them explicitly], the updated
 information is stored in the configuration file:
 
+<<<<<<< HEAD
 [[cli-config-file]]
 .CLI Configuration File
+=======
+.CLI Configuration File 
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ====
 
 [source,yaml]
@@ -142,7 +152,11 @@ Now using project "alice-project" on server "https://openshift1.example.com:8443
 ====
 
 At any time, you can use the `oc config view` command to view your current,
+<<<<<<< HEAD
 full CLI configuration, as seen in xref:cli-config-file[the above output].
+=======
+full CLI configuration, as seen in the output.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 Additional CLI configuration commands are also available for more
 xref:manually-configuring-cli-profiles[advanced usage].

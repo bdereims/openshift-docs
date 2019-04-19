@@ -12,6 +12,15 @@ include::_snippets/glusterfs.adoc[]
 
 toc::[]
 
+<<<<<<< HEAD
+=======
+== Overview
+
+Optimizing storage helps to minimize storage use across all resources. By
+optimizing storage, administrators help ensure that existing storage resources
+are working in an efficient manner.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [NOTE]
 ====
 This guide primarily focuses on optimizing persistent storage. Local ephemeral
@@ -22,10 +31,13 @@ default. See xref:../install_config/configuring_ephemeral.adoc#install-config-co
 ephemeral storage] for more information.
 ====
 
+<<<<<<< HEAD
 Optimizing storage helps to minimize storage use across all resources. By
 optimizing storage, administrators help ensure that existing storage resources
 are working in an efficient manner.
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[general-storage-guidelines]]
 == General storage guidelines
 
@@ -373,8 +385,13 @@ OverlayFS is also supported for container runtimes use cases as of Red Hat Enter
 7.2, and provides faster start up time and page cache sharing, which can
 potentially improve density by reducing overall memory utilization.
 
+<<<<<<< HEAD
 [[comparing-overlay-graph-drivers]]
 === Benefits of using overlayFS or DeviceMapper with SELinux
+=======
+[[benefits-of-using-the-overlay-graph-driver]]
+=== Benefits of using OverlayFS or DeviceMapper with SELinux
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The main advantage of the OverlayFS graph is Linux page cache sharing among
 containers that share an image on the same node. This attribute of OverlayFS leads to
@@ -396,8 +413,13 @@ technology is under evaluation and moving Red Hat Enterprise Linux to OverlayFS 
 the default in future releases is under consideration.
 ====
 
+<<<<<<< HEAD
 [[benefits-of-using-the-overlay-graph-driver]]
 === Comparing the overlay and overlay2 graph drivers
+=======
+[[comparing-overlay-graph-drivers]]
+=== Comparing the Overlay and Overlay2 graph drivers
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 OverlayFS is a type of union file system. It allows you to overlay one file system on top of another.
 Changes are recorded in the upper file system, while the lower file system remains unmodified.

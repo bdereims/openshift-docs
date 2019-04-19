@@ -104,9 +104,15 @@ ifdef::openshift-enterprise[]
 - atomic-openshift-node (use `journalctl -u atomic-openshift-node.service`)
 endif::[]
 
+<<<<<<< HEAD
 These logs are intended more for debugging purposes than for security auditing. You can retrieved logs per host or, 
 in clusters with the aggregated logging stack deployed, in the logging _.operations_ indexes (possibly
 in the xref:../install_config/aggregate_logging.adoc#aggregated-ops[Ops cluster]) as a cluster administrator.
+=======
+These logs are intended more for debugging purposes than for security auditing. You can retrieve logs for 
+each service with the `master-logs api api`, `master-logs controllers controllers`, or `master-logs etcd etcd` commands. 
+If your cluster runs an aggregated logging stack, like an xref:../install_config/aggregate_logging.adoc#aggregated-ops[Ops cluster], cluster administrators can retrieve logs from the logging _.operations_ indexes.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [NOTE]
 ====

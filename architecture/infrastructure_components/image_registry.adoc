@@ -32,9 +32,17 @@ to new images, creating new
 xref:../core_concepts/builds_and_image_streams.adoc#builds[builds] and
 xref:../core_concepts/deployments.adoc#deployments-and-deployment-configurations[deployments].
 
+<<<<<<< HEAD
 OCR can also be deployed as a stand-alone component that acts solely as a
 container image registry, without the build and deployment integration. See
 xref:../../install/stand_alone_registry.adoc#install-config-installing-stand-alone-registry[Installing a Stand-alone Deployment of OpenShift Container Registry] for details.
+=======
+ifdef::openshift-enterprise,openshift-origin[]
+OCR can also be deployed as a stand-alone component that acts solely as a
+container image registry, without the build and deployment integration. See
+xref:../../install/stand_alone_registry.adoc#install-config-installing-stand-alone-registry[Installing a Stand-alone Deployment of OpenShift Container Registry] for details.
+endif::[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[third-party-registries]]
 == Third Party Registries

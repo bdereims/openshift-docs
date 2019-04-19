@@ -1,5 +1,9 @@
 [[install-config-storage-examples-shared-storage]]
+<<<<<<< HEAD
 = Sharing an NFS Persistent Volume (PV) Across Two Pods
+=======
+= Sharing an NFS mount across two persistent volume claims
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 {product-author}
 {product-version}
 :data-uri:
@@ -12,6 +16,10 @@
 toc::[]
 
 == Overview
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 The following use case describes how a cluster administrator wanting to leverage
 shared storage for use by two separate containers would configure the solution.
 This example highlights the use of NFS, but can easily be adapted to other

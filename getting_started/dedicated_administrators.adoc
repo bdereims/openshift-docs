@@ -23,7 +23,11 @@ operations.
 [NOTE]
 ====
 While your account does have these increased permissions, the actual cluster
+<<<<<<< HEAD
 maintenance and host configuration is still performed by the {product-title}
+=======
+maintenance and host configuration is still performed by the OpenShift
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Operations Team. If you would like to request a change to your cluster that you
 cannot perform using the administrator CLI, open a support case on the
 https://access.redhat.com/support/[Red Hat Customer Portal].
@@ -241,5 +245,9 @@ https://access.redhat.com/support/[Red Hat Customer Portal].
 
 Further explore the xref:../admin_guide/index.adoc#admin-guide-index[Cluster Administration] guide
 for more reference information on what's possible with your role and what other
+<<<<<<< HEAD
 cluster settings can be configured for you by the {product-title} Operations
 Team.
+=======
+cluster settings can be configured for you by the OpenShift Operations Team.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

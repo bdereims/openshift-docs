@@ -94,7 +94,11 @@ per cluster.
 |Storage orchestrator for NetApp ONTAP, SolidFire, and E-Series storage.
 
 
+<<<<<<< HEAD
 |link:https://www.vmware.com/support/vsphere.html[VMware vSphere]
+=======
+|link:https://www.vmware.com/support/vsphere.html[VMWare vSphere]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 |`kubernetes.io/vsphere-volume`
 |link:http://kubernetes.io/docs/getting-started-guides/vsphere/[Getting Started with vSphere and Kubernetes]
 |
@@ -104,11 +108,14 @@ per cluster.
 |xref:../../install_config/configuring_azure.adoc#install-config-configuring-azure[Configuring for Azure]
 |
 
+<<<<<<< HEAD
 |HPE Nimble Storage
 |`hpe.com/nimble`
 |link:https://infosight.hpe.com/InfoSight/media/cms/active/public/tmg_HPE_Nimble_Storage_Integration_Guide_for_Red_Hat_OpenShift_and_OpenShift_Origin_doc_version_family.whz/index.html[Configuring HPE Nimble Kube Storage Controller]
 |Dynamic provisioning of HPE Nimble Storage resources using the HPE Nimble Kube Storage Controller.
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 |===
 
 
@@ -224,10 +231,17 @@ parameters:
   encrypted: "true" <4>
   kmsKeyId: keyvalue <5>
   fsType: ext4 <6>
+<<<<<<< HEAD
 
 ----
 <1> Select from `io1`, `gp2`, `sc1`, `st1`. The default is `gp2`. See
 link:http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html[AWS documentation] for valid  Amazon Resource Name (ARN) values.
+=======
+----
+<1> Select from `io1`, `gp2`, `sc1`, `st1`. The default is `gp2`. See
+link:http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html[AWS
+documentation] for valid  Amazon Resource Name (ARN) values.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 <2> AWS zone. If no zone is specified, volumes are generally round-robined across
 all active zones where the {product-title} cluster has a node. Zone and zones
 parameters must not be used at the same time.
@@ -354,7 +368,11 @@ parameters:
   diskformat: thin <2>
 
 ----
+<<<<<<< HEAD
 <1> For more information about using VMware vSphere with {product-title}, see the link:https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/index.html[VMware vSphere documentation].
+=======
+<1> For more information about using VMWare vSphere with {product-title}, see the link:https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/index.html[VMWare vSphere documentation].
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 <2>  `diskformat`: `thin`, `zeroedthick` and `eagerzeroedthick`. See vSphere docs for details. Default: `thin`
 
 [[azure-file-secret-permission]]
@@ -457,6 +475,7 @@ group as the cluster. For this to work:
 creates a new dedicated storage account for the new unmanaged disk in the same
 resource group as the cluster.
 
+<<<<<<< HEAD
 [[nimble]]
 === HPE Nimble Storage Object Definition
 
@@ -493,6 +512,20 @@ For a brief overview, see link:https://hub.openshift.com/primed/133-hpe-nimble-s
 on the Primed Partners page.
 ====
 
+=======
+[IMPORTANT]
+====
+Azure StorageClass is revised in {product-title} version 3.7. If you upgraded from a previous version, either:
+
+ * specify the property `kind: dedicated` to continue using the Azure StorageClass created before the upgrade. Or,
+ * add the location parameter (for example, `"location": "southcentralus",`)
+ in the *_azure.conf_* file to use the default property `kind: shared`. Doing
+this creates new storage accounts for future use.
+====
+
+
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[change-default-storage-class]]
 == Changing the default StorageClass
 If you are using GCE and AWS, use the following process to change the default StorageClass:

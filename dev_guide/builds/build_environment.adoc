@@ -15,7 +15,11 @@ toc::[]
 == Overview
 
 As with pod environment variables, build environment variables can be defined in
+<<<<<<< HEAD
 terms of references to other resources/variables using the xref:../../dev_guide/downward_api.adoc#dev-guide-downward-api[Downward API].
+=======
+terms of references to other resources/variables using the Downward API.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 However, there are some exceptions as noted below.
 
 [NOTE]

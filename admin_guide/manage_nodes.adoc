@@ -87,6 +87,7 @@ $ oc describe node <node>
 For example:
 
 ----
+<<<<<<< HEAD
 # oc describe node node1.example.com 
 
 Name:               node1.example.com <1>
@@ -149,6 +150,93 @@ Events:         <none>
 
 <1> The name of the node.
 <2> The role of the node, either `master` or `compute`.
+=======
+$ oc describe node node1.example.com
+
+Name:               node1.example.com <1>
+Roles:              compute <2>
+Labels:             beta.kubernetes.io/arch=amd64 <3>
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/hostname=m01.example.com
+                    node-role.kubernetes.io/compute=true
+                    node-role.kubernetes.io/infra=true
+                    node-role.kubernetes.io/master=true
+                    zone=default
+Annotations:        volumes.kubernetes.io/controller-managed-attach-detach=true  <4>
+CreationTimestamp:  Thu, 24 May 2018 11:46:56 -0400
+Taints:             <none>   <5>
+Unschedulable:      false
+Conditions:                  <6>
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  OutOfDisk        False   Tue, 17 Jul 2018 11:47:30 -0400   Tue, 10 Jul 2018 15:45:16 -0400   KubeletHasSufficientDisk     kubelet has sufficient disk space available
+  MemoryPressure   False   Tue, 17 Jul 2018 11:47:30 -0400   Tue, 10 Jul 2018 15:45:16 -0400   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Tue, 17 Jul 2018 11:47:30 -0400   Tue, 10 Jul 2018 16:03:54 -0400   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  Ready            True    Tue, 17 Jul 2018 11:47:30 -0400   Mon, 16 Jul 2018 15:10:25 -0400   KubeletReady                 kubelet is posting ready status
+  PIDPressure      False   Tue, 17 Jul 2018 11:47:30 -0400   Thu, 05 Jul 2018 10:06:51 -0400   KubeletHasSufficientPID      kubelet has sufficient PID available
+Addresses:                   <7>
+  InternalIP:  192.168.122.248
+  Hostname:    node1.example.com
+Capacity:                    <8>
+ cpu:            2
+ hugepages-2Mi:  0
+ memory:         8010336Ki
+ pods:           40
+Allocatable:
+ cpu:            2
+ hugepages-2Mi:  0
+ memory:         7907936Ki
+ pods:           40
+System Info:                 <9>
+ Machine ID:                         b3adb9acbc49fc1f9a7d6
+ System UUID:                        B3ADB9A-B0CB-C49FC1F9A7D6
+ Boot ID:                            9359d15aec9-81a20aef5876
+ Kernel Version:                     3.10.0-693.21.1.el7.x86_64
+ OS Image:                           OpenShift Enterprise
+ Operating System:                   linux
+ Architecture:                       amd64
+ Container Runtime Version:          docker://1.13.1
+ Kubelet Version:                    v1.10.0+b81c8f8
+ Kube-Proxy Version:                 v1.10.0+b81c8f8
+ExternalID:                          node1.example.com
+Non-terminated Pods:                 (14 in total)       <10>
+  Namespace                          Name                                  CPU Requests  CPU Limits  Memory Requests  Memory Limits
+  ---------                          ----                                  ------------  ----------  ---------------  -------------
+  default                            docker-registry-2-w252l               100m (5%)     0 (0%)      256Mi (3%)       0 (0%)
+  default                            registry-console-2-dpnc9              0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  default                            router-2-5snb2                        100m (5%)     0 (0%)      256Mi (3%)       0 (0%)
+  kube-service-catalog               apiserver-jh6gt                       0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  kube-service-catalog               controller-manager-z4t5j              0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  kube-system                        master-api-m01.example.com            0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  kube-system                        master-controllers-m01.example.com    0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  kube-system                        master-etcd-m01.example.com           0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  openshift-ansible-service-broker   asb-1-hnn5t                           0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  openshift-node                     sync-dvhvs                            0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  openshift-sdn                      ovs-zjs5k                             100m (5%)     200m (10%)  300Mi (3%)       400Mi (5%)
+  openshift-sdn                      sdn-zr4cb                             100m (5%)     0 (0%)      200Mi (2%)       0 (0%)
+  openshift-template-service-broker  apiserver-s9n7t                       0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  openshift-web-console              webconsole-785689b664-q7s9j           100m (5%)     0 (0%)      100Mi (1%)       0 (0%)
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  CPU Requests  CPU Limits  Memory Requests  Memory Limits
+  ------------  ----------  ---------------  -------------
+  500m (25%)    200m (10%)  1112Mi (14%)     400Mi (5%)
+Events:
+  Type     Reason                   Age                From                      Message
+  ----     ------                   ----               ----                      -------
+  Normal   NodeHasSufficientPID     6d (x5 over 6d)    kubelet, m01.example.com  Node m01.example.com status is now: NodeHasSufficientPID
+  Normal   NodeAllocatableEnforced  6d                 kubelet, m01.example.com  Updated Node Allocatable limit across pods
+  Normal   NodeHasSufficientMemory  6d (x6 over 6d)    kubelet, m01.example.com  Node m01.example.com status is now: NodeHasSufficientMemory
+  Normal   NodeHasNoDiskPressure    6d (x6 over 6d)    kubelet, m01.example.com  Node m01.example.com status is now: NodeHasNoDiskPressure
+  Normal   NodeHasSufficientDisk    6d (x6 over 6d)    kubelet, m01.example.com  Node m01.example.com status is now: NodeHasSufficientDisk
+  Normal   NodeHasSufficientPID     6d                 kubelet, m01.example.com  Node m01.example.com status is now: NodeHasSufficientPID
+  Normal   Starting                 6d                 kubelet, m01.example.com  Starting kubelet.
+ ...
+----
+
+<1> The name of the node.
+<2> The role of the node, either `master`, `compute`, or `infra`.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 <3> The xref:../install/configuring_inventory_file.adoc#configuring-node-host-labels[labels] applied to the node.
 <4> The annotations applied to the node.
 <5> The xref:../admin_guide/scheduling/taints_tolerations.adoc#admin-guide-taints[taints] applied to the node.
@@ -157,6 +245,10 @@ Events:         <none>
 <8> The xref:../admin_guide/allocating_node_resources.adoc#admin-guide-allocating-node-resources[pod resources and allocatable resources].
 <9> Information about the node host.
 <10> The pods on the node.
+<<<<<<< HEAD
+=======
+<11> The xref:../dev_guide/events.adoc#dev-guide-events[events] reported by the node. 
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[viewing-nodes]]
 == Viewing nodes
@@ -321,6 +413,7 @@ other nodes and remove the existing pods from the specified node(s). Bare pods,
 meaning those not backed by a replication controller, are unaffected by default.
 You can evacuate a subset of pods by specifying a pod-selector. Pod selector is                                                                                             
 based on labels, so all the pods with the specified label will be evacuated.
+<<<<<<< HEAD
 
 To evacuate all or selected pods on one or more nodes:
 
@@ -341,6 +434,470 @@ terminate gracefully. If negative, the default value specified in the pod will
 be used:
 
 ----
+$ oc adm drain <node1> <node2> --grace-period=-1
+----
+
+You can use `--ignore-daemonsets` and set it to `true` to ignore
+daemonset-managed pods:
+
+----
+$ oc adm drain <node1> <node2> --ignore-daemonsets=true
+----
+
+You can use `--timeout` to set the length of time to wait before giving up. A
+value of `0` sets an infinite length of time:
+
+----
+$ oc adm drain <node1> <node2> --timeout=5s
+----
+
+You can use `--delete-local-data` and set it to `true` to continue deletion even
+if there are pods using emptyDir (local data that will be deleted when the node
+is drained):
+
+----
+$ oc adm drain <node1> <node2> --delete-local-data=true
+----
+
+To list objects that will be migrated without actually performing the evacuation,
+use the `--dry-run` option and set it to `true`:
+
+----
+$ oc adm drain <node1> <node2>  --dry-run=true
+----
+
+Instead of specifying specific node names (for example, `<node1> <node2>`), you
+can use the `--selector=<node_selector>` option to evacuate pods on selected
+nodes.
+
+[[rebooting-nodes]]
+== Rebooting nodes
+
+To reboot a node without causing an outage for applications running on the
+platform, it is important to first xref:evacuating-pods-on-nodes[evacuate the
+pods]. For pods that are made highly available by the routing tier, nothing
+else needs to be done. For other pods needing storage, typically databases, it
+is critical to ensure that they can remain in operation with one pod
+temporarily going offline. While implementing resiliency for stateful pods
+is different for each application, in all cases it is important to configure
+the scheduler to use xref:scheduling/scheduler.adoc#anti-affinity[node anti-affinity] to
+ensure that the pods are properly spread across available nodes.
+
+Another challenge is how to handle nodes that are running critical
+infrastructure such as the router or the registry. The same node evacuation
+process applies, though it is important to understand certain edge cases.
+
+[[infrastructure-nodes]]
+=== Infrastructure nodes
+
+Infrastructure nodes are nodes that are labeled to run pieces of the
+{product-title} environment. Currently, the easiest way to manage node reboots
+is to ensure that there are at least three nodes available to run
+infrastructure. The scenario below demonstrates a common mistake that can lead
+to service interruptions for the applications running on {product-title} when
+only two nodes are available.
+
+- Node A is marked unschedulable and all pods are evacuated.
+- The registry pod running on that node is now redeployed on node B. This means
+node B is now running both registry pods.
+- Node B is now marked unschedulable and is evacuated.
+- The service exposing the two pod endpoints on node B, for a brief period of
+   time, loses all endpoints until they are redeployed to node A.
+
+The same process using three infrastructure nodes does not result in a service
+disruption. However, due to pod scheduling, the last node that is evacuated and
+brought back in to rotation is left running zero registries. The other two nodes
+will run two and one registries respectively. The best solution is to rely on
+pod anti-affinity. This is an alpha feature in Kubernetes that is available for
+testing now, but is not yet supported for production workloads.
+
+[[pod-anti-affinity]]
+=== Using pod anti-affinity
+
+xref:../admin_guide/scheduling/pod_affinity#admin-guide-sched-pod-affinity[Pod anti-affinity] is slightly different than
+xref:../admin_guide/scheduling/node_affinity#admin-guide-sched-affinity[node anti-affinity]. Node anti-affinity can be
+violated if there are no other suitable locations to deploy a pod. Pod
+anti-affinity can be set to either required or preferred.
+
+[source,yaml]
+----
+apiVersion: v1
+kind: Pod
+metadata:
+  name: with-pod-antiaffinity
+spec:
+  affinity:
+    podAntiAffinity: <1>
+      preferredDuringSchedulingIgnoredDuringExecution: <2>
+      - weight: 100 <3>
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: docker-registry <4>
+              operator: In <5>
+              values: 
+              - default
+          topologyKey: kubernetes.io/hostname
+----
+
+<1> Stanza to configure pod anti-affinity.
+<2> Defines a preferred rule.
+<3> Specifies a weight for a preferred rule. The node with the highest weight is preferred.
+<4> Description of the pod label that determines when the anti-affinity rule applies. Specify a key and value for the label.
+<5> The operator represents the relationship between the label on the existing pod and the set of values in the `matchExpression` parameters in the specification for the new pod. Can be `In`, `NotIn`, `Exists`, or `DoesNotExist`.
+
+This example assumes the container image registry pod has a label of
+`*docker-registry=default*`. Pod anti-affinity can use any Kubernetes match
+expression.
+
+The last required step is to enable the `*MatchInterPodAffinity*` scheduler
+predicate in *_/etc/origin/master/scheduler.json_*. With this in place, if only
+two infrastructure nodes are available and one is rebooted, the container image registry
+pod is prevented from running on the other node. `*oc get pods*` reports the pod
+as unready until a suitable node is available. Once a node is available and all
+pods are back in ready state, the next node can be restarted.
+
+[[handling-nodes-running-routers]]
+=== Handling nodes running routers
+
+In most cases, a pod running an {product-title} router will expose a host port.
+The `*PodFitsPorts*` scheduler predicate ensures that no router pods using the
+same port can run on the same node, and pod anti-affinity is achieved. If the
+routers are relying on
+xref:high_availability.adoc#configuring-ip-failover[IP failover]
+for high availability, there is nothing else that is needed. For router pods
+relying on an external service such as AWS Elastic Load Balancing for high
+availability, it is that service's responsibility to react to router pod
+restarts.
+
+In rare cases, a router pod might not have a host port configured. In those cases,
+it is important to follow the xref:infrastructure-nodes[recommended restart
+process] for infrastructure nodes.
+
+[[modifying-nodes]]
+== Modifying Nodes
+
+// tag::node-configmap[]
+During installation, {product-title} creates a configmap in the *openshift-node* project for each type of node group: 
+
+* node-config-master
+
+* node-config-infra
+
+* node-config-compute
+
+* node-config-all-in-one
+
+* node-config-master-infra
+
+To make configuration changes to an existing node, edit the appropriate configuration map. A _sync pod_ on each node
+watches for changes in the configuration maps. During installation, the sync pods are created by using _sync Daemonsets_, 
+and a *_/etc/origin/node/node-config.yaml_* file, where the node configuration parameters reside, is added to each node. When a sync pod
+detects configuration map change, it updates the *_node-config.yaml_* on all nodes in that node group and restarts the appropriate nodes.
+// end::node-configmap[]
+
+----
+$ oc get cm -n openshift-node
+NAME                       DATA      AGE
+node-config-all-in-one     1         1d
+node-config-compute        1         1d
+node-config-infra          1         1d
+node-config-master         1         1d
+node-config-master-infra   1         1d
+----
+
+.Sample configuration map for the *node-config-compute* group
+----
+apiVersion: v1
+authConfig:      <1>
+  authenticationCacheSize: 1000
+  authenticationCacheTTL: 5m
+  authorizationCacheSize: 1000
+  authorizationCacheTTL: 5m
+dnsBindAddress: 127.0.0.1:53
+dnsDomain: cluster.local
+dnsIP: 0.0.0.0               <2>
+dnsNameservers: null
+dnsRecursiveResolvConf: /etc/origin/node/resolv.conf
+dockerConfig:
+  dockerShimRootDirectory: /var/lib/dockershim
+  dockerShimSocket: /var/run/dockershim.sock
+  execHandlerName: native
+enableUnidling: true
+imageConfig:
+  format: registry.reg-aws.openshift.com/openshift3/ose-${component}:${version}
+  latest: false
+iptablesSyncPeriod: 30s
+kind: NodeConfig
+kubeletArguments: <3>
+  bootstrap-kubeconfig:
+  - /etc/origin/node/bootstrap.kubeconfig
+  cert-dir:
+  - /etc/origin/node/certificates
+  cloud-config:
+  - /etc/origin/cloudprovider/aws.conf
+  cloud-provider:
+  - aws
+  enable-controller-attach-detach:
+  - 'true'
+  feature-gates:
+  - RotateKubeletClientCertificate=true,RotateKubeletServerCertificate=true
+  node-labels:
+  - node-role.kubernetes.io/compute=true
+  pod-manifest-path:
+  - /etc/origin/node/pods  <4>
+  rotate-certificates:
+  - 'true'
+masterClientConnectionOverrides:
+  acceptContentTypes: application/vnd.kubernetes.protobuf,application/json
+  burst: 40
+  contentType: application/vnd.kubernetes.protobuf
+  qps: 20
+masterKubeConfig: node.kubeconfig
+networkConfig:   <5>
+  mtu: 8951
+  networkPluginName: redhat/openshift-ovs-subnet  <6>
+servingInfo:                   <7>
+  bindAddress: 0.0.0.0:10250
+  bindNetwork: tcp4
+  clientCA: client-ca.crt
+volumeConfig:
+  localQuota:
+    perFSGroup: null    <8>
+volumeDirectory: /var/lib/origin/openshift.local.volumes
+ 
+Events:  <none>
+----
+
+<1> Authentication and authorization configuration options.
+<2> IP address prepended to a pod’s *_/etc/resolv.conf_*.
+<3> Key value pairs that are passed directly to the Kubelet that match the link:https://kubernetes.io/docs/admin/kubelet/[Kubelet's command line arguments].
+<4> The path to the pod manifest file or directory. A directory must contain one or more manifest files. 
+{product-title} uses the manifest files to create pods on the node.
+<5> The pod network settings on the node.
+<6> Software defined network (SDN) plug-in. Set to `redhat/openshift-ovs-subnet` for the *ovs-subnet* plug-in;
+`redhat/openshift-ovs-multitenant` for the *ovs-multitenant* plug-in; or
+`redhat/openshift-ovs-networkpolicy` for the *ovs-networkpolicy* plug-in.
+<7> Certificate information for the node. 
+<8> Optional: PEM-encoded certificate bundle. If set, a valid client certificate
+must be presented and validated against the certificate authorities in the
+specified file before the request headers are checked for user names.
+
+[NOTE]
+====
+Do not manually modify the *_/etc/origin/node/node-config.yaml_* file. 
+====
+
+// For more information, see architecture/infrastructure_components/kubernetes_infrastructure.html#node-bootstrapping[Node Bootstrapping].
+
+[[configuring-node-resources]]
+=== Configuring Node Resources
+
+You can configure node resources by adding kubelet arguments to the node configuration map.
+
+. Edit the configuration map:
++
+----
+$ oc edit cm node-config-compute -n openshift-node
+----
+
+. Add the `*kubeletArguments*` section and specify your options:
++
+----
+kubeletArguments:
+  max-pods: <1>
+    - "40"
+  resolv-conf: <2>
+    - "/etc/resolv.conf"
+  image-gc-high-threshold: <3>
+    - "90"
+  image-gc-low-threshold: <4>
+    - "80"
+----
++
+<1> xref:../admin_guide/manage_nodes.adoc#admin-guide-max-pods-per-node[Maximum number of pods that can run on this kubelet].
+<2> Resolver configuration file used as the basis for the container DNS
+resolution configuration.
+<3> The percent of disk usage after which image garbage collection is always run.
+Default: 90%
+<4> The percent of disk usage before which image garbage collection is never run.
+Lowest disk usage to garbage collect to. Default: 80%
++
+To view all available kubelet options:
++
+----
+$ hyperkube kubelet -h
+----
+
+[[admin-guide-max-pods-per-node]]
+=== Setting maximum pods per node
+
+////
+The following section is included in the Scaling and Performance Guide.
+////
+// tag::admin_guide_manage_nodes[]
+
+[NOTE]
+====
+See the
+xref:../scaling_performance/cluster_limits.adoc#scaling-performance-current-cluster-limits[Cluster
+Limits] page for the maximum supported limits for each version of
+{product-title}.
+====
+
+In the *_/etc/origin/node/node-config.yaml_* file, two parameters control the
+maximum number of pods that can be scheduled to a node: `pods-per-core` and
+`max-pods`. When both options are in use, the lower of the two limits the number
+of pods on a node. Exceeding these values can result in:
+
+* Increased CPU utilization on both {product-title} and Docker.
+* Slow pod scheduling.
+* Potential out-of-memory scenarios (depends on the amount of memory in the node).
+* Exhausting the pool of IP addresses.
+* Resource overcommitting, leading to poor user application performance.
+
+[NOTE]
+====
+In Kubernetes, a pod that is holding a single container actually uses two
+containers. The second container is used to set up networking prior to the
+actual container starting. Therefore, a system running 10 pods will actually
+have 20 containers running.
+====
+
+`pods-per-core` sets the number of pods the node can run based on the number of
+processor cores on the node. For example, if `pods-per-core` is set to `10` on
+a node with 4 processor cores, the maximum number of pods allowed on the node
+will be 40.
+
+----
+kubeletArguments:
+  pods-per-core:
+    - "10"
+----
+
+[NOTE]
+====
+Setting `pods-per-core` to 0 disables this limit.
+====
+
+`max-pods` sets the number of pods the node can run to a fixed value, regardless
+of the properties of the node.
+xref:../scaling_performance/cluster_limits.adoc#scaling-performance-current-cluster-limits[Cluster
+Limits] documents maximum supported values for `max-pods`.
+
+----
+kubeletArguments:
+  max-pods:
+    - "250"
+----
+
+Using the above example, the default value for `pods-per-core` is `10` and the
+default value for `max-pods` is `250`. This means that unless the node has 25
+cores or more, by default, `pods-per-core` will be the limiting factor.
+// end::admin_guide_manage_nodes[]
+=======
+
+To evacuate all or selected pods on one or more nodes:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
+
+[[managing-nodes-docker-reset]]
+== Resetting Docker storage
+
+As you download container images and run and delete containers, Docker does not always free up mapped disk space. As a result, over time you can run out of space on a node,
+which might prevent {product-title} from being able to create new pods or cause pod creation to take several minutes.
+
+For example, the following shows pods that are still in the `ContainerCreating` state after six minutes and the events log shows a xref:../dev_guide/events.adoc#events-reference[FailedSync event].
+
+[source,bash]
+----
+$ oc get pod
+NAME                               READY     STATUS              RESTARTS   AGE
+cakephp-mysql-persistent-1-build   0/1       ContainerCreating   0          6m
+mysql-1-9767d                      0/1       ContainerCreating   0          2m
+mysql-1-deploy                     0/1       ContainerCreating   0          6m
+
+$ oc get events
+LASTSEEN   FIRSTSEEN   COUNT     NAME                               KIND                    SUBOBJECT                     TYPE      REASON                         SOURCE                                                 MESSAGE
+6m         6m          1         cakephp-mysql-persistent-1-build   Pod                                                   Normal    Scheduled                      default-scheduler                                      Successfully assigned cakephp-mysql-persistent-1-build to ip-172-31-71-195.us-east-2.compute.internal
+2m         5m          4         cakephp-mysql-persistent-1-build   Pod                                                   Warning   FailedSync                     kubelet, ip-172-31-71-195.us-east-2.compute.internal   Error syncing pod
+2m         4m          4         cakephp-mysql-persistent-1-build   Pod                                                   Normal    SandboxChanged                 kubelet, ip-172-31-71-195.us-east-2.compute.internal   Pod sandbox changed, it will be killed and re-created.
+----
+
+One solution to this problem is to reset Docker storage to remove artifacts not needed by Docker.
+
+On the node where you want to restart Docker storage:
+
+. Run the following command to mark the node as unschedulable:
++
+----
+$ oadm manage-node <node> --schedulable=false
+----
+
+. Run the following command to shut down Docker and the *atomic-openshift-node* service:
++
+----
+$ systemctl stop docker atomic-openshift-node
+----
+
+. Run the following command to remove the local volume directory:
++
+----
+$ rm -rf /var/lib/origin/openshift.local.volumes
+----
+<<<<<<< HEAD
++
+This command clears the local image cache. As a result, images, including `ose-*` images, will need to be re-pulled.
+This might result in slower pod start times while the image store recovers.
+
+. Remove the *_/var/lib/docker_* directory:
++
+----
+$ rm -rf /var/lib/docker
+----
+
+. Run the following command to reset the Docker storage:
++
+----
+$ docker-storage-setup --reset
+----
+=======
+$ oc adm drain <node1> <node2> [--pod-selector=<pod_selector>]
+----
+
+You can force deletion of bare pods by using the `--force` option. When set to
+`true`, deletion continues even if there are pods not managed by a replication
+controller, ReplicaSet, job, daemonset, or StatefulSet:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
+
+. Run the following command to recreate the Docker storage:
++
+----
+<<<<<<< HEAD
+$ docker-storage-setup
+----
+
+. Recreate the *_/var/lib/docker_* directory:
++
+----
+$ mkdir /var/lib/docker
+----
+=======
+$ oc adm drain <node1> <node2> --force=true
+----
+
+You can use `--grace-period` to set a period of time in seconds for each pod to
+terminate gracefully. If negative, the default value specified in the pod will
+be used:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
+
+. Run the following command to restart Docker and the *atomic-openshift-node* service:
++
+----
+<<<<<<< HEAD
+$ systemctl start docker atomic-openshift-node 
+----
+
+=======
 $ oc adm drain <node1> <node2> --grace-period=-1
 ----
 
@@ -733,7 +1290,7 @@ On the node where you want to restart Docker storage:
 . Run the following command to mark the node as unschedulable:
 +
 ----
-$ oadm manage-node <node> --schedulable=false
+$ oc adm manage-node <node> --schedulable=false
 ----
 
 . Run the following command to shut down Docker and the *atomic-openshift-node* service:
@@ -781,6 +1338,7 @@ $ mkdir /var/lib/docker
 $ systemctl start docker atomic-openshift-node 
 ----
 
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 . Restart the node service by rebooting the host:
 +
 ----
@@ -790,5 +1348,9 @@ $ systemctl start docker atomic-openshift-node
 . Run the following command to mark the node as schedulable:
 +
 ----
+<<<<<<< HEAD
 $ oadm manage-node <node> --schedulable=true
+=======
+$ oc adm manage-node <node> --schedulable=true
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ----

@@ -12,11 +12,18 @@
 toc::[]
 
 == Overview
+<<<<<<< HEAD
 {product-title} supports AWS Elastic Block Store volumes (EBS). You can
 provision your {product-title} cluster with
 xref:../../architecture/additional_concepts/storage.adoc#architecture-additional-concepts-storage[persistent storage]
 using link:https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html[AWS
 EC2]. Some familiarity with Kubernetes and AWS is assumed.
+=======
+{product-title} supports AWS Elastic Block Store volumes (EBS). You can provision your {product-title} cluster with
+xref:../../architecture/additional_concepts/storage.adoc#architecture-additional-concepts-storage[persistent storage] using
+link:https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html[AWS EC2].
+Some familiarity with Kubernetes and AWS is assumed.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [IMPORTANT]
 ====
@@ -50,10 +57,17 @@ storage provider.
 
 == Provisioning
 Storage must exist in the underlying infrastructure before it can be mounted as
+<<<<<<< HEAD
 a volume in {product-title}. After ensuring {product-title} is
 xref:../../install_config/configuring_aws.adoc#install-config-configuring-aws[configured for AWS Elastic Block
 Store], all that is required for {product-title} and AWS is an AWS EBS volume ID
 and the `*PersistentVolume*` API.
+=======
+a volume in {product-title}. After ensuring OpenShift is
+xref:../../install_config/configuring_aws.adoc#install-config-configuring-aws[configured for AWS Elastic Block
+Store], all that is required for OpenShift and AWS is an AWS EBS volume ID and
+the `*PersistentVolume*` API.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[aws-creating-persistent-volume]]
 

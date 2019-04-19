@@ -68,7 +68,11 @@ endif::openshift-enterprise,openshift-origin,openshift-dedicated[]
 
 ifdef::openshift-enterprise,openshift-origin[]
 Cluster administrators can visualize rules, roles, and bindings
+<<<<<<< HEAD
 xref:../../admin_guide/manage_rbac.adoc#viewing-roles-and-bindings[using
+=======
+xref:../../admin_guide/manage_rbac.adoc#viewing-roles--and-bindings[using
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 the CLI].
 
 For example, consider the following excerpt that shows the rule sets
@@ -353,8 +357,12 @@ For example:
 [[roles]]
 
 == Cluster Roles and Local Roles
+<<<<<<< HEAD
 Roles are collections of policy xref:rules-def[rules], which are sets of
 permitted verbs that can be performed on a set of resources. {product-title}
+=======
+Roles are collections of policy xref:rules-def[rules], which are sets of permitted verbs that can be performed on a set of resources. {product-title}
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 includes a set of default cluster roles that can be bound to users and groups
 xref:cluster-and-local-rbac[cluster wide] or xref:cluster-and-local-rbac[locally].
 
@@ -391,6 +399,7 @@ project. They cannot view or modify roles or bindings.
 |===
 endif::openshift-origin,openshift-enterprise,openshift-dedicated[]
 
+<<<<<<< HEAD
 ifdef::openshift-origin,openshift-enterprise,openshift-dedicated[]
 TIP: Remember that xref:authentication.adoc#users-and-groups[users
 and groups] can be associated with, or _bound_ to, multiple roles at the same
@@ -425,6 +434,74 @@ xref:../../admin_guide/manage_rbac.adoc#creating-local-role[Learn
 how to create a local role for a project].
 endif::[]
 
+=======
+ifdef::atomic-registry[]
+[cols="1,4",options="header"]
+|===
+
+|Default Cluster Role |Description
+
+|*registry-admin* |A registry project manager. If used in a
+xref:cluster-and-local-rbac[local binding], a *registry-admin* user will have
+rights to view any resource in the project and modify any resource in the
+project except for role creation and quota.
+
+|*registry-editor* |A user that can modify most objects in a project, but does not have the
+power to view or modify roles or bindings.
+
+|*registry-viewer* |A user who cannot make any modifications, but can see most objects in a
+project, including basic information about projects and users. They
+cannot view or modify roles or bindings.
+
+|*basic-user* |A user that can get basic information about projects and users.
+
+|*self-provisioner* |A user that can create their own projects.
+
+|*cluster-admin* |A super-user that can perform any action in any project. When
+bound to a user with a xref:cluster-and-local-rbac[local binding], they have
+xref:../../admin_guide/manage_rbac.adoc#cluster-and-local-role-bindings[full control]
+over quota and every action on every resource in the project.
+
+|*cluster-status* |A user that can get basic cluster status information.
+
+|===
+endif::[]
+
+ifdef::openshift-origin,openshift-enterprise,openshift-dedicated[]
+TIP: Remember that xref:authentication.adoc#users-and-groups[users
+and groups] can be associated with, or _bound_ to, multiple roles at the same
+time.
+
+Project administrators can visualize roles, including a matrix of the
+verbs and resources each are associated using the CLI to
+endif::openshift-origin,openshift-enterprise,openshift-dedicated[]
+ifdef::openshift-enterprise,openshift-origin[]
+xref:../../admin_guide/manage_rbac.adoc#viewing-local-roles-and-bindings[view
+local roles and bindings].
+endif::openshift-enterprise,openshift-origin[]
+ifdef::openshift-dedicated[]
+view local bindings.
+endif::openshift-dedicated[]
+
+ifdef::openshift-origin,openshift-enterprise,openshift-dedicated[]
+[IMPORTANT]
+====
+The cluster role bound to the project administrator is limited in a project via a
+xref:../../admin_guide/manage_rbac.adoc#cluster-and-local-role-bindings[local binding].
+It is not bound
+xref:../../admin_guide/manage_rbac.adoc#cluster-and-local-role-bindings[cluster-wide]
+like the cluster roles granted to the *cluster-admin* or *system:admin*.
+
+Cluster roles are xref:roles[roles] defined at the cluster level, but can be bound either at
+the cluster level or at the project level.
+====
+endif::openshift-origin,openshift-enterprise,openshift-dedicated[]
+ifdef::openshift-enterprise,openshift-origin[]
+xref:../../admin_guide/manage_rbac.adoc#creating-local-role[Learn
+how to create a local role for a project].
+endif::[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 ifdef::openshift-enterprise,openshift-origin[]
 [[updating-cluster-roles]]
 
@@ -482,9 +559,14 @@ can do, {product-title} provides _security context constraints_ (SCC) that contr
 actions that a xref:../core_concepts/pods_and_services.adoc#pods[pod] can
 perform and what it has the ability to access. Administrators can
 xref:../../admin_guide/manage_scc.adoc#admin-guide-manage-scc[manage SCCs] using the CLI.
+<<<<<<< HEAD
 SCCs are also very useful for
 xref:../../install_config/persistent_storage/pod_security_context.adoc#install-config-persistent-storage-pod-security-context[managing
 access to persistent storage].
+=======
+
+SCCs are also very useful for managing access to persistent storage.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 SCCs are objects that define a set of conditions that a pod must run with in
 order to be accepted into the system. They allow an administrator to control the
@@ -534,6 +616,7 @@ Do not modify the default SCCs. Customizing the default SCCs can lead to issues
 when {product-title} is upgraded. Instead,
 xref:../../admin_guide/manage_scc.adoc#creating-new-security-context-constraints[create
 new SCCs].
+<<<<<<< HEAD
 ====
 endif::openshift-origin,openshift-enterprise[]
 
@@ -543,6 +626,17 @@ ifdef::openshift-dedicated[]
 Do not modify the default SCCs. Customizing the default SCCs can lead to issues
 when {product-title} is upgraded.
 ====
+=======
+====
+endif::openshift-origin,openshift-enterprise[]
+
+ifdef::openshift-dedicated[]
+[IMPORTANT]
+====
+Do not modify the default SCCs. Customizing the default SCCs can lead to issues
+when {product-title} is upgraded.
+====
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 endif::openshift-dedicated[]
 
 
@@ -579,6 +673,7 @@ priority: null
 readOnlyRootFilesystem: false
 requiredDropCapabilities: [] <5>
 runAsUser: <6>
+<<<<<<< HEAD
   type: RunAsAny
 seLinuxContext: <7>
   type: RunAsAny
@@ -586,6 +681,15 @@ seccompProfiles:
 - '*'
 supplementalGroups: <8>
   type: RunAsAny
+=======
+  type: RunAsAny
+seLinuxContext: <7>
+  type: RunAsAny
+seccompProfiles:
+- '*'
+supplementalGroups: <8>
+  type: RunAsAny
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 users: <9>
 - system:serviceaccount:default:registry
 - system:serviceaccount:default:router
@@ -771,6 +875,7 @@ settings in the `volumes` field.  For example, if `allowHostDirVolumePlugin`
 is set to false but allowed in the `volumes` field, then the `hostPath`
 value will be removed from `volumes`.
 ====
+<<<<<<< HEAD
 
 [[authorization-allowed-flex-volumes]]
 === Restricting Access to FlexVolumes
@@ -781,6 +886,18 @@ FlexVolumes. However, when the cluster administrator specifies driver names in
 the `AllowedFlexVolumes` field, pods must only use FlexVolumes with these
 drivers.
 
+=======
+
+[[authorization-allowed-flex-volumes]]
+=== Restricting Access to FlexVolumes
+
+{product-title} provides additional control of FlexVolumes based on their
+driver. When SCC allows the usage of FlexVolumes, pods can request any
+FlexVolumes. However, when the cluster administrator specifies driver names in
+the `AllowedFlexVolumes` field, pods must only use FlexVolumes with these
+drivers.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 .Example of Limiting Access to Only Two FlexVolumes
 [source,yaml]
 ----
@@ -999,3 +1116,43 @@ collaborators.
 
 In {product-title} Starter, collaboration is not available.
 endif::openshift-online[]
+<<<<<<< HEAD
+=======
+
+ifdef::openshift-enterprise,openshift-origin[]
+[[authorization-determining-what-you-can-do-as-an-authenticated-user]]
+== Determining What You Can Do as an Authenticated User
+
+From within your {product-title} project, you can determine what verbs you
+can perform against all namespace-scoped resources (including third-party
+resources). Run:
+
+----
+$ oc policy can-i --list --loglevel=8
+----
+
+The output will help you to determine what API request to make to gather the
+information.
+
+To receive information back in a user-readable format, run:
+
+----
+$ oc policy can-i --list
+----
+
+The output will provide a full list.
+
+To determine if you can perform specific xref:action[verbs], run:
+
+----
+$ oc policy can-i <verb> <resource>
+----
+
+xref:../../admin_guide/scoped_tokens.adoc#admin-guide-scoped-tokens-user-scopes[User
+scopes] can provide more information about a given scope. For example:
+
+----
+$ oc policy can-i <verb> <resource> --scopes=user:info
+----
+endif::openshift-enterprise,openshift-origin[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

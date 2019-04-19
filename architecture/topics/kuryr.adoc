@@ -10,7 +10,11 @@ Kuryr-Kubernetes and {product-title} integration is primarily designed for
 {product-title} clusters running on OpenStack VMs.
 
 [[architecture-additional-concepts-kuryr-openstack]]
+<<<<<<< HEAD
 *OpenStack Deployment Requirements*
+=======
+=== OpenStack Deployment Requirements
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 Kuryr SDN has some requirements regarding configuration of OpenStack it will be
 using. In particular:
@@ -22,7 +26,11 @@ using. In particular:
 * Neutron must use the Open vSwitch firewall driver.
 
 [[architecture-additional-concepts-kuryr-controller]]
+<<<<<<< HEAD
 *kuryr-controller*
+=======
+=== kuryr-controller
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 kuryr-controller is a service responsible for watching {product-title} API for
 new pods being spawned and creating Neutron resources for them. For example,
@@ -36,7 +44,11 @@ modeled in {product-title} as `Deployment` with `replicas=1`. It requires
 access to the underlying OpenStack service APIs.
 
 [[architecture-additional-concepts-kuryr-cni]]
+<<<<<<< HEAD
 *kuryr-cni*
+=======
+=== kuryr-cni
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 kuryr-cni container serves two roles in Kuryr-Kubernetes deployment. It is
 responsible for installing and configuring Kuryr CNI script on {product-title}

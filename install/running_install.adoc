@@ -616,6 +616,21 @@ intended. However, this is a transient event and the system does correct itself
 over time. See https://github.com/kubernetes/kubernetes/issues/10030 for
 details.
 
+<<<<<<< HEAD
+=======
+- Due to a known issue, after running the installation, if NFS volumes are provisioned for any component, 
+the following directories might be created whether their components are being deployed to NFS volumes or not:
++
+* *_/exports/logging-es_*
+* *_/exports/logging-es-ops/_*
+* *_/exports/metrics/_*
+* *_/exports/prometheus_*
+* *_/exports/prometheus-alertbuffer/_*
+* *_/exports/prometheus-alertmanager/_*
++
+You can delete these directories after installation, as needed.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 == What's Next?
 
 Now that you have a working {product-title} instance, you can:

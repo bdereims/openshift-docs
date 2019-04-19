@@ -468,6 +468,10 @@ ifdef::openshift-enterprise,openshift-origin,openshift-dedicated[]
 endif::[]
 
   // Expose a deployment configuration as a service and use the specified port
+<<<<<<< HEAD
+  $ oc expose dc/ruby-hello-world --port=8080
+=======
+
   $ oc expose dc/ruby-hello-world --port=8080
 ----
 ====
@@ -479,6 +483,28 @@ endif::[]
 
 [options="nowrap"]
 ----
+  // Auto scale a deployment config "foo", with the number of pods between 2 to 10, target CPU utilization at a default value that server applies
+  $ oc autoscale dc/foo --min=2 --max=10
+
+  // Auto scale a replication controller "foo", with the number of pods between 1 to 5, target CPU utilization at 80%
+  $ oc autoscale rc/foo --max=5 --cpu-percent=80
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
+----
+====
+
+
+<<<<<<< HEAD
+== Autoscale an application
+=======
+ifdef::openshift-enterprise,openshift-origin,openshift-dedicated[]
+== Securely expose containers via a route
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
+
+====
+
+[options="nowrap"]
+----
+<<<<<<< HEAD
   // Auto scale a deployment config "foo", with the number of pods between 2 to 10, target CPU utilization at a default value that server applies
   $ oc autoscale dc/foo --min=2 --max=10
 
@@ -531,6 +557,44 @@ ifdef::openshift-online[]
 ----
 ====
 endif::[]
+=======
+  // Create a secure edge-terminated route using the specified
+  // certificates/keys and hostname.  If the certificates/keys
+  // are not specified, those from the router will be re-used.
+  $ oc create route edge --service=frontend \
+      --cert=${MASTER_CONFIG_DIR}/ca.crt \
+      --key=${MASTER_CONFIG_DIR}/ca.key \
+      --ca-cert=${MASTER_CONFIG_DIR}/ca.crt \
+      --hostname=www.example.com
+
+  // Create a secure passthrough route.
+  $ oc create route passthrough --service=registry
+
+  // Create a secure reencrypt-terminated route in
+  // a similar fashion to edge.  The only additional
+  // requirement is to specify a destination CA certificate.
+  $ oc create route reencrypt --service=backend --dest-ca-cert=ca.crt
+----
+====
+endif::[]
+
+
+ifdef::openshift-online[]
+== Securely expose containers via a route
+
+====
+
+[options="nowrap"]
+----
+  // Create a secure edge-terminated route.
+  $ oc create route edge --service=frontend
+
+  // Create a secure passthrough route.
+  oc create route passthrough --service=frontend
+----
+====
+endif::[]
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 
 == Delete a resource by filename, stdin, resource and ID, or by resources and label selector.

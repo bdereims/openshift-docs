@@ -13,6 +13,7 @@ toc::[]
 
 == Overview
 
+<<<<<<< HEAD
 Red Hat {product-title} provides developers and IT organizations with a cloud
 application platform for deploying new applications on secure, scalable
 resources with minimal configuration and management overhead. {product-title}
@@ -24,12 +25,30 @@ secure and scalable multi-tenant operating system for today’s enterprise-class
 applications, while providing integrated application runtimes and libraries.
 {product-title} enables organizations to meet security, privacy, compliance, and
 governance requirements.
+=======
+Red Hat {product-title} is a Platform as a Service (PaaS) that provides
+developers and IT organizations with a cloud application platform for deploying
+new applications on secure, scalable resources with minimal configuration and
+management overhead. {product-title} supports a wide selection of
+programming languages and frameworks, such as Java, Ruby, and PHP.
+
+Built on Red Hat Enterprise Linux and Google Kubernetes, {product-title}
+provides a secure and scalable multi-tenant operating system for today’s
+enterprise-class applications, while providing integrated application runtimes
+and libraries. {product-title} brings the OpenShift PaaS platform to customer
+data centers, enabling organizations to implement a private PaaS that meets
+security, privacy, compliance, and governance requirements.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 [[ocp-36-about-this-release]]
 == About This Release
 
 Red Hat {product-title} version 3.6
+<<<<<<< HEAD
 (link:https://access.redhat.com/errata/RHBA-2017:2847[RHBA-2017:2847]) is now
+=======
+(link:https://access.redhat.com/errata/RHEA-2017:1716[RHEA-2017:1716]) is now
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 available. This release is based on
 link:https://github.com/openshift/origin/releases/tag/v3.6.0-rc.0[OpenShift
 Origin 3.6]. New features, changes, bug fixes, and known issues that pertain to
@@ -38,9 +57,12 @@ Origin 3.6]. New features, changes, bug fixes, and known issues that pertain to
 {product-title} 3.6 is supported on RHEL 7.3 and newer with the latest packages
 from Extras, including Docker 1.12.
 
+<<<<<<< HEAD
 TLSV1.2 is the only supported security version in {product-title} version 3.4
 and later. You must update if you are using TLSV1.0 or TLSV1.1.
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 For initial installations, see the
 xref:../install_config/install/planning.adoc#install-config-install-planning[Installing
 a Cluster] topics in the
@@ -1468,6 +1490,7 @@ secrets or configuration maps.
 {product-title} 3.6 introduces the following notable technical changes.
 
 [discrete]
+<<<<<<< HEAD
 [[3-6-use-ansible-version-that-ships-with-OCP]]
 === Use the Ansible Version Shipping with {product-title}
 
@@ -1480,6 +1503,8 @@ link:https://bugzilla.redhat.com/show_bug.cgi?id=1575063[BZ#1575063] for
 additional information.
 
 [discrete]
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[ocp-pci-dss-compliance]]
 === Payment Card Industry Data Security Standard (PCI DSS) Compliance
 
@@ -2648,12 +2673,23 @@ automated upgrade playbook. See
 xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing Automated In-place Cluster Upgrades] for instructions.
 
 [[ocp-3-6-rhba-2017-1829]]
+<<<<<<< HEAD
 === RHBA-2017:1829 - {product-title} 3.6.173.0.5 Bug Fix Update
 
 Issued: 2017-08-31
 
 {product-title} release 3.6.173.0.5 is now available. The container images
 included in the update are provided by the
+=======
+=== RHBA-2017:1829 - {product-title} 3.6.173 Bug Fix Update
+
+Issued: 2017-08-31
+
+{product-title} release 3.6.173 is now available. The packages and bug fixes
+included in the update are documented in the
+link:https://access.redhat.com/errata/RHBA-2017:1828[RHBA-2017:1828] advisory.
+The container images included in the update are provided by the
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 link:https://access.redhat.com/errata/RHBA-2017:1829[RHBA-2017:1829] advisory
 and listed in xref:ocp-3-6-rhba-2017-1829-images[Images].
 
@@ -2735,7 +2771,11 @@ initiate Ansible-based installation or upgrade procedures:
 ----
 
 [[ocp-3-6-rhba-2017-2642]]
+<<<<<<< HEAD
 === RHBA-2017:2642 - {product-title} 3.6.1 Bug Fix and Enhancement Update
+=======
+=== RHBA-2017:2642 - {product-title} 3.6.1 bug fix and enhancement update
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 Issued: 2017-09-08
 
@@ -2754,6 +2794,7 @@ images.
 To upgrade an existing {product-title} 3.5 or 3.6 cluster to this latest
 release, use the automated upgrade playbook. See
 xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing Automated In-place Cluster Upgrades] for instructions.
+<<<<<<< HEAD
 
 [[ocp-3-6-rhba-2017-2847]]
 === RHBA-2017:2847 - {product-title} 3.6.173.0.21 Images Update
@@ -3834,3 +3875,5 @@ link:https://access.redhat.com/errata/RHBA-2019:0615[RHBA-2019:0615] advisory.
 To upgrade an existing {product-title} 3.5 or 3.6 cluster to this latest
 release, use the automated upgrade playbook. See
 xref:../install_config/upgrading/automated_upgrades.adoc#running-the-upgrade-playbook-directly[Performing Automated In-place Cluster Upgrades] for instructions.
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5

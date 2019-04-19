@@ -69,7 +69,11 @@ inventory file.
 
 ifdef::openshift-origin[]
 If you followed the
+<<<<<<< HEAD
 link:https://docs.okd.io/latest/getting_started/administrators.html[Manual installation] method, then make your changes
+=======
+link:https://docs.openshift.org/latest/getting_started/administrators.html[Manual installation] method, then make your changes
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 xref:../install_config/master_node_configuration.adoc#master-node-config-manual[manually
 in the configuration files] themselves.
 
@@ -1845,6 +1849,7 @@ process. For more information, see
 xref:../install/configuring_inventory_file.adoc#cluster-variables-table[Cluster Variables].
 ====
 
+<<<<<<< HEAD
 The following examples are excerpts of redirected master log files at various log levels. System information has been removed from these examples.
 
 ////
@@ -1876,6 +1881,10 @@ The following examples are excerpts of redirected master log files at various lo
 3147 reflector.go:205] github.com/openshift/origin/vendor/k8s.io/kubernetes/pkg/kubelet/config/apiserver.go:47: Failed to list *v1.Pod:
 ----
 ////
+=======
+The following examples are excerpts of redirected master log files at various
+log levels. System information has been removed from these examples.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 .Excerpt of `master-logs api api 2> file` output at loglevel=2
 

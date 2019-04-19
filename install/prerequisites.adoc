@@ -18,6 +18,17 @@ include::_snippets/glusterfs.adoc[]
 
 toc::[]
 
+<<<<<<< HEAD
+=======
+ifdef::atomic-registry[]
+[NOTE]
+====
+While {product-title} is based on OpenShift, some of these topics are irrelevant
+to an {product-title} deployment. The following is provided for reference.
+====
+endif::[]
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[system-requirements]]
 == System requirements
 
@@ -57,6 +68,13 @@ with the "Minimal" installation option and the latest packages from the Extras
 channel, or
 link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html-single/installation_and_configuration_guide/[RHEL Atomic Host]
 7.4.5 or later.
+<<<<<<< HEAD
+=======
+** IBM POWER9: RHEL-ALT 7.5 with the "Minimal" installation option and the latest
+packages from the Extras channel.
+** IBM POWER8: RHEL 7.5 with the "Minimal" installation option and the
+latest packages from the Extras channel.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 endif::[]
 - Minimum 4 vCPU (additional are strongly recommended).
 - Minimum 16 GB RAM (additional memory is strongly recommended, especially if etcd is co-located on masters).
@@ -81,6 +99,13 @@ link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/ht
 with "Minimal" installation option, or
 link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html-single/installation_and_configuration_guide/[RHEL Atomic Host]
 7.4.5 or later.
+<<<<<<< HEAD
+=======
+** IBM POWER9: RHEL-ALT 7.5 with the "Minimal" installation option and the latest
+packages from the Extras channel.
+** IBM POWER8: RHEL 7.5 with the "Minimal" installation option and the
+latest packages from the Extras channel.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 endif::[]
 * NetworkManager 1.0 or later.
 * 1 vCPU.
@@ -275,6 +300,12 @@ fully supported in addition to the older `overlay` driver. However, Red Hat
 recommends using `overlay2` instead of `overlay`, because of its speed and
 simple implementation.
 
+<<<<<<< HEAD
+=======
+xref:../scaling_performance/optimizing_storage.adoc#comparing-overlay-graph-drivers[Comparing the Overlay Versus Overlay2 Graph Drivers]
+has more information about the *overlay* and *overlay2* drivers.
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 See the
 link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html-single/managing_containers/#using_the_overlay_graph_driver[Overlay Graph Driver] section of the Atomic Host documentation for instructions on how
 to enable the `overlay2` graph driver for the Docker service.

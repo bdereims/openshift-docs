@@ -604,7 +604,11 @@ on the master (or from another machine with access to the master) to generate
 useful debugging information. However, this script is unsupported.
 ====
 
+<<<<<<< HEAD
 By default, `oadm diagnostics NetworkCheck` logs errors into *_/tmp/openshift/_*. This can be configured with the `--network-logdir` option:
+=======
+By default, `oc adm diagnostics NetworkCheck` logs errors into *_/tmp/openshift/_*. This can be configured with the `--network-logdir` option:
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 ----
 # oc adm diagnostics NetworkCheck --network-logdir=<path/to/directory>

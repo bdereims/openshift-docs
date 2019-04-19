@@ -12,6 +12,7 @@ toc::[]
 
 == Overview
 xref:../architecture/core_concepts/pods_and_services.adoc#pods[Pods] inside of
+<<<<<<< HEAD
 an {product-title} cluster are only reachable via their IP addresses on the
 cluster network. An edge load balancer can be used to accept traffic from
 outside networks and proxy the traffic to pods inside the {product-title}
@@ -25,6 +26,21 @@ SDN] as the cluster networking solution, there are two ways to achieve network
 access to the pods.
 
 == Including the Load Balancer in the SDN [[including-lb-in-sdn]]
+=======
+an {product-title} cluster are only reachable via their IP addresses on the cluster
+network. An edge load balancer can be used to accept traffic from outside
+networks and proxy the traffic to pods inside the {product-title} cluster. In cases
+where the load balancer is not part of the cluster network, routing becomes a
+hurdle as the internal cluster network is not accessible to the edge load
+balancer.
+
+To solve this problem where the {product-title} cluster is using
+xref:../architecture/networking/network_plugins.adoc#openshift-sdn[{product-title} SDN] as the cluster networking solution, there are two ways to achieve network access to the pods.
+
+[[including-lb-in-sdn]]
+== Including the Load Balancer in the SDN
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 If possible, run an {product-title} node instance on the load balancer itself that
 uses OpenShift SDN as the networking plug-in. This way, the edge machine gets
 its own Open vSwitch bridge that the SDN automatically configures to provide
@@ -49,6 +65,7 @@ xref:../architecture/networking/routes.adoc#routers[HAProxy router] in
 
 [[establishing-a-tunnel-using-a-ramp-node]]
 == Establishing a Tunnel Using a Ramp Node
+
 In some cases, the previous solution is not possible. For example, an *F5
 BIG-IP®* host cannot run an {product-title} node instance or the {product-title}
 SDN because *F5®* uses a custom, incompatible Linux kernel and distribution.
@@ -200,7 +217,13 @@ The xref:../install_config/router/f5_router.adoc#deploying-the-f5-router[F5
 router plug-in] integrates with F5 BIG-IP®.
 ====
 
+<<<<<<< HEAD
 === Configuring a Highly Available Ramp Node
+=======
+[[configuring-a-highly-available-ramp-node]]
+=== Configuring a Highly-Available Ramp Node
+
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 You can use {product-title}'s *ipfailover* feature, which uses *keepalived*
 internally, to make the ramp node highly available from *F5 BIG-IP®*'s point of
 view. To do so, first bring up two nodes, for example called *ramp-node-1* and
@@ -222,6 +245,7 @@ $ oc label node ramp-node-2 f5rampnode=true
 ----
 
 Similar to instructions from the
+<<<<<<< HEAD
 xref:../admin_guide/high_availability.adoc#ip-failover[*ipfailover*
 documentation], you must now create a service account and add it to the
 *privileged* SCC. First, create the *f5ipfailover* service account:
@@ -236,6 +260,22 @@ To add the *f5ipfailover* in the *default* namespace to the *privileged* SCC, ru
 ----
 $ oc adm policy add-scc-to-user privileged system:serviceaccount:default:f5ipfailover
 ----
+=======
+xref:../admin_guide/high_availability.adoc#admin-guide-high-availability[*ipfailover*
+documentation], you must now create a service account and add it to the
+*privileged* SCC. First, create the *f5ipfailover* service account:
+
+----
+$ oc create serviceaccount f5ipfailover -n default
+----
+
+Next, you can add the *f5ipfailover* service to the *privileged* SCC.
+To add the *f5ipfailover* in the *default* namespace to the *privileged* SCC, run:
+
+----
+$ oc adm policy add-scc-to-user privileged system:serviceaccount:default:f5ipfailover
+----
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 Finally, configure *ipfailover* using your chosen VIP (the `*RAMP_IP*` variable)
 and the *f5ipfailover* service account, assigning the VIP to your two nodes using

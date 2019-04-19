@@ -133,8 +133,14 @@ The default router service account, named *router*, is automatically created
 during cluster installations. To verify that this account already exists:
 endif::[]
 ifdef::openshift-origin[]
+<<<<<<< HEAD
 First, ensure you have xref:../../install_config/router/index.adoc#creating-the-router-service-account[created the
 router service account] before deploying a router.
+=======
+First, ensure you have
+xref:../../install_config/router/index.adoc#creating-the-router-service-account[created
+the router service account] before deploying a router.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 To check if a default router, named *router*, already exists:
 endif::[]
@@ -458,7 +464,10 @@ ports.
 $ iptables -A INPUT -p tcp --dport 10080 -j ACCEPT
 $ iptables -A INPUT -p tcp --dport 10443 -j ACCEPT
 ----
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 [[working-with-multiple-routers]]
 == Working With Multiple Routers
 
@@ -860,7 +869,11 @@ external users use to access the application. The network administrator of the
 external network must make sure the host name resolves to the name of a router
 that has admitted the route. The user can set up their DNS with a CNAME that
 points to this host name. However, the user may not know the host name of the
+<<<<<<< HEAD
 router. When it is not known, the cluster administrator can provide it.
+=======
+router. When it is not known, the cluster administrator can provide it. 
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 
 The cluster administrator can use the `--router-canonical-hostname` option with
 the router's canonical host name when creating the router. For example:
@@ -1826,7 +1839,11 @@ The following sysctl sets the variables to the {product-title} current default v
 # sysctl net.ipv4.neigh.default.gc_thresh3=65536
 ----
 
+<<<<<<< HEAD
 To make these settings permanent,
+=======
+To make these settings permanent, 
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 link:https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html-single/Performance_Tuning_Guide/index.html#custom-profiles[see this document].
 
 [[deploy-router-protecting-against-ddos-attacks]]

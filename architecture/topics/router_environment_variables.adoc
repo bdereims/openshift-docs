@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 [[router-environment-variables]]
+=======
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 == Router Environment Variables
 
 For all the items outlined in this section, you can set environment variables in
@@ -34,9 +37,13 @@ and "-". The default is the hashed internal key name for the route.
 |`ROUTER_COMPRESSION_MIME` | "text/html text/plain text/css" | A space separated list of mime types to compress.
 |`ROUTER_DENIED_DOMAINS` | | A comma-separated list of domains that the host name in a route can not be part of. No subdomain in the domain can be used either. Overrides option `ROUTER_ALLOWED_DOMAINS`.
 |`ROUTER_ENABLE_COMPRESSION`| | If `true` or `TRUE`, compress responses when possible.
+<<<<<<< HEAD
 |`ROUTER_ENABLE_INGRESS`| | If `true` or `TRUE`, look at both Ingress objects and Route objects.
 |`ROUTER_ENABLE_HTTP2`| | If `true` or `TRUE`, enables HTTP/2 protocol support for incoming connections to the router. The router automatically negotiates the connection down to HTTP/1.x if the client does not support the HTTP/2 protocol.
 |`ROUTER_LISTEN_ADDR`| 0.0.0.0:1936 | Sets the listening address for xref:../../install_config/router/default_haproxy_router.adoc#exposing-the-router-metrics[router metrics].
+=======
+|`ROUTER_LISTEN_ADDR`| 0.0.0.0:1936 | Sets the listening address for router metrics.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 |`ROUTER_LOG_LEVEL` | warning | The log level to send to the syslog server.
 |`ROUTER_MAX_CONNECTIONS`| 20000 | Maximum number of concurrent connections.
 |`ROUTER_METRICS_HAPROXY_SERVER_THRESHOLD`| 500 |

@@ -2,7 +2,11 @@
 //
 // * operators/osdk-getting-started.adoc
 
+<<<<<<< HEAD
 [id='managing-memcached-operator-using-olm_{context}']
+=======
+[id='managing-memcached-oeprator-using-olm_{context}']
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 = Managing a Memcached Operator using the Operator Lifecycle Manager
 
 The previous section has covered manually running an Operator. In the next
@@ -18,13 +22,21 @@ management functions without any additional tools.
 .Prerequisites
 
 - OLM installed on a Kubernetes-based cluster (v1.8 or above to support the
+<<<<<<< HEAD
 `apps/v1beta2` API group), for example {product-title} 4.0
+=======
+`apps/v1beta2` API group), for example {product-title} 3.11 with Technology
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 Preview OLM enabled
 - Memcached Operator built
 
 .Procedure
 
+<<<<<<< HEAD
 . *Generate an Operator manifest.*
+=======
+. Generate an Operator manifest.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 +
 An Operator manifest describes how to display, create, and manage the
 application, in this case Memcached, as a whole. It is defined by a
@@ -44,10 +56,17 @@ link:https://github.com/operator-framework/operator-lifecycle-manager/blob/maste
 for more information on manually defining a manifest file.
 ====
 
+<<<<<<< HEAD
 . *Deploy the Operator.*
 
 .. Deploy an Operator by applying the Operator’s manifest to the desired namespace
 in the cluster:
+=======
+. Deploy the Operator.
+
+.. Deploying an Operator is as simple as applying the Operator’s manifest to the
+desired namespace in the cluster.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 +
 ----
 $ curl -Lo memcachedoperator.0.0.1.csv.yaml https://raw.githubusercontent.com/operator-framework/getting-started/master/memcachedoperator.0.0.1.csv.yaml
@@ -68,7 +87,11 @@ Because the OLM creates Operators in a particular namespace when a manifest is
 applied, administrators can leverage the native Kubernetes RBAC permission model
 to restrict which users are allowed to install Operators.
 
+<<<<<<< HEAD
 . *Create an application instance.*
+=======
+. Create an application instance.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 +
 The Memcached Operator is now running in the `memcached` namespace. Users
 interact with Operators via instances of `CustomResources`; in this case, the
@@ -112,6 +135,7 @@ memcached-for-drupal-5476487c46-qbd66      1/1       Running   0          3s
 memcached-for-wordpress-65b75fd8c9-7b9x7   1/1       Running   0          8s
 ----
 
+<<<<<<< HEAD
 . *Update an application.*
 +
 Manually apply an update to the Operator by creating a new Operator manifest
@@ -120,6 +144,17 @@ ensures that all resources being managed by the old Operator have their
 ownership moved to the new Operator without fear of any programs stopping
 execution. It is up to the Operators themselves to execute any data migrations
 required to upgrade resources to run under a new version of the Operator.
+=======
+. Update an application.
++
+Manually applying an update to the Operator is as simple as creating a new
+Operator manifest with a `replaces` field that references the old Operator
+manifest. The OLM ensures that all resources being managed by the old Operator
+have their ownership moved to the new Operator without fear of any programs
+stopping execution. It is up to the Operators themselves to execute any data
+migrations required to upgrade resources to run under a new version of the
+Operator.
+>>>>>>> 6bcfc60496ce2d67bb2988b30404317813a382f5
 +
 The following command demonstrates applying a new
 link:https://github.com/operator-framework/getting-started/blob/master/memcachedoperator.0.0.2.csv.yaml[Operator manifest file]
