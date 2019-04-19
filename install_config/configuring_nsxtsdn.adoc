@@ -50,14 +50,14 @@ Prerequisites:
 Example of High-Available environnement: +
 image:images/nsxt-transportnodes.png[NSX Transport Nodes]
 
+* DNS requirements:
+** You must add in your DNS server a new entry as a wilcard to 'infra' nodes, it could load balanced by NSX-T or other third-party LB. In the 'hosts' file below, it's defined by 'openshift_master_default_subdomain'.
+** You have also to update in your DNS server accordingly with: 'openshift_master_cluster_hostname' & 'openshift_master_cluster_public_hostname' variables.
+
 * Virtual Machine requirements:
 ** {product-title} node VMs must have *two vNICs*:
 ** Management vNIC connected to the *Logical Switch* that is uplinked to the management *T1 router*.
 ** The second vNIC on all VMs needs to have two Tags in *NSX-T* in order 'nsx-container-plugin' (NCP) to know which port needs to be used as a parent VIF for all PODs running in the particular openshift node. Tags need to be as following:
-
-* DNS requirements:
-** You must add in your DNS server a new entry as a wilcard to 'infra' nodes, it could load balanced by NSX-T or other third-party. In the 'hosts' file below, it's defined by 'openshift_master_default_subdomain'.
-** You have also to update in your DNS server accordingly with: 'openshift_master_cluster_hostname', 'openshift_master_cluster_public_hostname'.
 
 ----
 {'ncp/node_name': 'node_name'}
