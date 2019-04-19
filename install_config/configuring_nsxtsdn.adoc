@@ -30,8 +30,7 @@ for more information on how NSX-T is integrated with {product-title}.
 
 There is a *T0 router* on the top that connects physical with virtual world. We also have *T1 router* acting as a default gateway for the Openshift VMs.
 
-Those VMs have two vNICs each. One vNIC is connected to Management Logical Switch for accessing the VMs. The second vNIC is connected to a dump Logical Switch and is used by nsx-node-agent to uplink the POD networking. For further details, we strongly suggest to read the link:https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/nsxt_23_ncp_openshift.pdf[NSX Container Plug-in for Openshift].
-
+Those VMs have two vNICs each. One vNIC is connected to Management Logical Switch for accessing the VMs. The second vNIC is connected to a dump Logical Switch and is used by nsx-node-agent to uplink the POD networking. For further details, we strongly suggest reading the link:https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/nsxt_23_ncp_openshift.pdf[NSX Container Plug-in for Openshift].
 
 The LoadBalancer used for configuring Openshift Routes plus all project’s *T1 routers* and *Logical Switches* are created automatically later when we install Openshift. In this topology we use the default Openshift HAProxy Router for all infrastructure components such as Grafana, Prometheus, Console, Service Catalog and others.
 
@@ -48,6 +47,9 @@ Prerequisites:
 * ESXi hosts requirements:
 ** ESXi servers that host {product-title} node VMs must be NSX-T Transport Nodes.
 
+Example of High-Available environnement: +
+image:images/nsxt-transportnodes.png[NSX Transport Nodes]
+
 * Virtual Machine requirements:
 *** {product-title} node VMs must have two vNICs:
 *** Management vNIC connected to the *Logical Switch* that is uplinked to the management *T1 router*.
@@ -59,7 +61,7 @@ Prerequisites:
 ----
 
 You should set and see tags like this: +
-image:icons/play.png[VM Port tagging]
+image:images/nsxt-tags.png[NSX VM tags]
 
 * The order in the UI is reverse than in the API.
 The 'node_name' must be exactly as kubelet will see it and the cluster name must be the same as specified as 'nsx_openshift_cluster_name' in the ansible hosts file shown below. We need to make sure that the proper *tags are applied on the second vNIC on every node*.
@@ -147,7 +149,7 @@ master01.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.2 openshift_no
 master02.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.3 openshift_node_group_name='node-config-master' openshift_ip=192.168.220.3
 master03.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.4 openshift_node_group_name='node-config-master' openshift_ip=192.168.220.4
 node01.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.5 openshift_node_group_name='node-config-infra' openshift_ip=192.168.220.5
-#node02.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.6 openshift_node_group_name='node-config-infra' openshift_ip=192.168.220.6
+node02.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.6 openshift_node_group_name='node-config-infra' openshift_ip=192.168.220.6
 node03.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.7 openshift_node_group_name='node-config-compute' openshift_ip=192.168.220.7
 node04.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.8 openshift_node_group_name='node-config-compute' openshift_ip=192.168.220.8
 ----
@@ -180,5 +182,13 @@ Once it is complete validate that the NCP and nsx-node-agent PODs are running:
 $ oc get pods -o wide -n nsx-system
 ----
 
-Lastly, check NSX-T routing section: +
-image:icons/play.png[NSX routing]
+Lastly, check NSX configuration updates after deployement: +
+Check routing:
+image:images/nsxt-routing.png[NSX routing]
+
+Observe Network Traceflow and visibility, for example between 'console' and 'grafana'. A precious help to understand, secure and optimize communications between pods: +
+image:images/nsxt-visibility.png[NSX visibility]
+
+Check Load Balancing:
+image:images/nsxt-loadbalancing.png[NSX loadbalancing]
+
