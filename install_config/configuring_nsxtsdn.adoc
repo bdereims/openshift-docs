@@ -51,7 +51,7 @@ Example of High-Available environnement: +
 image:images/nsxt-transportnodes.png[NSX Transport Nodes]
 
 * DNS requirements:
-** You must add in your DNS server a new entry as a wilcard to 'infra' nodes, it could load balanced by NSX-T or other third-party LB. In the 'hosts' file below, it's defined by 'openshift_master_default_subdomain'.
+** *You must add* in your DNS server a new entry as a wilcard to 'infra' nodes, it could load balanced by NSX-T or other third-party LB. In the 'hosts' file below, it's defined by 'openshift_master_default_subdomain' variable.
 ** You have also to update in your DNS server accordingly with: 'openshift_master_cluster_hostname' & 'openshift_master_cluster_public_hostname' variables.
 
 * Virtual Machine requirements:
