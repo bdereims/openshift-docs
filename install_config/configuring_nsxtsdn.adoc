@@ -77,7 +77,7 @@ The 'node_name' must be exactly as kubelet will see it and the cluster name must
 4. IP Block for routed(NoNAT) POD networking – optional
 5. IP Pool for SNAT – by default the subnet given per Project from the IP Block in point 3 is routable only inside NSX-T. NCP uses this IP Pool in order to provide connectivity to the outside.
 6. Top and Bottom FW sections (optional) in dFW (Distributed Firewall). NCP will be placing k8s Network Policy rules between those two sections.
-7. Openvswitch and CNI plugin RPMs need to be hosted *on a HTTP server reachable from the {product-title} Node VMs* (http://websrv.cpod-ocp.az-demo.shwrfr.com in this example). Those files are included in NCP tar file that you have downloaded fron link:https://my.vmware.com/web/vmware/details?downloadGroup=NSX-T-PKS-240&productId=673[MyVMware.com].
+7. Openvswitch and CNI plugin RPMs need to be hosted *on a HTTP server reachable from the {product-title} Node VMs* (http://websrv.cpod-ocp.az-demo.shwrfr.com in this example). Those files are included in NCP tar file that you should download from link:https://my.vmware.com/web/vmware/details?downloadGroup=NSX-T-PKS-240&productId=673[my.vmware.com].
 
 In the Ansible 'hosts' file, the following parameters need to be specified in
 order to setup NSX-T as the network plug-in:
