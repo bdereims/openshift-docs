@@ -51,9 +51,13 @@ Example of High-Available environnement: +
 image:images/nsxt-transportnodes.png[NSX Transport Nodes]
 
 * Virtual Machine requirements:
-*** {product-title} node VMs must have *two vNICs*:
-*** Management vNIC connected to the *Logical Switch* that is uplinked to the management *T1 router*.
-*** The second vNIC on all VMs needs to have two Tags in *NSX-T* in order 'nsx-container-plugin' (NCP) to know which port needs to be used as a parent VIF for all PODs running in the particular openshift node. Tags need to be as following:
+** {product-title} node VMs must have *two vNICs*:
+** Management vNIC connected to the *Logical Switch* that is uplinked to the management *T1 router*.
+** The second vNIC on all VMs needs to have two Tags in *NSX-T* in order 'nsx-container-plugin' (NCP) to know which port needs to be used as a parent VIF for all PODs running in the particular openshift node. Tags need to be as following:
+
+* DNS requirements:
+** You must add in your DNS server a new entry as a wilcard to 'infra' nodes, it could load balanced by NSX-T or other third-party. In the 'hosts' file below, it's defined by 'openshift_master_default_subdomain'.
+** You have also to update in your DNS server accordingly with: 'openshift_master_cluster_hostname', 'openshift_master_cluster_public_hostname'.
 
 ----
 {'ncp/node_name': 'node_name'}
@@ -72,8 +76,8 @@ The 'node_name' must be exactly as kubelet will see it and the cluster name must
 3. IP Block for POD networking
 4. IP Block for routed(NoNAT) POD networking – optional
 5. IP Pool for SNAT – by default the subnet given per Project from the IP Block in point 3 is routable only inside NSX-T. NCP uses this IP Pool in order to provide connectivity to the outside.
-6. Top and Bottom FW sections (optional) in dFW. NCP will be placing k8s Network Policy rules between those two sections.
-7. Openvswitch and CNI plugin RPMs need to be hosted on a HTTP server reachable from the Openshift Node VMs (http://websrv.cpod-ocp.az-demo.shwrfr.com in this example).
+6. Top and Bottom FW sections (optional) in dFW (Distributed Firewall). NCP will be placing k8s Network Policy rules between those two sections.
+7. Openvswitch and CNI plugin RPMs need to be hosted *on a HTTP server reachable from the {product-title} Node VMs* (http://websrv.cpod-ocp.az-demo.shwrfr.com in this example).
 
 In the Ansible 'hosts' file, the following parameters need to be specified in
 order to setup NSX-T as the network plug-in:
@@ -149,7 +153,7 @@ master01.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.2 openshift_no
 master02.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.3 openshift_node_group_name='node-config-master' openshift_ip=192.168.220.3
 master03.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.4 openshift_node_group_name='node-config-master' openshift_ip=192.168.220.4
 node01.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.5 openshift_node_group_name='node-config-infra' openshift_ip=192.168.220.5
-node02.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.6 openshift_node_group_name='node-config-infra' openshift_ip=192.168.220.6
+#node02.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.6 openshift_node_group_name='node-config-infra' openshift_ip=192.168.220.6
 node03.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.7 openshift_node_group_name='node-config-compute' openshift_ip=192.168.220.7
 node04.cpod-ocp.az-demo.shwrfr.com ansible_ssh_host=192.168.220.8 openshift_node_group_name='node-config-compute' openshift_ip=192.168.220.8
 ----
@@ -192,13 +196,13 @@ nsx-node-agent-xgh5q   2/2       Running   26         3h        192.168.220.3   
 
 == Check NSX-T after {product-title} deployement
 
-Check routing:
+Check routing. T1 routers has been created during namespace creation and linked to T0 router:
 image:images/nsxt-routing.png[NSX routing]
 
 Observe Network Traceflow and visibility, for example between 'console' and 'grafana'. +
 A precious help to understand, securize and optimize communications between pods, projets, VMs and external services: +
 image:images/nsxt-visibility.png[NSX visibility]
 
-Check Load Balancing:
+Check Load Balancing. NSX-T offers Load Balancer and Ingress Controller as well:
 image:images/nsxt-loadbalancing.png[NSX loadbalancing]
 
